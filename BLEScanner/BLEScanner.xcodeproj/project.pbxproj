@@ -12,6 +12,8 @@
 		509C8FAA2690A39A00EC4D91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509C8FA82690A39A00EC4D91 /* Main.storyboard */; };
 		509C8FAC2690A39B00EC4D91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509C8FAB2690A39B00EC4D91 /* Assets.xcassets */; };
 		509C8FAF2690A39B00EC4D91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509C8FAD2690A39B00EC4D91 /* LaunchScreen.storyboard */; };
+		589D5E964E9BED6A619B39C9 /* Pods_BLEScannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD96304E95D23D1D2EA73BCF /* Pods_BLEScannerTests.framework */; };
+		DB54CC72929AD03B8039704C /* Pods_BLEScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF95D179ADF4A757E3C34CC /* Pods_BLEScanner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +27,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		273B925DFE0465AFDD2E5288 /* Pods-BLEScannerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEScannerTests.release.xcconfig"; path = "Target Support Files/Pods-BLEScannerTests/Pods-BLEScannerTests.release.xcconfig"; sourceTree = "<group>"; };
+		298A468F725337BCA51BF0E8 /* Pods-BLEScannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEScannerTests.debug.xcconfig"; path = "Target Support Files/Pods-BLEScannerTests/Pods-BLEScannerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2F768FD266E0722B491EFE69 /* Pods-BLEScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEScanner.debug.xcconfig"; path = "Target Support Files/Pods-BLEScanner/Pods-BLEScanner.debug.xcconfig"; sourceTree = "<group>"; };
 		509C8F9F2690A39A00EC4D91 /* BLEScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		509C8FA22690A39A00EC4D91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		509C8FA42690A39A00EC4D91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +39,9 @@
 		509C8FB02690A39B00EC4D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		509C8FB52690A39B00EC4D91 /* BLEScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLEScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		509C8FBB2690A39B00EC4D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8003E409BBA09F6C7FF97216 /* Pods-BLEScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEScanner.release.xcconfig"; path = "Target Support Files/Pods-BLEScanner/Pods-BLEScanner.release.xcconfig"; sourceTree = "<group>"; };
+		ACF95D179ADF4A757E3C34CC /* Pods_BLEScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLEScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD96304E95D23D1D2EA73BCF /* Pods_BLEScannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLEScannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB54CC72929AD03B8039704C /* Pods_BLEScanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,18 +57,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				589D5E964E9BED6A619B39C9 /* Pods_BLEScannerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3AEBD32FCBA8DD63F34D86E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACF95D179ADF4A757E3C34CC /* Pods_BLEScanner.framework */,
+				BD96304E95D23D1D2EA73BCF /* Pods_BLEScannerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		509C8F962690A39A00EC4D91 = {
 			isa = PBXGroup;
 			children = (
 				509C8FA12690A39A00EC4D91 /* BLEScanner */,
 				509C8FB82690A39B00EC4D91 /* BLEScannerTests */,
 				509C8FA02690A39A00EC4D91 /* Products */,
+				E764A85E29CAE70F6E0CE092 /* Pods */,
+				3AEBD32FCBA8DD63F34D86E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,6 +114,18 @@
 			path = BLEScannerTests;
 			sourceTree = "<group>";
 		};
+		E764A85E29CAE70F6E0CE092 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2F768FD266E0722B491EFE69 /* Pods-BLEScanner.debug.xcconfig */,
+				8003E409BBA09F6C7FF97216 /* Pods-BLEScanner.release.xcconfig */,
+				298A468F725337BCA51BF0E8 /* Pods-BLEScannerTests.debug.xcconfig */,
+				273B925DFE0465AFDD2E5288 /* Pods-BLEScannerTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -100,6 +133,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 509C8FBE2690A39B00EC4D91 /* Build configuration list for PBXNativeTarget "BLEScanner" */;
 			buildPhases = (
+				46392F55B1D5222FEBE64B9E /* [CP] Check Pods Manifest.lock */,
 				509C8F9B2690A39A00EC4D91 /* Sources */,
 				509C8F9C2690A39A00EC4D91 /* Frameworks */,
 				509C8F9D2690A39A00EC4D91 /* Resources */,
@@ -117,6 +151,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 509C8FC12690A39B00EC4D91 /* Build configuration list for PBXNativeTarget "BLEScannerTests" */;
 			buildPhases = (
+				B532E6471471FBF76ED33FDA /* [CP] Check Pods Manifest.lock */,
 				509C8FB12690A39B00EC4D91 /* Sources */,
 				509C8FB22690A39B00EC4D91 /* Frameworks */,
 				509C8FB32690A39B00EC4D91 /* Resources */,
@@ -188,6 +223,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46392F55B1D5222FEBE64B9E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BLEScanner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B532E6471471FBF76ED33FDA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BLEScannerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		509C8F9B2690A39A00EC4D91 /* Sources */ = {
@@ -352,6 +434,7 @@
 		};
 		509C8FBF2690A39B00EC4D91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F768FD266E0722B491EFE69 /* Pods-BLEScanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -370,6 +453,7 @@
 		};
 		509C8FC02690A39B00EC4D91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8003E409BBA09F6C7FF97216 /* Pods-BLEScanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -388,6 +472,7 @@
 		};
 		509C8FC22690A39B00EC4D91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 298A468F725337BCA51BF0E8 /* Pods-BLEScannerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -410,6 +495,7 @@
 		};
 		509C8FC32690A39B00EC4D91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 273B925DFE0465AFDD2E5288 /* Pods-BLEScannerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

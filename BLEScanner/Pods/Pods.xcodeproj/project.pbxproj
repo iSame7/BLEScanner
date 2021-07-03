@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		044F67EDCD3D342F58EDFE5557F0974A /* Pods-BLEScanner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A946A64339B9AD3C47C69607E83703DD /* Pods-BLEScanner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E8B4AD33496A3DFC33244C803C0FDAF /* Pods-BLEScannerTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 029AFDD0D43CF933ADE4E118CDCF2FF9 /* Pods-BLEScannerTests-dummy.m */; };
+		8CC02F081A6C74A7A21B3A7EB343FC70 /* Pods-BLEScannerTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A4F239F04439DDC61F111811749C1D1E /* Pods-BLEScannerTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B326582DCA0E91AB0629DC56AA89CA83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		F26CA6F50520A5DBD0057897E10680AA /* Pods-BLEScanner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1628E0CB8FA71885FCFC91896D71E694 /* Pods-BLEScanner-dummy.m */; };
+		FCB2619A07EE5A92E81E0261628BD09D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		16F06AFE1E5435CF714B805D2442F14C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DD1AB1A27DE2ABF4FC70E962A63CAD5;
+			remoteInfo = "Pods-BLEScanner";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		029AFDD0D43CF933ADE4E118CDCF2FF9 /* Pods-BLEScannerTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BLEScannerTests-dummy.m"; sourceTree = "<group>"; };
+		04CABBA9158DDD7A385AE965CA4EAD4C /* Pods-BLEScannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BLEScannerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1628E0CB8FA71885FCFC91896D71E694 /* Pods-BLEScanner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BLEScanner-dummy.m"; sourceTree = "<group>"; };
+		17DDF5E026CD140C272721EE78870AC8 /* Pods-BLEScannerTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BLEScannerTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		37B66E1EE4368D8DF151491080052900 /* Pods-BLEScannerTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BLEScannerTests-Info.plist"; sourceTree = "<group>"; };
+		519CFEF9AE4CEC33FDF74539DB736571 /* Pods-BLEScannerTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BLEScannerTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		541C779851849E0611DB84F9CBC8CBB9 /* Pods-BLEScannerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BLEScannerTests.release.xcconfig"; sourceTree = "<group>"; };
+		83B252B192509367C4342264CE393E69 /* Pods-BLEScanner-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BLEScanner-Info.plist"; sourceTree = "<group>"; };
+		850548666829E80687FA3B4CE476DE1A /* Pods-BLEScanner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BLEScanner.modulemap"; sourceTree = "<group>"; };
+		88F949E46E7AFBEDDC969325961D6F72 /* Pods_BLEScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BLEScanner.framework; path = "Pods-BLEScanner.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		90B84EFE527CA1962DB84E4A55A62BB3 /* Pods-BLEScanner-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BLEScanner-acknowledgements.plist"; sourceTree = "<group>"; };
+		94D536AB052B3D7F5D878B87DFD66548 /* Pods-BLEScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BLEScanner.debug.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A4F239F04439DDC61F111811749C1D1E /* Pods-BLEScannerTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BLEScannerTests-umbrella.h"; sourceTree = "<group>"; };
+		A946A64339B9AD3C47C69607E83703DD /* Pods-BLEScanner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BLEScanner-umbrella.h"; sourceTree = "<group>"; };
+		B8125C522EF28EFD7141607E2A8FC1D0 /* Pods-BLEScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BLEScanner.release.xcconfig"; sourceTree = "<group>"; };
+		C73158A3C9A532107C3B4C97113EAC70 /* Pods_BLEScannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BLEScannerTests.framework; path = "Pods-BLEScannerTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC46BFE1E5172104C0736A78B6C31915 /* Pods-BLEScannerTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BLEScannerTests.modulemap"; sourceTree = "<group>"; };
+		EDFDBACA38F10C13DE8BD340A3C2D306 /* Pods-BLEScanner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BLEScanner-acknowledgements.markdown"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D0A4228E274CAB047E2B323C592DBF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCB2619A07EE5A92E81E0261628BD09D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C26FAD1CBB79F55812BC93C5DA30778 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B326582DCA0E91AB0629DC56AA89CA83 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45A2954AC752CECE1749D2383ADB046E /* Pods-BLEScanner */ = {
+			isa = PBXGroup;
+			children = (
+				850548666829E80687FA3B4CE476DE1A /* Pods-BLEScanner.modulemap */,
+				EDFDBACA38F10C13DE8BD340A3C2D306 /* Pods-BLEScanner-acknowledgements.markdown */,
+				90B84EFE527CA1962DB84E4A55A62BB3 /* Pods-BLEScanner-acknowledgements.plist */,
+				1628E0CB8FA71885FCFC91896D71E694 /* Pods-BLEScanner-dummy.m */,
+				83B252B192509367C4342264CE393E69 /* Pods-BLEScanner-Info.plist */,
+				A946A64339B9AD3C47C69607E83703DD /* Pods-BLEScanner-umbrella.h */,
+				94D536AB052B3D7F5D878B87DFD66548 /* Pods-BLEScanner.debug.xcconfig */,
+				B8125C522EF28EFD7141607E2A8FC1D0 /* Pods-BLEScanner.release.xcconfig */,
+			);
+			name = "Pods-BLEScanner";
+			path = "Target Support Files/Pods-BLEScanner";
+			sourceTree = "<group>";
+		};
+		54CE6A937BC33460DC1061A52FA30D59 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				45A2954AC752CECE1749D2383ADB046E /* Pods-BLEScanner */,
+				EA04CD023D64DDE4A6727F422091EACB /* Pods-BLEScannerTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		AF8F91F4C53764EA9352FA3970199D8C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88F949E46E7AFBEDDC969325961D6F72 /* Pods_BLEScanner.framework */,
+				C73158A3C9A532107C3B4C97113EAC70 /* Pods_BLEScannerTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				AF8F91F4C53764EA9352FA3970199D8C /* Products */,
+				54CE6A937BC33460DC1061A52FA30D59 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA04CD023D64DDE4A6727F422091EACB /* Pods-BLEScannerTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC46BFE1E5172104C0736A78B6C31915 /* Pods-BLEScannerTests.modulemap */,
+				519CFEF9AE4CEC33FDF74539DB736571 /* Pods-BLEScannerTests-acknowledgements.markdown */,
+				17DDF5E026CD140C272721EE78870AC8 /* Pods-BLEScannerTests-acknowledgements.plist */,
+				029AFDD0D43CF933ADE4E118CDCF2FF9 /* Pods-BLEScannerTests-dummy.m */,
+				37B66E1EE4368D8DF151491080052900 /* Pods-BLEScannerTests-Info.plist */,
+				A4F239F04439DDC61F111811749C1D1E /* Pods-BLEScannerTests-umbrella.h */,
+				04CABBA9158DDD7A385AE965CA4EAD4C /* Pods-BLEScannerTests.debug.xcconfig */,
+				541C779851849E0611DB84F9CBC8CBB9 /* Pods-BLEScannerTests.release.xcconfig */,
+			);
+			name = "Pods-BLEScannerTests";
+			path = "Target Support Files/Pods-BLEScannerTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3234861DC0BE140CF8E751A4907A7DA5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CC02F081A6C74A7A21B3A7EB343FC70 /* Pods-BLEScannerTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DACE46C6780EBF77B32B386093625280 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				044F67EDCD3D342F58EDFE5557F0974A /* Pods-BLEScanner-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9CD6FAD160861A7E5484E0B7ACBC3F47 /* Pods-BLEScannerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF65671CD0978FC174AC9AFF27581558 /* Build configuration list for PBXNativeTarget "Pods-BLEScannerTests" */;
+			buildPhases = (
+				3234861DC0BE140CF8E751A4907A7DA5 /* Headers */,
+				CE22FF5D7CF70DA7F39A281E6A12055C /* Sources */,
+				4C26FAD1CBB79F55812BC93C5DA30778 /* Frameworks */,
+				DD6E3E264FA36638DAFD7AD97764E7C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9F8244831162B4F655B6B80B477FB2E /* PBXTargetDependency */,
+			);
+			name = "Pods-BLEScannerTests";
+			productName = "Pods-BLEScannerTests";
+			productReference = C73158A3C9A532107C3B4C97113EAC70 /* Pods_BLEScannerTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9DD1AB1A27DE2ABF4FC70E962A63CAD5 /* Pods-BLEScanner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70B283375D0026C88E606528CC8FF735 /* Build configuration list for PBXNativeTarget "Pods-BLEScanner" */;
+			buildPhases = (
+				DACE46C6780EBF77B32B386093625280 /* Headers */,
+				70FCA9E6B0E7E9AEEE1186D363BC4A33 /* Sources */,
+				1D0A4228E274CAB047E2B323C592DBF8 /* Frameworks */,
+				62C6D01C6D1D3A22E276FE7AC9F00B66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-BLEScanner";
+			productName = "Pods-BLEScanner";
+			productReference = 88F949E46E7AFBEDDC969325961D6F72 /* Pods_BLEScanner.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = AF8F91F4C53764EA9352FA3970199D8C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DD1AB1A27DE2ABF4FC70E962A63CAD5 /* Pods-BLEScanner */,
+				9CD6FAD160861A7E5484E0B7ACBC3F47 /* Pods-BLEScannerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		62C6D01C6D1D3A22E276FE7AC9F00B66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD6E3E264FA36638DAFD7AD97764E7C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		70FCA9E6B0E7E9AEEE1186D363BC4A33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F26CA6F50520A5DBD0057897E10680AA /* Pods-BLEScanner-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE22FF5D7CF70DA7F39A281E6A12055C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E8B4AD33496A3DFC33244C803C0FDAF /* Pods-BLEScannerTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F9F8244831162B4F655B6B80B477FB2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-BLEScanner";
+			target = 9DD1AB1A27DE2ABF4FC70E962A63CAD5 /* Pods-BLEScanner */;
+			targetProxy = 16F06AFE1E5435CF714B805D2442F14C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2D4D894C4975F205E0936FC61A3798CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 541C779851849E0611DB84F9CBC8CBB9 /* Pods-BLEScannerTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-BLEScannerTests/Pods-BLEScannerTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BLEScannerTests/Pods-BLEScannerTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		AA9A1926E2DB70CD09C6FB676C4A4783 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8125C522EF28EFD7141607E2A8FC1D0 /* Pods-BLEScanner.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-BLEScanner/Pods-BLEScanner-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BLEScanner/Pods-BLEScanner.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DF731E79B7E31D5372123C7570E7E45F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94D536AB052B3D7F5D878B87DFD66548 /* Pods-BLEScanner.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-BLEScanner/Pods-BLEScanner-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BLEScanner/Pods-BLEScanner.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EA481DA7F1763B1783515C9863039347 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04CABBA9158DDD7A385AE965CA4EAD4C /* Pods-BLEScannerTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-BLEScannerTests/Pods-BLEScannerTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BLEScannerTests/Pods-BLEScannerTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ECB437504DF805BD96CAABF97400B526 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */,
+				ECB437504DF805BD96CAABF97400B526 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70B283375D0026C88E606528CC8FF735 /* Build configuration list for PBXNativeTarget "Pods-BLEScanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF731E79B7E31D5372123C7570E7E45F /* Debug */,
+				AA9A1926E2DB70CD09C6FB676C4A4783 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF65671CD0978FC174AC9AFF27581558 /* Build configuration list for PBXNativeTarget "Pods-BLEScannerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA481DA7F1763B1783515C9863039347 /* Debug */,
+				2D4D894C4975F205E0936FC61A3798CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
