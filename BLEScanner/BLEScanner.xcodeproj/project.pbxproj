@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		509C8FA32690A39A00EC4D91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FA22690A39A00EC4D91 /* AppDelegate.swift */; };
 		509C8FA52690A39A00EC4D91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FA42690A39A00EC4D91 /* SceneDelegate.swift */; };
-		509C8FA72690A39A00EC4D91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FA62690A39A00EC4D91 /* ViewController.swift */; };
 		509C8FAA2690A39A00EC4D91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509C8FA82690A39A00EC4D91 /* Main.storyboard */; };
 		509C8FAC2690A39B00EC4D91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509C8FAB2690A39B00EC4D91 /* Assets.xcassets */; };
 		509C8FAF2690A39B00EC4D91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509C8FAD2690A39B00EC4D91 /* LaunchScreen.storyboard */; };
-		509C8FBA2690A39B00EC4D91 /* BLEScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FB92690A39B00EC4D91 /* BLEScannerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,13 +28,11 @@
 		509C8F9F2690A39A00EC4D91 /* BLEScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		509C8FA22690A39A00EC4D91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		509C8FA42690A39A00EC4D91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		509C8FA62690A39A00EC4D91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		509C8FA92690A39A00EC4D91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		509C8FAB2690A39B00EC4D91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		509C8FAE2690A39B00EC4D91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		509C8FB02690A39B00EC4D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		509C8FB52690A39B00EC4D91 /* BLEScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLEScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		509C8FB92690A39B00EC4D91 /* BLEScannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEScannerTests.swift; sourceTree = "<group>"; };
 		509C8FBB2690A39B00EC4D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,7 +77,6 @@
 			children = (
 				509C8FA22690A39A00EC4D91 /* AppDelegate.swift */,
 				509C8FA42690A39A00EC4D91 /* SceneDelegate.swift */,
-				509C8FA62690A39A00EC4D91 /* ViewController.swift */,
 				509C8FA82690A39A00EC4D91 /* Main.storyboard */,
 				509C8FAB2690A39B00EC4D91 /* Assets.xcassets */,
 				509C8FAD2690A39B00EC4D91 /* LaunchScreen.storyboard */,
@@ -93,7 +88,6 @@
 		509C8FB82690A39B00EC4D91 /* BLEScannerTests */ = {
 			isa = PBXGroup;
 			children = (
-				509C8FB92690A39B00EC4D91 /* BLEScannerTests.swift */,
 				509C8FBB2690A39B00EC4D91 /* Info.plist */,
 			);
 			path = BLEScannerTests;
@@ -200,7 +194,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				509C8FA72690A39A00EC4D91 /* ViewController.swift in Sources */,
 				509C8FA32690A39A00EC4D91 /* AppDelegate.swift in Sources */,
 				509C8FA52690A39A00EC4D91 /* SceneDelegate.swift in Sources */,
 			);
@@ -210,7 +203,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				509C8FBA2690A39B00EC4D91 /* BLEScannerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
