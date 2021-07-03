@@ -8,6 +8,9 @@
    <Group
       location = "group:Features"
       name = "Features">
+      <FileRef
+         location = "group:../../Core/Core.xcodeproj">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:BLEScanner.xcodeproj">
