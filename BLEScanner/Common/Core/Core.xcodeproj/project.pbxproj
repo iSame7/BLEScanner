@@ -10,6 +10,8 @@
 		509C8FD82690AE7B00EC4D91 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509C8FCE2690AE7A00EC4D91 /* Core.framework */; };
 		509C8FDD2690AE7B00EC4D91 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FDC2690AE7B00EC4D91 /* CoreTests.swift */; };
 		509C8FDF2690AE7B00EC4D91 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 509C8FD12690AE7A00EC4D91 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		509C8FEC2690B1F000EC4D91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FEB2690B1F000EC4D91 /* ViewController.swift */; };
+		509C8FEE2690B21D00EC4D91 /* ViewModellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FED2690B21D00EC4D91 /* ViewModellable.swift */; };
 		F2006BCADA3DD3D6ECF3FA86 /* Pods_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 863A47042079C5A59584F797 /* Pods_Core.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		509C8FD72690AE7B00EC4D91 /* CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		509C8FDC2690AE7B00EC4D91 /* CoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTests.swift; sourceTree = "<group>"; };
 		509C8FDE2690AE7B00EC4D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		509C8FEB2690B1F000EC4D91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		509C8FED2690B21D00EC4D91 /* ViewModellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModellable.swift; sourceTree = "<group>"; };
 		56449F0742C81FEB82600114 /* Pods-Core.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.debug.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.debug.xcconfig"; sourceTree = "<group>"; };
 		63E33867E18A3DC7680FBB01 /* Pods-Core.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.release.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.release.xcconfig"; sourceTree = "<group>"; };
 		863A47042079C5A59584F797 /* Pods_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +90,9 @@
 		509C8FD02690AE7A00EC4D91 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				509C8FE82690B17900EC4D91 /* Models */,
+				509C8FE92690B17D00EC4D91 /* Extenstions */,
+				509C8FEA2690B18A00EC4D91 /* UI */,
 				509C8FD12690AE7A00EC4D91 /* Core.h */,
 				509C8FD22690AE7A00EC4D91 /* Info.plist */,
 			);
@@ -99,6 +106,29 @@
 				509C8FDE2690AE7B00EC4D91 /* Info.plist */,
 			);
 			path = CoreTests;
+			sourceTree = "<group>";
+		};
+		509C8FE82690B17900EC4D91 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		509C8FE92690B17D00EC4D91 /* Extenstions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extenstions;
+			sourceTree = "<group>";
+		};
+		509C8FEA2690B18A00EC4D91 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				509C8FEB2690B1F000EC4D91 /* ViewController.swift */,
+				509C8FED2690B21D00EC4D91 /* ViewModellable.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		A528BB05C577798435F2ABF6 /* Pods */ = {
@@ -174,6 +204,7 @@
 				TargetAttributes = {
 					509C8FCD2690AE7A00EC4D91 = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
 					};
 					509C8FD62690AE7B00EC4D91 = {
 						CreatedOnToolsVersion = 11.2.1;
@@ -246,6 +277,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				509C8FEC2690B1F000EC4D91 /* ViewController.swift in Sources */,
+				509C8FEE2690B21D00EC4D91 /* ViewModellable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 56449F0742C81FEB82600114 /* Pods-Core.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8U3N7M58T5;
@@ -408,6 +442,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Core;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -417,6 +452,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63E33867E18A3DC7680FBB01 /* Pods-Core.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8U3N7M58T5;
@@ -441,6 +477,7 @@
 		509C8FE62690AE7B00EC4D91 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8U3N7M58T5;
 				INFOPLIST_FILE = CoreTests/Info.plist;
@@ -459,6 +496,7 @@
 		509C8FE72690AE7B00EC4D91 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8U3N7M58T5;
 				INFOPLIST_FILE = CoreTests/Info.plist;
