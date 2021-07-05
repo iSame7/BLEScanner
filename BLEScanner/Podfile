@@ -20,11 +20,11 @@ end
 
 target 'Peripherals' do
   project 'Features/Peripherals/Peripherals'
-  shared_core_pods
+  shared_pods
   
   target 'PeripheralsTests' do
     pod 'RxTest'
-    shared_core_pods
+    shared_pods
   end
 
 end
