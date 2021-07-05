@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5060D2EA269395B000BF39CE /* UIWindow+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D2E9269395B000BF39CE /* UIWindow+Utils.swift */; };
+		5060D2EF2693964900BF39CE /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D2EE2693964900BF39CE /* BaseCoordinator.swift */; };
 		509C8FD82690AE7B00EC4D91 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509C8FCE2690AE7A00EC4D91 /* Core.framework */; };
 		509C8FDD2690AE7B00EC4D91 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FDC2690AE7B00EC4D91 /* CoreTests.swift */; };
 		509C8FDF2690AE7B00EC4D91 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 509C8FD12690AE7A00EC4D91 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		5060D2E9269395B000BF39CE /* UIWindow+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Utils.swift"; sourceTree = "<group>"; };
+		5060D2EE2693964900BF39CE /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		509C8FCE2690AE7A00EC4D91 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		509C8FD12690AE7A00EC4D91 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		509C8FD22690AE7A00EC4D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5060D2EB269395F300BF39CE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5060D2EE2693964900BF39CE /* BaseCoordinator.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		509C8FC42690AE7A00EC4D91 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +106,7 @@
 		509C8FD02690AE7A00EC4D91 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5060D2EB269395F300BF39CE /* Common */,
 				509C8FE82690B17900EC4D91 /* Models */,
 				509C8FE92690B17D00EC4D91 /* Extenstions */,
 				509C8FEA2690B18A00EC4D91 /* UI */,
@@ -287,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				509C8FEC2690B1F000EC4D91 /* ViewController.swift in Sources */,
+				5060D2EF2693964900BF39CE /* BaseCoordinator.swift in Sources */,
 				5060D2EA269395B000BF39CE /* UIWindow+Utils.swift in Sources */,
 				509C8FF42690B26E00EC4D91 /* Presentable.swift in Sources */,
 				509C8FF22690B26100EC4D91 /* ViewControllable.swift in Sources */,
