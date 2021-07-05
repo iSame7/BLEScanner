@@ -11,6 +11,9 @@
    <Group
       location = "group:Features"
       name = "Features">
+      <FileRef
+         location = "group:Peripherals/Peripherals.xcodeproj">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:BLEScanner.xcodeproj">

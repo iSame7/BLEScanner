@@ -18,6 +18,17 @@ end
 
 # Feature modules
 
+target 'Peripherals' do
+  project 'Features/Peripherals/Peripherals'
+  shared_core_pods
+  
+  target 'PeripheralsTests' do
+    pod 'RxTest'
+    shared_core_pods
+  end
+
+end
+
 target 'BLEScanner' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
