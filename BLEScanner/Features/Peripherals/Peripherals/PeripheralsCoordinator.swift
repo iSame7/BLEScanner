@@ -8,21 +8,19 @@
 
 import RxSwift
 import Core
-import Components
-import Utils
 
 class PeripheralsCoordinator: BaseCoordinator<Void> {
     
-    private weak var rootViewController: NavigationControllable?
+    private weak var window: UIWindow?
     private let viewController: UIViewController
     
-    init(rootViewController: NavigationControllable?, viewController: UIViewController) {
-        self.rootViewController = rootViewController
+    init(window: UIWindow?, viewController: UIViewController) {
+        self.window = window
         self.viewController = viewController
     }
     
     override public func start() -> Observable<Void> {
-        rootViewController?.pushViewController(viewController, animated: true)
+        window?.setRootViewController(viewController: viewController)
         
         return .never()
     }

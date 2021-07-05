@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Utils
-import Components
 import Core
 
 protocol PeripheralsModuleBuildable: ModuleBuildable {}
@@ -21,12 +19,11 @@ class PeripheralsModuleBuilder: PeripheralsModuleBuildable {
         self.container = container
     }
     
-    func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
-        registerService()
+    public func buildModule<T: Any>(with window: UIWindow) -> Module<T>? {
         registerUsecase()
         registerViewModel()
         registerView()
-        registerCoordinator(rootViewController: rootViewController)
+        registerCoordinator(window: window)
         
         guard let coordinator = container.resolve(PeripheralsCoordinator.self) else {
             return nil
@@ -39,25 +36,8 @@ class PeripheralsModuleBuilder: PeripheralsModuleBuildable {
 private extension PeripheralsModuleBuilder {
     
     func registerUsecase() {
-        container.register(PeripheralsInteractable.self) { [weak self] in
-            guard let self = self,
-                let service = self.container.resolve(PeripheralsServicePerforming.self) else { return nil }
-            return PeripheralsUseCase(service: service)
-        }
-    }
-    
-    func registerService() {
-        container.register(ServiceErrorListener.self) { TemperServiceErrorListener() }
-        container.register(CoreConfiguration.self) { CoreConfiguration.sharedInstance }
-        container.register(GraphQLClientProtocol.self) { [weak self] in
-            guard let coreConfiguration = self?.container.resolve(CoreConfiguration.self) else { return nil }
-            return GraphQLClient(withConfiguration: coreConfiguration)
-        }
-        
-        container.register(PeripheralsServicePerforming.self) { [weak self] in
-            guard let client = self?.container.resolve(GraphQLClientProtocol.self),
-                let listener = self?.container.resolve(ServiceErrorListener.self) else { return nil }
-            return PeripheralsService(client: client, serviceErrorListener: listener)
+        container.register(PeripheralsInteractable.self) {
+            return PeripheralsUseCase()
         }
     }
     
@@ -79,13 +59,13 @@ private extension PeripheralsModuleBuilder {
         }
     }
     
-    func registerCoordinator(rootViewController: NavigationControllable? = nil) {
+    func registerCoordinator(window: UIWindow) {
         container.register(PeripheralsCoordinator.self) { [weak self] in
             guard let viewController = self?.container.resolve(PeripheralsViewController.self) else {
                 return nil
             }
             
-            let coordinator = PeripheralsCoordinator(rootViewController: rootViewController, viewController: viewController)
+            let coordinator = PeripheralsCoordinator(window: window, viewController: viewController)
             return coordinator
         }
     }

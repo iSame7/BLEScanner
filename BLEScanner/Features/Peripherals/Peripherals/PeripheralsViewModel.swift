@@ -7,9 +7,9 @@
 //
 
 import RxSwift
-import Utils
+import Core
 
-protocol PeripheralsViewModellable: class {
+protocol PeripheralsViewModellable: ViewModellable {
     var disposeBag: DisposeBag { get }
     var inputs: PeripheralsViewModelInputs { get }
     var outputs: PeripheralsViewModelOutputs { get }

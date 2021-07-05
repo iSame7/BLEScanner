@@ -7,29 +7,43 @@
 //
 
 import UIKit
-import Utils
+import Core
 
-class PeripheralsViewController: UIViewController, ViewModelDependable {
+class PeripheralsViewController: ViewController<PeripheralsViewModel> {
 
-    typealias ViewModel = PeripheralsViewModellable
-	var viewModel: ViewModel!
-
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    // MARK: - setupUI
+    
+    override func setupUI() {
+        setupSubviews()
+        setupConstraints()
+        setupNavogationBar()
+        setupObservers()
+        
+        view.backgroundColor = .white
     }
-}
-
-// MARK: - setupUI
-
-extension PeripheralsViewController {
-
-    func setupUI() {}
-
-    func setupConstraints() {}
-
-    func setupObservers() {}
+    
+    override func setupConstraints() {
+    }
+    
+    func setupSubviews() {
+    }
+    
+    private func setupNavogationBar() {
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem = add
+        
+        title = "Locations"
+    }
+    
+    @objc private func addTapped() {
+    }
+    
+    override func setupObservers() {
+    }
 }
