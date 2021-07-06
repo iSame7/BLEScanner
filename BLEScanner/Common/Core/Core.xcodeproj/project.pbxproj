@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,7 +21,7 @@
 		509C8FEE2690B21D00EC4D91 /* ViewModellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FED2690B21D00EC4D91 /* ViewModellable.swift */; };
 		509C8FF22690B26100EC4D91 /* ViewControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FF12690B26100EC4D91 /* ViewControllable.swift */; };
 		509C8FF42690B26E00EC4D91 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FF32690B26E00EC4D91 /* Presentable.swift */; };
-		F2006BCADA3DD3D6ECF3FA86 /* Pods_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 863A47042079C5A59584F797 /* Pods_Core.framework */; };
+		F2006BCADA3DD3D6ECF3FA86 /* Pods_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 863A47042079C5A59584F797 /* Pods_Core.framework */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
