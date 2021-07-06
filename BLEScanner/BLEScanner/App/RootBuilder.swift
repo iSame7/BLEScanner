@@ -13,7 +13,7 @@ import UIKit
 /// Provides all dependencies to build the AppRootCoordinator
 private final class RootDependencyProvider: DependencyProvider<EmptyDependency> {
         
-    fileprivate var locationsModuleBuilder: ModuleBuildable {
+    fileprivate var peripheralsModuleBuilder: PeripheralsModuleBuildable {
         PeripheralsModuleBuilder()
     }
 }
@@ -26,7 +26,7 @@ final class RootBuilder: Builder<EmptyDependency>, RootBuildable {
     
     func buildModule<T>(with window: UIWindow) -> Module<T>? {
         let dependencyProvider = RootDependencyProvider()
-        let appRootCoordinator = AppRootCoordinator(window: window, locationsModuleBuilder: dependencyProvider.locationsModuleBuilder)
+        let appRootCoordinator = AppRootCoordinator(window: window, peripheralsModuleBuilder: dependencyProvider.peripheralsModuleBuilder)
         
         return Module(coordinator: appRootCoordinator) as? Module<T>
     }

@@ -7,16 +7,32 @@
 //
 
 import UIKit
+import RxSwift
+import Core
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private var rootBuilder = RootBuilder()
+    private let disposeBag = DisposeBag()
+    private var appRootCoordinator: BaseCoordinator<Void>?
+
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            self.window = window
+            window.makeKeyAndVisible()
+            
+            appRootCoordinator = rootBuilder.buildModule(with: window)?.coordinator
+            guard let appRootCoordinator = appRootCoordinator else {
+                preconditionFailure("[SceneDelegate] Cannot get appRootCoordinator from module builder")
+            }
+            
+            appRootCoordinator.start()
+                .subscribe()
+                .disposed(by: disposeBag)
+        }
     }
 }
 

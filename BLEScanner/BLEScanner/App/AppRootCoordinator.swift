@@ -14,19 +14,19 @@ import Peripherals
 class AppRootCoordinator: BaseCoordinator<Void> {
     
     private let window: UIWindow
-    private let locationsModuleBuilder: ModuleBuildable
+    private let peripheralsModuleBuilder: PeripheralsModuleBuildable
     
-    init(window: UIWindow, locationsModuleBuilder: ModuleBuildable) {
+    init(window: UIWindow, peripheralsModuleBuilder: PeripheralsModuleBuildable) {
         self.window = window
-        self.locationsModuleBuilder = locationsModuleBuilder
+        self.peripheralsModuleBuilder = peripheralsModuleBuilder
     }
     
     override func start() -> Observable<Void> {
-        guard let locationsCoordinator: BaseCoordinator<Void> = locationsModuleBuilder.buildModule(with: window)?.coordinator else {
-            preconditionFailure("[AppCoordinator] Cannot get locationsModuleBuilder from module builder")
+        guard let peripheralsModuleBuilder: BaseCoordinator<Void> = peripheralsModuleBuilder.buildModule(with: window)?.coordinator else {
+            preconditionFailure("[AppCoordinator] Cannot get peripheralsModuleBuilder from module builder")
         }
         
-        _ = coordinate(to: locationsCoordinator).subscribe({ event in
+        _ = coordinate(to: peripheralsModuleBuilder).subscribe({ event in
             
         }).disposed(by: disposeBag)
         return .never()
