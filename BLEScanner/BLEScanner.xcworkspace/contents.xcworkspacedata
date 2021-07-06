@@ -5,6 +5,9 @@
       location = "group:Common"
       name = "Common">
       <FileRef
+         location = "group:BlueKit/BlueKit.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Core/Core.xcodeproj">
       </FileRef>
    </Group>
