@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		5060D32F26946E7A00BF39CE /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5060D32D26946E7A00BF39CE /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5060D33226946E8000BF39CE /* Peripherals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5060D33126946E8000BF39CE /* Peripherals.framework */; };
 		5060D33326946E8000BF39CE /* Peripherals.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5060D33126946E8000BF39CE /* Peripherals.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5060D33926946F4D00BF39CE /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D33826946F4D00BF39CE /* RootBuilder.swift */; };
 		509C8FA32690A39A00EC4D91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FA22690A39A00EC4D91 /* AppDelegate.swift */; };
 		509C8FA52690A39A00EC4D91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FA42690A39A00EC4D91 /* SceneDelegate.swift */; };
 		509C8FAA2690A39A00EC4D91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509C8FA82690A39A00EC4D91 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		5060D32B26946E5B00BF39CE /* AppRootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootCoordinator.swift; sourceTree = "<group>"; };
 		5060D32D26946E7A00BF39CE /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5060D33126946E8000BF39CE /* Peripherals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Peripherals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5060D33826946F4D00BF39CE /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
 		509C8F9F2690A39A00EC4D91 /* BLEScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		509C8FA22690A39A00EC4D91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		509C8FA42690A39A00EC4D91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				509C8FA22690A39A00EC4D91 /* AppDelegate.swift */,
 				509C8FA42690A39A00EC4D91 /* SceneDelegate.swift */,
 				5060D32B26946E5B00BF39CE /* AppRootCoordinator.swift */,
+				5060D33826946F4D00BF39CE /* RootBuilder.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				509C8FA32690A39A00EC4D91 /* AppDelegate.swift in Sources */,
 				509C8FA52690A39A00EC4D91 /* SceneDelegate.swift in Sources */,
 				5060D32C26946E5B00BF39CE /* AppRootCoordinator.swift in Sources */,
+				5060D33926946F4D00BF39CE /* RootBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

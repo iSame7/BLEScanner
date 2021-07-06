@@ -9,15 +9,9 @@
 import UIKit
 import Core
 
-protocol PeripheralsModuleBuildable: ModuleBuildable {}
+public protocol PeripheralsModuleBuildable: ModuleBuildable {}
 
-class PeripheralsModuleBuilder: PeripheralsModuleBuildable {
-    
-    private let container: DependencyManager
-    
-    public init(container: DependencyManager) {
-        self.container = container
-    }
+public class PeripheralsModuleBuilder:  Builder<EmptyDependency>, PeripheralsModuleBuildable {
     
     public func buildModule<T: Any>(with window: UIWindow) -> Module<T>? {
         registerUsecase()
