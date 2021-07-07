@@ -26,7 +26,16 @@ target 'Peripherals' do
     pod 'RxTest'
     shared_pods
   end
+end
 
+target 'PeripheralDetails' do
+  project 'Features/PeripheralDetails/PeripheralDetails'
+  shared_pods
+  
+  target 'PeripheralDetailsTests' do
+    pod 'RxTest'
+    shared_pods
+  end
 end
 
 target 'BLEScanner' do

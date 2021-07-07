@@ -1,4 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-BLEScanner/Pods-BLEScanner-frameworks.sh
-${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
-${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
-${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
+${BUILT_PRODUCTS_DIR}/RxCocoa-iOS13.2/RxCocoa.framework
+${BUILT_PRODUCTS_DIR}/RxRelay-iOS13.2/RxRelay.framework
+${BUILT_PRODUCTS_DIR}/RxSwift-iOS13.2/RxSwift.framework

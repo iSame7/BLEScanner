@@ -1,0 +1,6 @@
+framework module Pods_PeripheralDetails {
+  umbrella header "Pods-PeripheralDetails-umbrella.h"
+
+  export *
+  module * { export * }
+}

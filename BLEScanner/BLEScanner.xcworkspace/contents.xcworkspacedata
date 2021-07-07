@@ -15,6 +15,9 @@
       location = "group:Features"
       name = "Features">
       <FileRef
+         location = "group:PeripheralDetails/PeripheralDetails.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Peripherals/Peripherals.xcodeproj">
       </FileRef>
    </Group>

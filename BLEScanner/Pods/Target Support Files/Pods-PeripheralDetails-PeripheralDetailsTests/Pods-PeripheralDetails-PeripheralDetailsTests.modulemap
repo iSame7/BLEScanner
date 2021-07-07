@@ -1,0 +1,6 @@
+framework module Pods_PeripheralDetails_PeripheralDetailsTests {
+  umbrella header "Pods-PeripheralDetails-PeripheralDetailsTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
