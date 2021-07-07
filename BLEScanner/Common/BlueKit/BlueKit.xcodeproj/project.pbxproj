@@ -10,6 +10,19 @@
 		5060D34E2694728900BF39CE /* BlueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5060D3442694728800BF39CE /* BlueKit.framework */; };
 		5060D3532694728900BF39CE /* BlueKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D3522694728900BF39CE /* BlueKitTests.swift */; };
 		5060D3552694728900BF39CE /* BlueKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5060D3472694728800BF39CE /* BlueKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5060D35F269473F700BF39CE /* BKCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D35E269473F700BF39CE /* BKCentral.swift */; };
+		5060D361269474E100BF39CE /* BKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D360269474E100BF39CE /* BKError.swift */; };
+		5060D3632694CD3100BF39CE /* BKCentralProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D3622694CD3100BF39CE /* BKCentralProxy.swift */; };
+		5060D3652694CFEE00BF39CE /* PeripheralScanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D3642694CFEE00BF39CE /* PeripheralScanRequest.swift */; };
+		5060D3672694D0B200BF39CE /* BKPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D3662694D0B200BF39CE /* BKPeripheral.swift */; };
+		5060D3692694D18800BF39CE /* PeripheralRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D3682694D18800BF39CE /* PeripheralRequest.swift */; };
+		5060D36B269587FC00BF39CE /* BKPeripheralProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D36A269587FC00BF39CE /* BKPeripheralProxy.swift */; };
+		5060D36D26958BF700BF39CE /* BKDescriptorValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D36C26958BF700BF39CE /* BKDescriptorValue.swift */; };
+		5060D36F26958D6100BF39CE /* CBUUIDConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D36E26958D6100BF39CE /* CBUUIDConvertible.swift */; };
+		5060D371269594F800BF39CE /* CBUUIDPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D370269594F800BF39CE /* CBUUIDPath.swift */; };
+		5060D3742695989F00BF39CE /* CBPeripheral+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D3732695989F00BF39CE /* CBPeripheral+Extensions.swift */; };
+		5060D376269599E500BF39CE /* CBService+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D375269599E500BF39CE /* CBService+Extensions.swift */; };
+		5060D37826959A2900BF39CE /* CBCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D37726959A2900BF39CE /* CBCharacteristic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +42,19 @@
 		5060D34D2694728900BF39CE /* BlueKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlueKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5060D3522694728900BF39CE /* BlueKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueKitTests.swift; sourceTree = "<group>"; };
 		5060D3542694728900BF39CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5060D35E269473F700BF39CE /* BKCentral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKCentral.swift; sourceTree = "<group>"; };
+		5060D360269474E100BF39CE /* BKError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKError.swift; sourceTree = "<group>"; };
+		5060D3622694CD3100BF39CE /* BKCentralProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKCentralProxy.swift; sourceTree = "<group>"; };
+		5060D3642694CFEE00BF39CE /* PeripheralScanRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralScanRequest.swift; sourceTree = "<group>"; };
+		5060D3662694D0B200BF39CE /* BKPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKPeripheral.swift; sourceTree = "<group>"; };
+		5060D3682694D18800BF39CE /* PeripheralRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralRequest.swift; sourceTree = "<group>"; };
+		5060D36A269587FC00BF39CE /* BKPeripheralProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKPeripheralProxy.swift; sourceTree = "<group>"; };
+		5060D36C26958BF700BF39CE /* BKDescriptorValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKDescriptorValue.swift; sourceTree = "<group>"; };
+		5060D36E26958D6100BF39CE /* CBUUIDConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBUUIDConvertible.swift; sourceTree = "<group>"; };
+		5060D370269594F800BF39CE /* CBUUIDPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBUUIDPath.swift; sourceTree = "<group>"; };
+		5060D3732695989F00BF39CE /* CBPeripheral+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBPeripheral+Extensions.swift"; sourceTree = "<group>"; };
+		5060D375269599E500BF39CE /* CBService+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBService+Extensions.swift"; sourceTree = "<group>"; };
+		5060D37726959A2900BF39CE /* CBCharacteristic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBCharacteristic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +97,19 @@
 		5060D3462694728800BF39CE /* BlueKit */ = {
 			isa = PBXGroup;
 			children = (
+				5060D3722695989400BF39CE /* Extensions */,
 				5060D3472694728800BF39CE /* BlueKit.h */,
 				5060D3482694728800BF39CE /* Info.plist */,
+				5060D35E269473F700BF39CE /* BKCentral.swift */,
+				5060D3622694CD3100BF39CE /* BKCentralProxy.swift */,
+				5060D360269474E100BF39CE /* BKError.swift */,
+				5060D3642694CFEE00BF39CE /* PeripheralScanRequest.swift */,
+				5060D3682694D18800BF39CE /* PeripheralRequest.swift */,
+				5060D3662694D0B200BF39CE /* BKPeripheral.swift */,
+				5060D36A269587FC00BF39CE /* BKPeripheralProxy.swift */,
+				5060D36C26958BF700BF39CE /* BKDescriptorValue.swift */,
+				5060D36E26958D6100BF39CE /* CBUUIDConvertible.swift */,
+				5060D370269594F800BF39CE /* CBUUIDPath.swift */,
 			);
 			path = BlueKit;
 			sourceTree = "<group>";
@@ -84,6 +121,16 @@
 				5060D3542694728900BF39CE /* Info.plist */,
 			);
 			path = BlueKitTests;
+			sourceTree = "<group>";
+		};
+		5060D3722695989400BF39CE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5060D3732695989F00BF39CE /* CBPeripheral+Extensions.swift */,
+				5060D375269599E500BF39CE /* CBService+Extensions.swift */,
+				5060D37726959A2900BF39CE /* CBCharacteristic.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +195,7 @@
 				TargetAttributes = {
 					5060D3432694728800BF39CE = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
 					};
 					5060D34C2694728900BF39CE = {
 						CreatedOnToolsVersion = 11.2.1;
@@ -195,6 +243,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5060D3672694D0B200BF39CE /* BKPeripheral.swift in Sources */,
+				5060D3652694CFEE00BF39CE /* PeripheralScanRequest.swift in Sources */,
+				5060D35F269473F700BF39CE /* BKCentral.swift in Sources */,
+				5060D361269474E100BF39CE /* BKError.swift in Sources */,
+				5060D36D26958BF700BF39CE /* BKDescriptorValue.swift in Sources */,
+				5060D3742695989F00BF39CE /* CBPeripheral+Extensions.swift in Sources */,
+				5060D37826959A2900BF39CE /* CBCharacteristic.swift in Sources */,
+				5060D376269599E500BF39CE /* CBService+Extensions.swift in Sources */,
+				5060D36F26958D6100BF39CE /* CBUUIDConvertible.swift in Sources */,
+				5060D3692694D18800BF39CE /* PeripheralRequest.swift in Sources */,
+				5060D3632694CD3100BF39CE /* BKCentralProxy.swift in Sources */,
+				5060D371269594F800BF39CE /* CBUUIDPath.swift in Sources */,
+				5060D36B269587FC00BF39CE /* BKPeripheralProxy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +401,7 @@
 		5060D3592694728900BF39CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8U3N7M58T5;
@@ -356,6 +418,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.BlueKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,6 +427,7 @@
 		5060D35A2694728900BF39CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8U3N7M58T5;
@@ -388,6 +452,7 @@
 		5060D35C2694728900BF39CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8U3N7M58T5;
 				INFOPLIST_FILE = BlueKitTests/Info.plist;
@@ -406,6 +471,7 @@
 		5060D35D2694728900BF39CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8U3N7M58T5;
 				INFOPLIST_FILE = BlueKitTests/Info.plist;
