@@ -8,12 +8,14 @@
 
 import UIKit
 import Core
+import BlueKit
 
 public protocol PeripheralsModuleBuildable: ModuleBuildable {}
 
 public class PeripheralsModuleBuilder:  Builder<EmptyDependency>, PeripheralsModuleBuildable {
     
     public func buildModule<T: Any>(with window: UIWindow) -> Module<T>? {
+        registerService()
         registerUsecase()
         registerViewModel()
         registerView()
@@ -29,9 +31,22 @@ public class PeripheralsModuleBuilder:  Builder<EmptyDependency>, PeripheralsMod
 
 private extension PeripheralsModuleBuilder {
     
+    func registerService() {
+        container.register(BKCentralManaging.self) {
+            BKCentral.shared
+        }
+        
+        container.register(PeripheralsFetching.self) { [weak self] in
+            guard let bkCentral = self?.container.resolve(BKCentralManaging.self) else { return nil }
+            
+            return PeripheralsService(centralManager: bkCentral)
+        }
+    }
+    
     func registerUsecase() {
-        container.register(PeripheralsInteractable.self) {
-            return PeripheralsUseCase()
+        container.register(PeripheralsInteractable.self) { [weak self] in
+            guard let service = self?.container.resolve(PeripheralsFetching.self) else { return nil }
+            return PeripheralsUseCase(service: service)
         }
     }
     
@@ -59,7 +74,7 @@ private extension PeripheralsModuleBuilder {
                 return nil
             }
             
-            let coordinator = PeripheralsCoordinator(window: window, viewController: viewController)
+            let coordinator = PeripheralsCoordinator(window: window, viewController: UINavigationController(rootViewController: viewController))
             return coordinator
         }
     }

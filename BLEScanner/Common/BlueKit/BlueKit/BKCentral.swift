@@ -17,8 +17,8 @@ public typealias PeripheralScanCompletion = (PeripheralScanResult) -> Void
 
 public enum PeripheralScanResult {
     case scanStarted
-    case scanResult(peripheral: Peripheral, advertisementData: [String: Any], RSSI: Int?)
-    case scanStopped(peripherals: [Peripheral], error: BKError?)
+    case scanResult(peripheral: BKPeripheral, advertisementData: [String: Any], RSSI: Int?)
+    case scanStopped(peripherals: [BKPeripheral], error: BKError?)
 }
 
 public enum BKCentralState: Int {
@@ -29,14 +29,7 @@ public enum BKCentralState: Int {
     case unknown = -1
 }
 
-protocol BKCentralManaging {
-    func initBluetooth(completion: @escaping InitializeBluetoothCompletion)
-    func connect(peripheral: CBPeripheral,
-                 timeout: TimeInterval,
-                 completion: @escaping ConnectPeripheralCompletion)
-    func disconnect(peripheral: CBPeripheral,
-                    timeout: TimeInterval,
-                    completion: @escaping DisconnectPeripheralCompletion)
+public protocol BKCentralManaging {
     func scanForPeripherals(withServiceUUIDs serviceUUIDs: [CBUUIDConvertible]?,
                                    options: [String : Any]?,
                                    timeoutAfter timeout: TimeInterval,
@@ -63,7 +56,9 @@ public final class BKCentral {
     }
 }
 
-extension BKCentral: BKCentralManaging {
+// MARK: - Internals
+
+extension BKCentral {
     
     func initBluetooth(completion: @escaping InitializeBluetoothCompletion) {
         centralProxy.initializeBluetooth(completion)
@@ -80,16 +75,21 @@ extension BKCentral: BKCentralManaging {
                     completion: @escaping DisconnectPeripheralCompletion) {
         centralProxy.disconnect(peripheral: peripheral, timeout: timeout, completion)
     }
+}
+
+//MARK: - BKCentralManaging
+
+extension BKCentral: BKCentralManaging {
     
-    func scanForPeripherals(withServiceUUIDs serviceUUIDs: [CBUUIDConvertible]?, options: [String : Any]?, timeoutAfter timeout: TimeInterval, completion: @escaping PeripheralScanCompletion) {
+    public func scanForPeripherals(withServiceUUIDs serviceUUIDs: [CBUUIDConvertible]?, options: [String : Any]? = nil, timeoutAfter timeout: TimeInterval, completion: @escaping PeripheralScanCompletion) {
         centralProxy.scanWithTimeout(timeout, serviceUUIDs: extractCBUUIDs(serviceUUIDs), options: options, completion)
     }
     
-    func stopScan() {
+    public func stopScan() {
         centralProxy.stopScan()
     }
     
-    func checkState(completion: @escaping CentralStateCompletion) {
+    public func checkState(completion: @escaping CentralStateCompletion) {
         centralProxy.checkState(completion)
     }
 }

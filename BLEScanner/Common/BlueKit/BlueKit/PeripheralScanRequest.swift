@@ -8,7 +8,7 @@
 
 final class PeripheralScanRequest {
     let completion: PeripheralScanCompletion
-    var peripherals = [Peripheral]()
+    var peripherals = [BKPeripheral]()
     
     init(completion: @escaping PeripheralScanCompletion) {
         self.completion = completion

@@ -23,7 +23,7 @@ final class BKPeripheralProxy: NSObject  {
     private lazy var writeDescriptorValueRequests: [CBUUIDPath: [WriteDescriptorValueRequest]] = [:]
     private lazy var updateNotificationStateRequests: [CBUUIDPath: [UpdateNotificationStateRequest]] = [:]
     
-    private weak var peripheral: Peripheral?
+    private weak var peripheral: BKPeripheral?
     
     private(set) var cbPeripheral: CBPeripheral
     
@@ -31,7 +31,7 @@ final class BKPeripheralProxy: NSObject  {
     // from a user's phone and turned back on
     private var valid: Bool = true
     
-    init(cbPeripheral: CBPeripheral, peripheral: Peripheral) {
+    init(cbPeripheral: CBPeripheral, peripheral: BKPeripheral) {
         self.cbPeripheral = cbPeripheral
         self.peripheral = peripheral
         
@@ -44,7 +44,7 @@ final class BKPeripheralProxy: NSObject  {
                                                queue: nil)
         { [weak self] (notification) in
             if let identifier = notification.userInfo?["identifier"] as? UUID, identifier == self?.cbPeripheral.identifier {
-                self?.postPeripheralEvent(Peripheral.peripheralDisconnected, userInfo: notification.userInfo)
+                self?.postPeripheralEvent(BKPeripheral.peripheralDisconnected, userInfo: notification.userInfo)
             }
         }
         
@@ -909,11 +909,11 @@ extension BKPeripheralProxy: CBPeripheralDelegate {
             userInfo = ["name": name]
         }
         
-        self.postPeripheralEvent(Peripheral.PeripheralNameUpdate, userInfo: userInfo)
+        self.postPeripheralEvent(BKPeripheral.PeripheralNameUpdate, userInfo: userInfo)
     }
     
     @objc func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
-        self.postPeripheralEvent(Peripheral.PeripheralModifedServices, userInfo: ["invalidatedServices": invalidatedServices])
+        self.postPeripheralEvent(BKPeripheral.PeripheralModifedServices, userInfo: ["invalidatedServices": invalidatedServices])
     }
     
     @objc func peripheral(_ peripheral: CBPeripheral, didDiscoverIncludedServicesFor service: CBService, error: Error?) {
@@ -1015,7 +1015,7 @@ extension BKPeripheralProxy: CBPeripheralDelegate {
                     userInfo["error"] = error
                 }
                 
-                postPeripheralEvent(Peripheral.PeripheralCharacteristicValueUpdate, userInfo: userInfo)
+                postPeripheralEvent(BKPeripheral.PeripheralCharacteristicValueUpdate, userInfo: userInfo)
             }
             return
         }

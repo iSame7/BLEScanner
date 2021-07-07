@@ -17,6 +17,8 @@
 		5060D32726939A6C00BF39CE /* PeripheralsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D32126939A6C00BF39CE /* PeripheralsViewController.swift */; };
 		5060D32826939A6C00BF39CE /* PeripheralsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D32226939A6C00BF39CE /* PeripheralsViewModel.swift */; };
 		5060D33526946E8D00BF39CE /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5060D33426946E8D00BF39CE /* Core.framework */; platformFilter = ios; };
+		5060D37C2695B89500BF39CE /* PeripheralsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D37B2695B89500BF39CE /* PeripheralsService.swift */; };
+		50758AAD2695EAD000390126 /* BlueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50758AAC2695EAD000390126 /* BlueKit.framework */; platformFilter = ios; };
 		88E569F88FC4E98E76D22C7E /* Pods_Peripherals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA28BB0EF2D3AC8D87BEC243 /* Pods_Peripherals.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		5060D32126939A6C00BF39CE /* PeripheralsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsViewController.swift; sourceTree = "<group>"; };
 		5060D32226939A6C00BF39CE /* PeripheralsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsViewModel.swift; sourceTree = "<group>"; };
 		5060D33426946E8D00BF39CE /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5060D37B2695B89500BF39CE /* PeripheralsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsService.swift; sourceTree = "<group>"; };
+		50758AAC2695EAD000390126 /* BlueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BlueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ECE357BC888DEA9F58AB86D /* Pods-Peripherals-PeripheralsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peripherals-PeripheralsTests.release.xcconfig"; path = "Target Support Files/Pods-Peripherals-PeripheralsTests/Pods-Peripherals-PeripheralsTests.release.xcconfig"; sourceTree = "<group>"; };
 		97813F93EC36943ABB619D85 /* Pods-Peripherals-PeripheralsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peripherals-PeripheralsTests.debug.xcconfig"; path = "Target Support Files/Pods-Peripherals-PeripheralsTests/Pods-Peripherals-PeripheralsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA28BB0EF2D3AC8D87BEC243 /* Pods_Peripherals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Peripherals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88E569F88FC4E98E76D22C7E /* Pods_Peripherals.framework in Frameworks */,
+				50758AAD2695EAD000390126 /* BlueKit.framework in Frameworks */,
 				5060D33526946E8D00BF39CE /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +104,7 @@
 				5060D31E26939A6C00BF39CE /* PeripheralsCoordinator.swift */,
 				5060D31F26939A6C00BF39CE /* PeripheralsModuleBuilder.swift */,
 				5060D32026939A6C00BF39CE /* PeripheralsUseCase.swift */,
+				5060D37B2695B89500BF39CE /* PeripheralsService.swift */,
 				5060D32126939A6C00BF39CE /* PeripheralsViewController.swift */,
 				5060D32226939A6C00BF39CE /* PeripheralsViewModel.swift */,
 				5060D307269398C800BF39CE /* Peripherals.h */,
@@ -131,6 +137,7 @@
 		DA397169A9BA63FF9B587C68 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50758AAC2695EAD000390126 /* BlueKit.framework */,
 				5060D33426946E8D00BF39CE /* Core.framework */,
 				AA28BB0EF2D3AC8D87BEC243 /* Pods_Peripherals.framework */,
 				0A496DFB5907632F117D1977 /* Pods_Peripherals_PeripheralsTests.framework */,
@@ -316,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5060D32726939A6C00BF39CE /* PeripheralsViewController.swift in Sources */,
+				5060D37C2695B89500BF39CE /* PeripheralsService.swift in Sources */,
 				5060D32826939A6C00BF39CE /* PeripheralsViewModel.swift in Sources */,
 				5060D32426939A6C00BF39CE /* PeripheralsCoordinator.swift in Sources */,
 				5060D32526939A6C00BF39CE /* PeripheralsModuleBuilder.swift in Sources */,
@@ -469,7 +477,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 8U3N7M58T5;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -496,7 +504,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 8U3N7M58T5;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

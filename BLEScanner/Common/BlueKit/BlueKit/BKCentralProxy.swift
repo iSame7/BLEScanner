@@ -304,7 +304,7 @@ extension BKCentralProxy: CBCentralManagerDelegate {
                         rssi RSSI: NSNumber) {
         guard let scanRequest = scanRequest else { return }
         
-        let peripheral = Peripheral(peripheral: peripheral)
+        let peripheral = BKPeripheral(peripheral: peripheral)
         scanRequest.peripherals.append(peripheral)
         
         var rssiOptional: Int? = Int(truncating: RSSI)

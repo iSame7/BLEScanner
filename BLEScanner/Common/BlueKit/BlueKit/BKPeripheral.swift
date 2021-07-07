@@ -20,7 +20,7 @@ public typealias ReadDescriptorRequestCompletion = (_ result: Result<DescriptorV
 public typealias WriteRequestCompletion = (_ result: Result<Void, Error>) -> Void
 public typealias UpdateNotificationStateCompletion = (_ result: Result<isNotifying, Error>) -> Void
 
-public protocol PeripheralBLECabable {
+public protocol BKPeripheralBLECabable {
     var identifier: UUID { get }
     var name: String? { get }
     var state: CBPeripheralState { get }
@@ -85,7 +85,7 @@ public protocol PeripheralBLECabable {
     
 }
 /// A wrapper on top of a CBPeripheral  used to run CBPeripheral related functions with closures instead of CBPeripheralDelegate.
-public final class Peripheral {
+public final class BKPeripheral {
     
     private var peripheralProxy: BKPeripheralProxy!
 
@@ -94,7 +94,7 @@ public final class Peripheral {
     }
 }
 
-extension Peripheral {
+extension BKPeripheral {
     
     /// The name of a `Notification` posted by a `Peripheral` instance when it becomes disconnected
     public static let peripheralDisconnected = Notification.Name(rawValue: "BKPeripheralDisconnected")
@@ -112,7 +112,7 @@ extension Peripheral {
 
 // MARK: - PeripheralBLECabable
 
-extension Peripheral: PeripheralBLECabable {
+extension BKPeripheral: BKPeripheralBLECabable {
     
     public var identifier: UUID {
         return peripheralProxy.cbPeripheral.identifier

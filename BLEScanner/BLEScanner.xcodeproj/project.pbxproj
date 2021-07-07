@@ -18,6 +18,8 @@
 		509C8FAA2690A39A00EC4D91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509C8FA82690A39A00EC4D91 /* Main.storyboard */; };
 		509C8FAC2690A39B00EC4D91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509C8FAB2690A39B00EC4D91 /* Assets.xcassets */; };
 		509C8FAF2690A39B00EC4D91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509C8FAD2690A39B00EC4D91 /* LaunchScreen.storyboard */; };
+		50BB49CB2696028200EF8475 /* BlueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BB49CA2696028200EF8475 /* BlueKit.framework */; };
+		50BB49CC2696028200EF8475 /* BlueKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50BB49CA2696028200EF8475 /* BlueKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		589D5E964E9BED6A619B39C9 /* Pods_BLEScannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD96304E95D23D1D2EA73BCF /* Pods_BLEScannerTests.framework */; };
 		DB54CC72929AD03B8039704C /* Pods_BLEScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF95D179ADF4A757E3C34CC /* Pods_BLEScanner.framework */; };
 /* End PBXBuildFile section */
@@ -40,6 +42,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				5060D33326946E8000BF39CE /* Peripherals.framework in Embed Frameworks */,
+				50BB49CC2696028200EF8475 /* BlueKit.framework in Embed Frameworks */,
 				5060D32F26946E7A00BF39CE /* Core.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -64,6 +67,7 @@
 		509C8FB02690A39B00EC4D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		509C8FB52690A39B00EC4D91 /* BLEScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLEScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		509C8FBB2690A39B00EC4D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50BB49CA2696028200EF8475 /* BlueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BlueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8003E409BBA09F6C7FF97216 /* Pods-BLEScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEScanner.release.xcconfig"; path = "Target Support Files/Pods-BLEScanner/Pods-BLEScanner.release.xcconfig"; sourceTree = "<group>"; };
 		ACF95D179ADF4A757E3C34CC /* Pods_BLEScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLEScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD96304E95D23D1D2EA73BCF /* Pods_BLEScannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLEScannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB54CC72929AD03B8039704C /* Pods_BLEScanner.framework in Frameworks */,
+				50BB49CB2696028200EF8475 /* BlueKit.framework in Frameworks */,
 				5060D32E26946E7A00BF39CE /* Core.framework in Frameworks */,
 				5060D33226946E8000BF39CE /* Peripherals.framework in Frameworks */,
 			);
@@ -94,6 +99,7 @@
 		3AEBD32FCBA8DD63F34D86E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50BB49CA2696028200EF8475 /* BlueKit.framework */,
 				5060D33126946E8000BF39CE /* Peripherals.framework */,
 				5060D32D26946E7A00BF39CE /* Core.framework */,
 				ACF95D179ADF4A757E3C34CC /* Pods_BLEScanner.framework */,
@@ -496,8 +502,9 @@
 			baseConfigurationReference = 2F768FD266E0722B491EFE69 /* Pods-BLEScanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8U3N7M58T5;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
 				INFOPLIST_FILE = BLEScanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -505,6 +512,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.BLEScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -515,8 +523,9 @@
 			baseConfigurationReference = 8003E409BBA09F6C7FF97216 /* Pods-BLEScanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8U3N7M58T5;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
 				INFOPLIST_FILE = BLEScanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -524,6 +533,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.BLEScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -11,9 +11,23 @@ import Core
 
 class PeripheralsViewController: ViewController<PeripheralsViewModel> {
 
+    // MARK: - Properties
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.inputs.viewState.onNext(.loaded)
         setupUI()
     }
     
@@ -29,21 +43,49 @@ class PeripheralsViewController: ViewController<PeripheralsViewModel> {
     }
     
     override func setupConstraints() {
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     func setupSubviews() {
+        view.addSubview(tableView)
     }
     
     private func setupNavogationBar() {
-        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        navigationItem.rightBarButtonItem = add
-        
-        title = "Locations"
+        title = "Peripherals"
     }
-    
-    @objc private func addTapped() {
-    }
-    
+
     override func setupObservers() {
+        viewModel.outputs.updatePeripherals.subscribe { [weak self] _ in
+            self?.tableView.reloadData()
+        }.disposed(by: viewModel.disposeBag)
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension PeripheralsViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.peripherals.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        cell.textLabel?.text = viewModel.peripherals[indexPath.row].bkPeripheral.name ?? "Unnamed"
+        return cell
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension PeripheralsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

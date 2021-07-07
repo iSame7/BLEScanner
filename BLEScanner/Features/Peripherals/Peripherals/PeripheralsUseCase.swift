@@ -7,9 +7,22 @@
 //
 
 import RxSwift
+import BlueKit
+import Core
 
 public protocol PeripheralsInteractable {
+    func getPeripherals() -> Observable<(perhipherals: [Peripheral]?, error: BKError?)>
 }
 
 class PeripheralsUseCase: PeripheralsInteractable {
+    
+    private let service: PeripheralsFetching
+    
+    init(service: PeripheralsFetching) {
+        self.service = service
+    }
+    
+    func getPeripherals() -> Observable<(perhipherals: [Peripheral]?, error: BKError?)> {
+        service.fetchPeripherals()
+    }
 }
