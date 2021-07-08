@@ -8,13 +8,14 @@
 
 import UIKit
 
-public protocol Presentable: class {
+public protocol Presentable: AnyObject {
     func presentInFullScreen(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)?)
     func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?)
     func dismiss(animated flag: Bool, completion: (() -> Void)?)
 }
 
 extension UIViewController: Presentable {
+    
     public func presentInFullScreen(_ viewController: UIViewController,
                              animated: Bool,
                              completion: (() -> Void)? = nil) {

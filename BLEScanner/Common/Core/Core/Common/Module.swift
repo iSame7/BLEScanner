@@ -17,7 +17,7 @@ public struct Module<T> {
     }
 }
 
-public protocol ModuleBuildable: class {
+public protocol ModuleBuildable: AnyObject {
     func buildModule<T>(with window: UIWindow) -> Module<T>?
     func buildModule<T>(with window: UIWindow, context: Any) -> Module<T>?
     func buildModule<T>(with rootViewController: Presentable) -> Module<T>?

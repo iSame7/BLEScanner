@@ -20,6 +20,8 @@
 		509C8FAF2690A39B00EC4D91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509C8FAD2690A39B00EC4D91 /* LaunchScreen.storyboard */; };
 		50BB49CB2696028200EF8475 /* BlueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BB49CA2696028200EF8475 /* BlueKit.framework */; };
 		50BB49CC2696028200EF8475 /* BlueKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50BB49CA2696028200EF8475 /* BlueKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		50BB4A0A2696F84C00EF8475 /* PeripheralDetails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BB4A092696F84B00EF8475 /* PeripheralDetails.framework */; };
+		50BB4A0B2696F84C00EF8475 /* PeripheralDetails.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50BB4A092696F84B00EF8475 /* PeripheralDetails.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		589D5E964E9BED6A619B39C9 /* Pods_BLEScannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD96304E95D23D1D2EA73BCF /* Pods_BLEScannerTests.framework */; };
 		DB54CC72929AD03B8039704C /* Pods_BLEScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF95D179ADF4A757E3C34CC /* Pods_BLEScanner.framework */; };
 /* End PBXBuildFile section */
@@ -42,6 +44,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				5060D33326946E8000BF39CE /* Peripherals.framework in Embed Frameworks */,
+				50BB4A0B2696F84C00EF8475 /* PeripheralDetails.framework in Embed Frameworks */,
 				50BB49CC2696028200EF8475 /* BlueKit.framework in Embed Frameworks */,
 				5060D32F26946E7A00BF39CE /* Core.framework in Embed Frameworks */,
 			);
@@ -68,6 +71,7 @@
 		509C8FB52690A39B00EC4D91 /* BLEScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLEScannerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		509C8FBB2690A39B00EC4D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50BB49CA2696028200EF8475 /* BlueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BlueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50BB4A092696F84B00EF8475 /* PeripheralDetails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PeripheralDetails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8003E409BBA09F6C7FF97216 /* Pods-BLEScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEScanner.release.xcconfig"; path = "Target Support Files/Pods-BLEScanner/Pods-BLEScanner.release.xcconfig"; sourceTree = "<group>"; };
 		ACF95D179ADF4A757E3C34CC /* Pods_BLEScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLEScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD96304E95D23D1D2EA73BCF /* Pods_BLEScannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLEScannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +84,7 @@
 			files = (
 				DB54CC72929AD03B8039704C /* Pods_BLEScanner.framework in Frameworks */,
 				50BB49CB2696028200EF8475 /* BlueKit.framework in Frameworks */,
+				50BB4A0A2696F84C00EF8475 /* PeripheralDetails.framework in Frameworks */,
 				5060D32E26946E7A00BF39CE /* Core.framework in Frameworks */,
 				5060D33226946E8000BF39CE /* Peripherals.framework in Frameworks */,
 			);
@@ -99,6 +104,7 @@
 		3AEBD32FCBA8DD63F34D86E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50BB4A092696F84B00EF8475 /* PeripheralDetails.framework */,
 				50BB49CA2696028200EF8475 /* BlueKit.framework */,
 				5060D33126946E8000BF39CE /* Peripherals.framework */,
 				5060D32D26946E7A00BF39CE /* Core.framework */,

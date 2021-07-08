@@ -18,10 +18,12 @@ protocol PeripheralsViewModellable: ViewModellable {
 
 struct PeripheralsViewModelInputs {
     var viewState = PublishSubject<ViewState>()
+    var itemTapped = PublishSubject<Peripheral>()
 }
 
 struct PeripheralsViewModelOutputs {
     var updatePeripherals = PublishSubject<Void>()
+    var showPeripheralDetails = PublishSubject<Peripheral>()
 }
 
 class PeripheralsViewModel: PeripheralsViewModellable {
@@ -63,6 +65,12 @@ private extension PeripheralsViewModel {
             default:
                 break
             }
+        }).disposed(by: disposeBag)
+        
+        inputs.itemTapped.subscribe(onNext: { [weak self] peripheral in
+            guard let self = self else { return }
+            
+            self.outputs.showPeripheralDetails.onNext(peripheral)
         }).disposed(by: disposeBag)
     }
 }

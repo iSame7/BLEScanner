@@ -9,17 +9,27 @@
 import UIKit
 import Core
 import BlueKit
+import PeripheralDetails
+
+/// Provides all dependencies to build the PeripheralsModuleBuilder
+private final class PeripheralDependencyProvider: DependencyProvider<EmptyDependency> {
+    
+    fileprivate var peripheralDetailsModuleBuilder: PeripheralDetailsModuleBuildable { PeripheralDetailsModuleBuilder() }
+}
+
 
 public protocol PeripheralsModuleBuildable: ModuleBuildable {}
 
 public class PeripheralsModuleBuilder:  Builder<EmptyDependency>, PeripheralsModuleBuildable {
     
     public func buildModule<T: Any>(with window: UIWindow) -> Module<T>? {
+        let peripheralDependencyProvider = PeripheralDependencyProvider()
+
         registerService()
         registerUsecase()
         registerViewModel()
         registerView()
-        registerCoordinator(window: window)
+        registerCoordinator(window: window, peripheralDetailsModuleBuilder: peripheralDependencyProvider.peripheralDetailsModuleBuilder)
         
         guard let coordinator = container.resolve(PeripheralsCoordinator.self) else {
             return nil
@@ -68,13 +78,14 @@ private extension PeripheralsModuleBuilder {
         }
     }
     
-    func registerCoordinator(window: UIWindow) {
+    func registerCoordinator(window: UIWindow, peripheralDetailsModuleBuilder: PeripheralDetailsModuleBuildable) {
         container.register(PeripheralsCoordinator.self) { [weak self] in
             guard let viewController = self?.container.resolve(PeripheralsViewController.self) else {
                 return nil
             }
             
-            let coordinator = PeripheralsCoordinator(window: window, viewController: UINavigationController(rootViewController: viewController))
+            let coordinator = PeripheralsCoordinator(window: window, viewController: UINavigationController(rootViewController: viewController), peripheralDetailsModuleBuilder: peripheralDetailsModuleBuilder)
+            coordinator.showPeripheralDetials = viewController.viewModel.outputs.showPeripheralDetails
             return coordinator
         }
     }

@@ -19,6 +19,7 @@
 		5060D33526946E8D00BF39CE /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5060D33426946E8D00BF39CE /* Core.framework */; platformFilter = ios; };
 		5060D37C2695B89500BF39CE /* PeripheralsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D37B2695B89500BF39CE /* PeripheralsService.swift */; };
 		50758AAD2695EAD000390126 /* BlueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50758AAC2695EAD000390126 /* BlueKit.framework */; platformFilter = ios; };
+		50BB4A062696EBA800EF8475 /* PeripheralDetails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BB4A052696EBA800EF8475 /* PeripheralDetails.framework */; platformFilter = ios; };
 		88E569F88FC4E98E76D22C7E /* Pods_Peripherals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA28BB0EF2D3AC8D87BEC243 /* Pods_Peripherals.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		5060D33426946E8D00BF39CE /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5060D37B2695B89500BF39CE /* PeripheralsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsService.swift; sourceTree = "<group>"; };
 		50758AAC2695EAD000390126 /* BlueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BlueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50BB4A052696EBA800EF8475 /* PeripheralDetails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PeripheralDetails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ECE357BC888DEA9F58AB86D /* Pods-Peripherals-PeripheralsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peripherals-PeripheralsTests.release.xcconfig"; path = "Target Support Files/Pods-Peripherals-PeripheralsTests/Pods-Peripherals-PeripheralsTests.release.xcconfig"; sourceTree = "<group>"; };
 		97813F93EC36943ABB619D85 /* Pods-Peripherals-PeripheralsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peripherals-PeripheralsTests.debug.xcconfig"; path = "Target Support Files/Pods-Peripherals-PeripheralsTests/Pods-Peripherals-PeripheralsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA28BB0EF2D3AC8D87BEC243 /* Pods_Peripherals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Peripherals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88E569F88FC4E98E76D22C7E /* Pods_Peripherals.framework in Frameworks */,
+				50BB4A062696EBA800EF8475 /* PeripheralDetails.framework in Frameworks */,
 				50758AAD2695EAD000390126 /* BlueKit.framework in Frameworks */,
 				5060D33526946E8D00BF39CE /* Core.framework in Frameworks */,
 			);
@@ -137,6 +140,7 @@
 		DA397169A9BA63FF9B587C68 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50BB4A052696EBA800EF8475 /* PeripheralDetails.framework */,
 				50758AAC2695EAD000390126 /* BlueKit.framework */,
 				5060D33426946E8D00BF39CE /* Core.framework */,
 				AA28BB0EF2D3AC8D87BEC243 /* Pods_Peripherals.framework */,

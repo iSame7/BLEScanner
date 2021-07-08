@@ -86,6 +86,7 @@ extension PeripheralsViewController: UITableViewDataSource {
 extension PeripheralsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.inputs.itemTapped.onNext(viewModel.peripherals[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

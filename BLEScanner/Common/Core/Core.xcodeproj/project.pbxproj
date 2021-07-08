@@ -24,6 +24,7 @@
 		509C8FF42690B26E00EC4D91 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FF32690B26E00EC4D91 /* Presentable.swift */; };
 		50BB49CE2696168800EF8475 /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB49CD2696168800EF8475 /* Peripheral.swift */; };
 		50BB49D02696169700EF8475 /* BlueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BB49CF2696169700EF8475 /* BlueKit.framework */; platformFilter = ios; };
+		50BB4A042696CFB400EF8475 /* NavigationControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB4A032696CFB400EF8475 /* NavigationControllable.swift */; };
 		F2006BCADA3DD3D6ECF3FA86 /* Pods_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 863A47042079C5A59584F797 /* Pods_Core.framework */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		509C8FF32690B26E00EC4D91 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		50BB49CD2696168800EF8475 /* Peripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peripheral.swift; sourceTree = "<group>"; };
 		50BB49CF2696169700EF8475 /* BlueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BlueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50BB4A032696CFB400EF8475 /* NavigationControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllable.swift; sourceTree = "<group>"; };
 		56449F0742C81FEB82600114 /* Pods-Core.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.debug.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.debug.xcconfig"; sourceTree = "<group>"; };
 		63E33867E18A3DC7680FBB01 /* Pods-Core.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.release.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.release.xcconfig"; sourceTree = "<group>"; };
 		863A47042079C5A59584F797 /* Pods_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +174,7 @@
 				509C8FF12690B26100EC4D91 /* ViewControllable.swift */,
 				509C8FF32690B26E00EC4D91 /* Presentable.swift */,
 				5060D37D2695C60D00BF39CE /* ViewState.swift */,
+				50BB4A032696CFB400EF8475 /* NavigationControllable.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			files = (
 				509C8FEC2690B1F000EC4D91 /* ViewController.swift in Sources */,
 				5060D2EF2693964900BF39CE /* BaseCoordinator.swift in Sources */,
+				50BB4A042696CFB400EF8475 /* NavigationControllable.swift in Sources */,
 				5060D37E2695C60D00BF39CE /* ViewState.swift in Sources */,
 				5060D2EA269395B000BF39CE /* UIWindow+Utils.swift in Sources */,
 				509C8FF42690B26E00EC4D91 /* Presentable.swift in Sources */,

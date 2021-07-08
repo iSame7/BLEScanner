@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,12 @@
 		50BB49E726961C7500EF8475 /* PeripheralDetails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BB49DD26961C7500EF8475 /* PeripheralDetails.framework */; };
 		50BB49EC26961C7500EF8475 /* PeripheralDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB49EB26961C7500EF8475 /* PeripheralDetailsTests.swift */; };
 		50BB49EE26961C7500EF8475 /* PeripheralDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 50BB49E026961C7500EF8475 /* PeripheralDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50BB49FD26961D7F00EF8475 /* PeripheralDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB49F726961D7F00EF8475 /* PeripheralDetailsCoordinator.swift */; };
+		50BB49FE26961D7F00EF8475 /* PeripheralDetailsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB49F826961D7F00EF8475 /* PeripheralDetailsModuleBuilder.swift */; };
+		50BB49FF26961D7F00EF8475 /* PeripheralDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB49F926961D7F00EF8475 /* PeripheralDetailsUseCase.swift */; };
+		50BB4A0026961D7F00EF8475 /* PeripheralDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB49FA26961D7F00EF8475 /* PeripheralDetailsViewController.swift */; };
+		50BB4A0126961D7F00EF8475 /* PeripheralDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB49FB26961D7F00EF8475 /* PeripheralDetailsViewModel.swift */; };
+		50BB4A0226961D7F00EF8475 /* PeripheralDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB49FC26961D7F00EF8475 /* PeripheralDetailsService.swift */; };
 		FCC561B623901330270BADC8 /* Pods_PeripheralDetails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B20FE535C41A1142B70F9F /* Pods_PeripheralDetails.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +38,12 @@
 		50BB49E626961C7500EF8475 /* PeripheralDetailsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeripheralDetailsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BB49EB26961C7500EF8475 /* PeripheralDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralDetailsTests.swift; sourceTree = "<group>"; };
 		50BB49ED26961C7500EF8475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50BB49F726961D7F00EF8475 /* PeripheralDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralDetailsCoordinator.swift; sourceTree = "<group>"; };
+		50BB49F826961D7F00EF8475 /* PeripheralDetailsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralDetailsModuleBuilder.swift; sourceTree = "<group>"; };
+		50BB49F926961D7F00EF8475 /* PeripheralDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralDetailsUseCase.swift; sourceTree = "<group>"; };
+		50BB49FA26961D7F00EF8475 /* PeripheralDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralDetailsViewController.swift; sourceTree = "<group>"; };
+		50BB49FB26961D7F00EF8475 /* PeripheralDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralDetailsViewModel.swift; sourceTree = "<group>"; };
+		50BB49FC26961D7F00EF8475 /* PeripheralDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralDetailsService.swift; sourceTree = "<group>"; };
 		63B20FE535C41A1142B70F9F /* Pods_PeripheralDetails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeripheralDetails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		739DC3C080F4D8E49412C987 /* Pods-PeripheralDetails-PeripheralDetailsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeripheralDetails-PeripheralDetailsTests.debug.xcconfig"; path = "Target Support Files/Pods-PeripheralDetails-PeripheralDetailsTests/Pods-PeripheralDetails-PeripheralDetailsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8BB7A58434CA1DB9E34972DA /* Pods-PeripheralDetails-PeripheralDetailsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeripheralDetails-PeripheralDetailsTests.release.xcconfig"; path = "Target Support Files/Pods-PeripheralDetails-PeripheralDetailsTests/Pods-PeripheralDetails-PeripheralDetailsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +95,12 @@
 		50BB49DF26961C7500EF8475 /* PeripheralDetails */ = {
 			isa = PBXGroup;
 			children = (
+				50BB49F726961D7F00EF8475 /* PeripheralDetailsCoordinator.swift */,
+				50BB49F826961D7F00EF8475 /* PeripheralDetailsModuleBuilder.swift */,
+				50BB49F926961D7F00EF8475 /* PeripheralDetailsUseCase.swift */,
+				50BB49FA26961D7F00EF8475 /* PeripheralDetailsViewController.swift */,
+				50BB49FB26961D7F00EF8475 /* PeripheralDetailsViewModel.swift */,
+				50BB49FC26961D7F00EF8475 /* PeripheralDetailsService.swift */,
 				50BB49E026961C7500EF8475 /* PeripheralDetails.h */,
 				50BB49E126961C7500EF8475 /* Info.plist */,
 			);
@@ -183,6 +201,7 @@
 				TargetAttributes = {
 					50BB49DC26961C7500EF8475 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 					50BB49E526961C7500EF8475 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -294,6 +313,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50BB49FE26961D7F00EF8475 /* PeripheralDetailsModuleBuilder.swift in Sources */,
+				50BB4A0026961D7F00EF8475 /* PeripheralDetailsViewController.swift in Sources */,
+				50BB49FF26961D7F00EF8475 /* PeripheralDetailsUseCase.swift in Sources */,
+				50BB4A0126961D7F00EF8475 /* PeripheralDetailsViewModel.swift in Sources */,
+				50BB4A0226961D7F00EF8475 /* PeripheralDetailsService.swift in Sources */,
+				50BB49FD26961D7F00EF8475 /* PeripheralDetailsCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -426,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -442,6 +467,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D88FB96F4824F1F9C7BE55CC /* Pods-PeripheralDetails.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9X9VYGUMW9;
@@ -458,6 +484,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.PeripheralDetails;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -467,6 +494,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 32F97283BBF61E6C4B75B55A /* Pods-PeripheralDetails.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9X9VYGUMW9;
@@ -492,6 +520,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 739DC3C080F4D8E49412C987 /* Pods-PeripheralDetails-PeripheralDetailsTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9X9VYGUMW9;
 				INFOPLIST_FILE = PeripheralDetailsTests/Info.plist;
@@ -511,6 +540,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8BB7A58434CA1DB9E34972DA /* Pods-PeripheralDetails-PeripheralDetailsTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9X9VYGUMW9;
 				INFOPLIST_FILE = PeripheralDetailsTests/Info.plist;
