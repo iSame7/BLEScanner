@@ -19,6 +19,7 @@ protocol PeripheralsViewModellable: ViewModellable {
 struct PeripheralsViewModelInputs {
     var viewState = PublishSubject<ViewState>()
     var itemTapped = PublishSubject<Peripheral>()
+    var sortPeripherals = PublishSubject<Void>()
 }
 
 struct PeripheralsViewModelOutputs {
@@ -65,6 +66,19 @@ private extension PeripheralsViewModel {
             default:
                 break
             }
+        }).disposed(by: disposeBag)
+        
+        inputs.sortPeripherals.subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.peripherals = self.peripherals.filter({ pripheral in
+                guard pripheral.rssi != 127 else {
+                    return false
+                }
+                
+                return true
+            }).sorted(by: {$0.rssi > $1.rssi})
+            self.outputs.updatePeripherals.onNext(())
         }).disposed(by: disposeBag)
         
         inputs.itemTapped.subscribe(onNext: { [weak self] peripheral in

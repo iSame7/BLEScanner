@@ -12,7 +12,7 @@ public class Peripheral: Equatable, Hashable {
     
     public let bkPeripheral: BKPeripheral
     public var advertismentData: [String: Any] = [:]
-    public var rssi: Int?
+    public var rssi: Int = 0
     public var lastUpdatedTimeInterval: TimeInterval
 
     public init(bkPeripheral: BKPeripheral) {

@@ -32,7 +32,7 @@ class PeripheralsService: PeripheralsFetching {
                 case let .scanResult(bkPeripheral, advertisementData, rssi):
                     let peripheral = Peripheral(bkPeripheral: bkPeripheral)
                     if !peripherals.contains(peripheral) {
-                        peripheral.rssi = rssi
+                        peripheral.rssi = rssi ?? 127
                         peripheral.advertismentData = advertisementData
                         peripherals.append(peripheral)
                     } else {
@@ -48,7 +48,7 @@ class PeripheralsService: PeripheralsFetching {
                             return
                         }
 
-                        originalPeripheral.rssi = rssi
+                        originalPeripheral.rssi = rssi ?? 127
                         originalPeripheral.advertismentData = advertisementData
                         originalPeripheral.lastUpdatedTimeInterval = now
                     }

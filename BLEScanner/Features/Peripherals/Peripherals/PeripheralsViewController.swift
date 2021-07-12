@@ -57,12 +57,19 @@ class PeripheralsViewController: ViewController<PeripheralsViewModel> {
     
     private func setupNavogationBar() {
         title = "Peripherals"
+        
+        let sort = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(sortTapped))
+        navigationItem.rightBarButtonItem = sort
     }
 
     override func setupObservers() {
         viewModel.outputs.updatePeripherals.subscribe { [weak self] _ in
             self?.tableView.reloadData()
         }.disposed(by: viewModel.disposeBag)
+    }
+    
+    @IBAction func sortTapped(_ sender: AnyObject) {
+        viewModel.inputs.sortPeripherals.onNext(())
     }
 }
 
