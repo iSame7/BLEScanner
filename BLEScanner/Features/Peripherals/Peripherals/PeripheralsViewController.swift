@@ -17,7 +17,7 @@ class PeripheralsViewController: ViewController<PeripheralsViewModel> {
         let tableView = UITableView(frame: .zero)
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.registerCell(withType: PeripheralCell.self)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -82,8 +82,11 @@ extension PeripheralsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        cell.textLabel?.text = viewModel.peripherals[indexPath.row].bkPeripheral.name ?? "Unnamed"
+        let cell = tableView.getCell(forType: PeripheralCell.self)
+//        cell.textLabel?.text = viewModel.peripherals[indexPath.row].bkPeripheral.name ?? "Unnamed"
+//        let rssi = viewModel.peripherals[indexPath.row].rssi
+        
+        cell.configure(withPeripheralName: viewModel.peripherals[indexPath.row].bkPeripheral.name ?? "Unnamed", signalStrength: "\(viewModel.peripherals[indexPath.row].rssi)", signalStengthImage: UIImage())
         return cell
     }
 }

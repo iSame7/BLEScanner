@@ -16,6 +16,7 @@
 		5060D2F9269396E600BF39CE /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D2F8269396E600BF39CE /* DependencyProvider.swift */; };
 		5060D37E2695C60D00BF39CE /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D37D2695C60D00BF39CE /* ViewState.swift */; };
 		508F358E269C5A180010E6B8 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F358D269C5A180010E6B8 /* Alertable.swift */; };
+		508F3595269CB9A00010E6B8 /* Dequeueable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F3594269CB9A00010E6B8 /* Dequeueable.swift */; };
 		509C8FD82690AE7B00EC4D91 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509C8FCE2690AE7A00EC4D91 /* Core.framework */; };
 		509C8FDD2690AE7B00EC4D91 /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C8FDC2690AE7B00EC4D91 /* CoreTests.swift */; };
 		509C8FDF2690AE7B00EC4D91 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 509C8FD12690AE7A00EC4D91 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,6 +51,7 @@
 		5060D2F8269396E600BF39CE /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
 		5060D37D2695C60D00BF39CE /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		508F358D269C5A180010E6B8 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		508F3594269CB9A00010E6B8 /* Dequeueable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dequeueable.swift; sourceTree = "<group>"; };
 		509C8FCE2690AE7A00EC4D91 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		509C8FD12690AE7A00EC4D91 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		509C8FD22690AE7A00EC4D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				509C8FF32690B26E00EC4D91 /* Presentable.swift */,
 				5060D37D2695C60D00BF39CE /* ViewState.swift */,
 				50BB4A032696CFB400EF8475 /* NavigationControllable.swift */,
+				508F3594269CB9A00010E6B8 /* Dequeueable.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				508F358E269C5A180010E6B8 /* Alertable.swift in Sources */,
 				509C8FF42690B26E00EC4D91 /* Presentable.swift in Sources */,
 				5060D2F9269396E600BF39CE /* DependencyProvider.swift in Sources */,
+				508F3595269CB9A00010E6B8 /* Dequeueable.swift in Sources */,
 				5060D2F12693967700BF39CE /* Module.swift in Sources */,
 				509C8FF22690B26100EC4D91 /* ViewControllable.swift in Sources */,
 				5060D2F7269396D100BF39CE /* Dependency.swift in Sources */,
