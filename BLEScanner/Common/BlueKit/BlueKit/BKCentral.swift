@@ -32,7 +32,7 @@ public enum BKCentralState: Int {
 public protocol BKCentralManaging {
     func scanForPeripherals(withServiceUUIDs serviceUUIDs: [CBUUIDConvertible]?,
                                    options: [String : Any]?,
-                                   timeoutAfter timeout: TimeInterval,
+                                   timeoutAfter timeout: TimeInterval?,
                                    completion: @escaping PeripheralScanCompletion)
     func stopScan()
     func checkState(completion: @escaping CentralStateCompletion)
@@ -82,7 +82,7 @@ extension BKCentral {
 
 extension BKCentral: BKCentralManaging {
     
-    public func scanForPeripherals(withServiceUUIDs serviceUUIDs: [CBUUIDConvertible]?, options: [String : Any]? = nil, timeoutAfter timeout: TimeInterval, completion: @escaping PeripheralScanCompletion) {
+    public func scanForPeripherals(withServiceUUIDs serviceUUIDs: [CBUUIDConvertible]?, options: [String : Any]? = nil, timeoutAfter timeout: TimeInterval?, completion: @escaping PeripheralScanCompletion) {
         centralProxy.scanWithTimeout(timeout, serviceUUIDs: extractCBUUIDs(serviceUUIDs), options: options, completion)
     }
     

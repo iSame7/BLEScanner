@@ -9,10 +9,12 @@
 import RxSwift
 import BlueKit
 import Core
+import CoreBluetooth
 
 protocol PeripheralsFetching {
     func fetchPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)>
     func sortPeripherals() -> Observable<[Peripheral]>
+    func stopFetchingperipherals()
 }
 
 class PeripheralsService: PeripheralsFetching {
@@ -26,11 +28,12 @@ class PeripheralsService: PeripheralsFetching {
     
     func fetchPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)> {
         return Observable.create { [unowned self] observer in
-            self.centralManager.scanForPeripherals(withServiceUUIDs: nil, options: nil, timeoutAfter: 15) { scanResult in
+            self.centralManager.scanForPeripherals(withServiceUUIDs: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: true], timeoutAfter: nil) { scanResult in
                 switch scanResult {
                 case .scanStarted:
                     break
                 case let .scanResult(bkPeripheral, advertisementData, rssi):
+                    print("Found a new peripheral: \(bkPeripheral)")
                     let peripheral = Peripheral(bkPeripheral: bkPeripheral)
                     if !peripherals.contains(peripheral) {
                         peripheral.rssi = rssi ?? 127
@@ -75,5 +78,9 @@ class PeripheralsService: PeripheralsFetching {
             observer.onNext((self.peripherals))
             return Disposables.create()
         }
+    }
+    
+    func stopFetchingperipherals() {
+        self.centralManager.stopScan()
     }
 }

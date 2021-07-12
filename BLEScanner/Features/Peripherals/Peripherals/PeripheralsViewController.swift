@@ -24,6 +24,11 @@ class PeripheralsViewController: ViewController<PeripheralsViewModel> {
         return tableView
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.inputs.viewState.onNext(.appeared)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

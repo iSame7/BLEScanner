@@ -9,6 +9,7 @@
 public enum ViewState {
     case loading
     case loaded
+    case appeared
     case empty
     case dismiss
 }

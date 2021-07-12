@@ -52,7 +52,7 @@ private extension PeripheralsViewModel {
             guard let self = self else { return }
             
             switch state {
-            case .loaded:
+            case .loaded, .appeared:
                 self.useCase.getPeripherals().subscribe { event in
                     guard let result = event.element else { return }
                     
@@ -82,6 +82,7 @@ private extension PeripheralsViewModel {
         inputs.itemTapped.subscribe(onNext: { [weak self] peripheral in
             guard let self = self else { return }
             
+            self.useCase.stopGettingPeripherals()
             self.outputs.showPeripheralDetails.onNext(peripheral)
         }).disposed(by: disposeBag)
     }

@@ -86,7 +86,8 @@ extension BKCentralProxy {
 // MARK: - Helpers
 
 extension BKCentralProxy {
-    func scanWithTimeout(_ timeout: TimeInterval, serviceUUIDs: [CBUUID]?, options: [String : Any]?, _ completion: @escaping PeripheralScanCompletion) {
+    
+    func scanWithTimeout(_ timeout: TimeInterval?, serviceUUIDs: [CBUUID]?, options: [String : Any]?, _ completion: @escaping PeripheralScanCompletion) {
         initializeBluetooth { [unowned self] (error) in
             if let error = error {
                 completion(PeripheralScanResult.scanStopped(peripherals: [], error: error))
@@ -101,12 +102,14 @@ extension BKCentralProxy {
                 scanRequest.completion(.scanStarted)
                 self.centralManager.scanForPeripherals(withServices: serviceUUIDs, options: options)
                 
-                Timer.scheduledTimer(
-                    timeInterval: timeout,
-                    target: self,
-                    selector: #selector(self.onScanTimerTick),
-                    userInfo: scanRequest,
-                    repeats: false)
+                if let timeout = timeout {
+                    Timer.scheduledTimer(
+                        timeInterval: timeout,
+                        target: self,
+                        selector: #selector(self.scanTimeout),
+                        userInfo: scanRequest,
+                        repeats: false)
+                }
             }
         }
     }
@@ -122,7 +125,7 @@ extension BKCentralProxy {
         }
     }
     
-    @objc fileprivate func onScanTimerTick(_ timer: Timer) {
+    @objc fileprivate func scanTimeout(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
         
         guard let _ = timer.userInfo as? PeripheralScanRequest else { return }
