@@ -49,7 +49,7 @@ public struct Module<T> {
 ```
 
 Some examples of modules are: 
-- Map (consists of `MapModuleBuilder`, `MapCoordinator`, `MapUseCase` and `MapViewController`)
+- Peripherals (consists of `PeripheralsModuleBuilder`, `PeripheralsCoordinator`, `PeripheralsUseCase` and `PeripheralsViewController`)
 
 ### Builder Pattern
 
@@ -57,9 +57,9 @@ To simplify object(Module) creation, and to remove the need to deal with depende
 
 ``` swift
 /// Provides all dependencies to build the VenueDetailsModuleBuilder
-public protocol VenueDetailsDependency {
-    var session: Session { get }
-    var networkRechabilityManager: NetworkReachabilityManager? { get }
+private final class PeripheralDependencyProvider: DependencyProvider<EmptyDependency> {
+    
+    fileprivate var peripheralDetailsModuleBuilder: PeripheralDetailsModuleBuildable { PeripheralDetailsModuleBuilder() }
 }
 ```
 
@@ -68,33 +68,26 @@ A builder specifies which dependency it requires, or can use `EmptyDependency` i
 
 ``` swift
 // 1)
-public protocol VenueDetailsModuleBuildable: ModuleBuildable {
-    func buildModule<T>(with rootViewController: NavigationControllable, venue: Venue, venuePhotoURL: String?) -> Module<T>?
+public protocol PeripheralDetailsModuleBuildable: ModuleBuildable {
+    func buildModule<T>(with rootViewController: NavigationControllable, peripheral: Peripheral) -> Module<T>?
 }
 
 // 2)
 /// Provides all dependencies to build the VenueDetailsModuleBuilder
-private final class VenueDetailsDependencyProvider: DependencyProvider<VenueDetailsDependency> {
-    
-    var session: Session { return dependency.session }
-    fileprivate var networkRechabilityManager: NetworkReachabilityManager? { return dependency.networkRechabilityManager }
-    fileprivate var tipsModuleBuilder: TipsModuleBuildable { TipsModuleBuilder() }
+private final class PeripheralDetailsDependencyProvider: DependencyProvider<EmptyDependency> {    
 }
 
 // 3)
-public class VenueDetailsModuleBuilder: Builder<VenueDetailsDependency> , VenueDetailsModuleBuildable {
+public class PeripheralDetailsModuleBuilder: Builder<EmptyDependency>, PeripheralDetailsModuleBuildable {
     
-    public func buildModule<T>(with rootViewController: NavigationControllable, venue: Venue, venuePhotoURL: String?) -> Module<T>? {
-        let venueDetailsDependencyProvider = VenueDetailsDependencyProvider(dependency: dependency)
-        
-        registerService(session: venueDetailsDependencyProvider.session)
-        registerUsecase(networkRechabilityManager: venueDetailsDependencyProvider.networkRechabilityManager)
-        registerMapURLHandler()
-        registerViewModel(venue: venue, venuePhotoURL: venuePhotoURL)
+    public func buildModule<T>(with rootViewController: NavigationControllable, peripheral: Peripheral) -> Module<T>? {
+        registerService(peripheral: peripheral.bkPeripheral)
+        registerUsecase()
+        registerViewModel(peripheral: peripheral)
         registerView()
-        registerCoordinator(rootViewController: rootViewController, tipsModuleBuilder: venueDetailsDependencyProvider.tipsModuleBuilder)
+        registerCoordinator(rootViewController: rootViewController)
         
-        guard let coordinator = container.resolve(VenueDetailsCoordinator.self) else {
+        guard let coordinator = container.resolve(PeripheralDetailsCoordinator.self) else {
             return nil
         }
         
@@ -103,24 +96,15 @@ public class VenueDetailsModuleBuilder: Builder<VenueDetailsDependency> , VenueD
 }
 ```
 
-First, an interface is defined that describes the `VenueDetailsModuleBuilder`: its `buildModule` function and the interface of the to-be-built object. Any dynamic dependency (for example, a `venue` or `venuePhotoURL`) can be passed as an argument to the `buildModule` method. 
+First, an interface is defined that describes the `PeripheralDetailsModuleBuilder`: its `buildModule` function and the interface of the to-be-built object. Any dynamic dependency (for example, a `peripheral`) can be passed as an argument to the `buildModule` method. 
 
 Note: Usually builders return generic type `Module` to not leak implementation details to the call site. For example, it usually does not make sense for the parent module to call into coordinating functions of a child module.
 
 Secondly, a `DependencyProvider` is created. `DependencyProvider`s can be constructed by the Builder to get dependencies from. Any local dependency can be constructed directly by the DependencyProvider:
 
-``` swift
-private final class VenueDetailsDependencyProvider: DependencyProvider<VenueDetailsDependency> {
-    // dependencies defined here can use parent dependencies from the `dependency` variable 
-    var session: Session { return dependency.session }
-    fileprivate var networkRechabilityManager: NetworkReachabilityManager? { return dependency.networkRechabilityManager }
-    fileprivate var tipsModuleBuilder: TipsModuleBuildable { TipsModuleBuilder() }
-}
-```
-
 These dependencies can be used by child builders later on. For an example, see the below Coordinator section.
 
-Finally (3), a concrete `Builder` class is created. Its structure follows the same pattern: a `DependencyProvider` is created, any intermediate objects (in this case `VenueDetailsViewController`) are created and the final Module is constructed and returned.
+Finally (3), a concrete `Builder` class is created. Its structure follows the same pattern: a `DependencyProvider` is created, any intermediate objects (in this case `PeripheralDetailsViewController`) are created and the final Module is constructed and returned.
 
 ### Coordinator
 
@@ -135,57 +119,41 @@ And Builder is usually created from previous screen's (Previous)Coordinator.
 The relationship between coordinator and view model is established when creating the coordinator in the builder for example: 
 
 ```swift   
-    func registerCoordinator(rootViewController: NavigationControllable? = nil, tipsModuleBuilder: TipsModuleBuildable) {
-        container.register(VenueDetailsCoordinator.self) { [weak self] in
-            guard let viewController = self?.container.resolve(VenueDetailsViewController.self) else {
+    func registerCoordinator(rootViewController: NavigationControllable? = nil) {
+        container.register(PeripheralDetailsCoordinator.self) { [weak self] in
+            guard let viewController = self?.container.resolve(PeripheralDetailsViewController.self) else {
                 return nil
             }
             
-            let coordinator = VenueDetailsCoordinator(rootViewController: rootViewController, viewController: viewController, tipsModuleBuilder: tipsModuleBuilder)
-            coordinator.backButtonTapped = viewController.viewModel.outputs.showMap
-            coordinator.showTips = viewController.viewModel.outputs.showTips
+            let coordinator = PeripheralDetailsCoordinator(rootViewController: rootViewController, viewController: viewController)
+            coordinator.viewControllerDismissed = viewController.viewModel.outputs.viewControllerDismissed
             return coordinator
         }
     }
 ```
 
 ```swift  
-class VenueDetailsCoordinator: BaseCoordinator<Void> {
+class PeripheralDetailsCoordinator: BaseCoordinator<Void> {
     
     private weak var rootViewController: NavigationControllable?
     private let viewController: UIViewController
-    private let tipsModuleBuilder: TipsModuleBuildable
     
-    var backButtonTapped = PublishSubject<Void>()
-    var showTips = PublishSubject<(tips: [TipItem], venuePhotoURL: String?)>()
+    var viewControllerDismissed = PublishSubject<Void>()
 
-    init(rootViewController: NavigationControllable?, viewController: UIViewController, tipsModuleBuilder: TipsModuleBuildable) {
+    init(rootViewController: NavigationControllable?, viewController: UIViewController) {
         self.rootViewController = rootViewController
         self.viewController = viewController
-        self.tipsModuleBuilder = tipsModuleBuilder
     }
     
     override public func start() -> Observable<Void> {
         rootViewController?.pushViewController(viewController, animated: true)
         
-        showTips.subscribe { [weak self] (tips: [TipItem], venuePhotoURL: String?) in
-            guard let self = self else { return }
-            
-            guard let tipsCoordinator: BaseCoordinator<Void> = self.tipsModuleBuilder.buildModule(with: self.viewController, tips: tips, venuePhotoURL: venuePhotoURL)?.coordinator else {
-                preconditionFailure("Cannot get tipsCoordinator from module builder")
-            }
-            
-            self.coordinate(to: tipsCoordinator).subscribe(onNext: {
-            }).disposed(by: self.disposeBag)
-        }.disposed(by: disposeBag)
-        
-        return backButtonTapped.do(onNext: { [weak self] in
-           _ = self?.rootViewController?.popViewController(animated: true)
-        })
+        return viewControllerDismissed.map { [weak self] in
+            let _ = self?.rootViewController?.popViewController(animated: true)
+        }
     }
 }
 ```
-When the view model's `showTips` observer is notified, `showTips` observer of the coordinator would be notified, and then it would route to the job page module. 
 
 ### View Model
 
@@ -194,64 +162,50 @@ A view model is a view’s model. It encapsulates the data needed to populate a 
 The minimal ViewModel example looks as follows:
 
 ``` swift 
-protocol VenueDetailsViewModellable: ViewModellable {
+protocol PeripheralDetailsViewModellable: ViewModellable {
     var disposeBag: DisposeBag { get }
-    var inputs: VenueDetailsViewModelInputs { get }
-    var outputs: VenueDetailsViewModelOutputs { get }
-    
-    func buildVenueTableHeaderViewData() -> TableStretchyHeader.ViewData
-    func buildAddressTableViewCellViewData() -> AddressTableViewCell.ViewData?
-    func buildRatingTableViewCellViewData() -> RatingTableViewCell.ViewData?
-    func buildPhotoGalleryTableViewCellViewData() -> PhotoGalleryTableViewCell.ViewData?
-    func venueLocation() -> Location?
-    func buildtipsTableViewCellViewModel() -> TipsTableViewCell.ViewData?
+    var inputs: PeripheralDetailsViewModelInputs { get }
+    var outputs: PeripheralDetailsViewModelOutputs { get }
 }
 
-struct VenueDetailsViewModelInputs {
+struct PeripheralDetailsViewModelInputs {
     var viewState = PublishSubject<ViewState>()
-    var backButtonTapped = PublishSubject<Void>()
-    var showMap = PublishSubject<(type: MapType, location: Location)>()
-    var itemSelected = PublishSubject<Void>()
+    var viewControllerDismissed = PublishSubject<Void>()
 }
 
-struct VenueDetailsViewModelOutputs {
-    var showVenueDetailsHeader = PublishSubject<TableStretchyHeader.ViewData>()
-    var showError = PublishSubject<FoursquareError>()
-    var showMap = PublishSubject<Void>()
-    var showTips = PublishSubject<(tips: [TipItem], venuePhotoURL: String?)>()
+struct PeripheralDetailsViewModelOutputs {
+    var viewData = PublishSubject<PeripheralDetailsViewController.ViewData>()
+    var viewControllerDismissed = PublishSubject<Void>()
+    var showError = PublishSubject<Error>()
 }
 
-class VenueDetailsViewModel: VenueDetailsViewModellable {
-    
+class PeripheralDetailsViewModel: PeripheralDetailsViewModellable {
+
     let disposeBag = DisposeBag()
-    let inputs = VenueDetailsViewModelInputs()
-    let outputs = VenueDetailsViewModelOutputs()
-    private let useCase: VenueDetailsInteractable
-    private let venue: Venue
-    private let venuePhotoURL: String?
-    private let mapURLHandler: MapURLHandling
-    private var viewData: VenueDetailsViewController.ViewData?
+    let inputs = PeripheralDetailsViewModelInputs()
+    let outputs = PeripheralDetailsViewModelOutputs()
+    private let useCase: PeripheralDetailsInteractable
+    let peripheral: Peripheral
     
-    init(useCase: VenueDetailsInteractable, venue: Venue, venuePhotoURL: String?, mapURLHandler: MapURLHandling) {
+    init(useCase: PeripheralDetailsInteractable, peripheral: Peripheral) {
         self.useCase = useCase
-        self.venue = venue
-        self.venuePhotoURL = venuePhotoURL
-        self.mapURLHandler = mapURLHandler
+        self.peripheral = peripheral
         
         setupObservables()
     }
+}
 ```
 
 ### Inputs
 All input variables `PublishSubject` types that are invoked directly when needed from the view.
 
 ``` swift 
-    let actionButtonTapped = PublishSubject<Void>()
+        var viewControllerDismissed = PublishSubject<Void>()
 ```
 ### Outputs
 All outputs to the external that triggers the next screen action observed by `Coordinator`.
 
 ``` swift
-    let showJobPage = PublishSubject<String>()
+    var showError = PublishSubject<Error>()
 ```
 
