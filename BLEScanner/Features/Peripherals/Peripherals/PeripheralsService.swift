@@ -14,7 +14,7 @@ import CoreBluetooth
 protocol PeripheralsFetching {
     func fetchPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)>
     func sortPeripherals() -> Observable<[Peripheral]>
-    func stopFetchingperipherals()
+    func stopFetchingPeripherals()
 }
 
 class PeripheralsService: PeripheralsFetching {
@@ -27,8 +27,9 @@ class PeripheralsService: PeripheralsFetching {
     }
     
     func fetchPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)> {
+        peripherals = [Peripheral]()
         return Observable.create { [unowned self] observer in
-            self.centralManager.scanForPeripherals(withServiceUUIDs: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: true], timeoutAfter: nil) { scanResult in
+            self.centralManager.scanForPeripherals(withServiceUUIDs: nil, options: nil, timeoutAfter: nil) { scanResult in
                 switch scanResult {
                 case .scanStarted:
                     break
@@ -80,7 +81,7 @@ class PeripheralsService: PeripheralsFetching {
         }
     }
     
-    func stopFetchingperipherals() {
+    func stopFetchingPeripherals() {
         self.centralManager.stopScan()
     }
 }

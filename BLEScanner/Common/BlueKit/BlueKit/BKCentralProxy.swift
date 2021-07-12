@@ -214,14 +214,14 @@ extension BKCentralProxy {
                 Timer.scheduledTimer(
                     timeInterval: timeout,
                     target: self,
-                    selector: #selector(self.disconnectTimeout),
+                    selector: #selector(self.onDisconnectTimerTick),
                     userInfo: request,
                     repeats: false)
             }
         }
     }
     
-    @objc fileprivate func disconnectTimeout(_ timer: Timer) {
+    @objc fileprivate func onDisconnectTimerTick(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
         
         guard let request = timer.userInfo as? PeripheralRequest else { return }

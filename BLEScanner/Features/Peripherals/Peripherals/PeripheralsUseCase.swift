@@ -33,6 +33,6 @@ class PeripheralsUseCase: PeripheralsInteractable {
     }
     
     func stopGettingPeripherals() {
-        service.stopFetchingperipherals()
+        service.stopFetchingPeripherals()
     }
 }

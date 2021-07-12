@@ -128,12 +128,12 @@ extension BKPeripheralProxy {
         Timer.scheduledTimer(
             timeInterval: BKPeripheralProxy.defaultTimeout,
             target: self,
-            selector: #selector(self.readRSSIOperation),
+            selector: #selector(self.onReadRSSIOperationTick),
             userInfo: request,
             repeats: false)
     }
     
-    @objc private func readRSSIOperation(_ timer: Timer) {
+    @objc private func onReadRSSIOperationTick(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
                 
         guard let request = timer.userInfo as? ReadRSSIRequest else { return }

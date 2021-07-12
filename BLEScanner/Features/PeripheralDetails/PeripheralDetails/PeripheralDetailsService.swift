@@ -28,12 +28,14 @@ class PeripheralDetailsService: PeripheralDetailsServiceFetching {
     
     func fetchServices() -> Observable<(services: [Service]?, error: Error?)> {
         return Observable.create { [unowned self] observer in
-            self.peripheral.connect(withTimeout: nil) { [weak self] result in
-                guard let self = self else { return }
+//            self.peripheral.connect(withTimeout: nil) { [weak self] result in
+//                guard let self = self else { return }
                 
-                switch result {
-                case .success:
-                    print("You are now connected to the peripheral")
+//                switch result {
+//                case .success:
+//                    print("You are now connected to the peripheral")
+//
+                    
                     self.peripheral.discoverServices(withUUIDs: nil) { result in
                         switch result {
                         case let .success(services):
@@ -64,10 +66,13 @@ class PeripheralDetailsService: PeripheralDetailsServiceFetching {
                             observer.onNext((self.services, error))
                         }
                     }
-                case .failure(let error):
-                    observer.onNext((self.services, error))
-                }
-            }
+                    
+                    
+                    
+//                case .failure(let error):
+//                    observer.onNext((self.services, error))
+//                }
+//            }
             return Disposables.create()
         }
     }
