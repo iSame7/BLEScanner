@@ -11,6 +11,7 @@
 		5016B1B0269CCF7500A1774D /* PeripheralsUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5016B1AF269CCF7500A1774D /* PeripheralsUseCaseMock.swift */; };
 		5016B1B3269CD5E300A1774D /* BKPeripheralMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5016B1B2269CD5E300A1774D /* BKPeripheralMock.swift */; };
 		5016B1B5269CDDC900A1774D /* PeripheralsBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5016B1B4269CDDC900A1774D /* PeripheralsBuilderTests.swift */; };
+		5016B1B7269CDE7500A1774D /* PeripheralCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5016B1B6269CDE7500A1774D /* PeripheralCoordinatorTests.swift */; };
 		5060D30E269398C800BF39CE /* Peripherals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5060D304269398C800BF39CE /* Peripherals.framework */; };
 		5060D315269398C800BF39CE /* Peripherals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5060D307269398C800BF39CE /* Peripherals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5060D32426939A6C00BF39CE /* PeripheralsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D31E26939A6C00BF39CE /* PeripheralsCoordinator.swift */; };
@@ -43,6 +44,7 @@
 		5016B1AF269CCF7500A1774D /* PeripheralsUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsUseCaseMock.swift; sourceTree = "<group>"; };
 		5016B1B2269CD5E300A1774D /* BKPeripheralMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKPeripheralMock.swift; sourceTree = "<group>"; };
 		5016B1B4269CDDC900A1774D /* PeripheralsBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsBuilderTests.swift; sourceTree = "<group>"; };
+		5016B1B6269CDE7500A1774D /* PeripheralCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralCoordinatorTests.swift; sourceTree = "<group>"; };
 		5060D304269398C800BF39CE /* Peripherals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Peripherals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5060D307269398C800BF39CE /* Peripherals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Peripherals.h; sourceTree = "<group>"; };
 		5060D308269398C800BF39CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				5060D314269398C800BF39CE /* Info.plist */,
 				508F3597269CCA570010E6B8 /* PeripheralsViewModelTests.swift */,
 				5016B1B4269CDDC900A1774D /* PeripheralsBuilderTests.swift */,
+				5016B1B6269CDE7500A1774D /* PeripheralCoordinatorTests.swift */,
 				508F3596269CCA570010E6B8 /* PeripheralsTests-Bridging-Header.h */,
 			);
 			path = PeripheralsTests;
@@ -371,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5016B1B7269CDE7500A1774D /* PeripheralCoordinatorTests.swift in Sources */,
 				508F3598269CCA570010E6B8 /* PeripheralsViewModelTests.swift in Sources */,
 				5016B1B5269CDDC900A1774D /* PeripheralsBuilderTests.swift in Sources */,
 				5016B1B0269CCF7500A1774D /* PeripheralsUseCaseMock.swift in Sources */,
