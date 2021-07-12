@@ -214,14 +214,14 @@ extension BKCentralProxy {
                 Timer.scheduledTimer(
                     timeInterval: timeout,
                     target: self,
-                    selector: #selector(self.onDisconnectTimerTick),
+                    selector: #selector(self.disconnectTimeout),
                     userInfo: request,
                     repeats: false)
             }
         }
     }
     
-    @objc fileprivate func onDisconnectTimerTick(_ timer: Timer) {
+    @objc fileprivate func disconnectTimeout(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
         
         guard let request = timer.userInfo as? PeripheralRequest else { return }
@@ -239,7 +239,7 @@ extension BKCentralProxy {
 extension BKCentralProxy: CBCentralManagerDelegate {
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        postCentralEvent(BKCentral.centralStateChange, userInfo: ["state": central.state])
+        postCentralEvent(Notification.Name(BKCentral.Notifications.centralStateChange.rawValue), userInfo: ["state": central.state])
         
         switch central.state.rawValue {
         case 0: // .unknown
@@ -281,7 +281,7 @@ extension BKCentralProxy: CBCentralManagerDelegate {
             userInfo["error"] = error
         }
         
-        postCentralEvent(BKCentral.centralCBPeripheralDisconnected, userInfo: userInfo)
+        postCentralEvent(Notification.Name(BKCentral.Notifications.centralCBPeripheralDisconnected.rawValue), userInfo: userInfo)
         
         guard let request = disconnectRequests[uuid] else { return }
         
@@ -321,6 +321,6 @@ extension BKCentralProxy: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, willRestoreState dict: [String: Any]) {
         let peripherals = ((dict[CBCentralManagerRestoredStatePeripheralsKey] as? [CBPeripheral]) ?? []).map { BKPeripheral(peripheral: $0) }
-        postCentralEvent(BKCentral.centralManagerWillRestoreState, userInfo: ["peripherals": peripherals])
+        postCentralEvent(Notification.Name(BKCentral.Notifications.centralManagerWillRestoreState.rawValue), userInfo: ["peripherals": peripherals])
     }
 }

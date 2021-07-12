@@ -40,13 +40,15 @@ public protocol BKCentralManaging {
 
 public final class BKCentral {
     
+    enum Notifications: String {
+        case centralCBPeripheralDisconnected = "BKCentralCBPeripheralDisconnected"
+        case centralStateChange = "BKCentralStateChange"
+        case centralManagerWillRestoreState = "BKCentralManagerWillRestoreStateNotification"
+    }
+    
     public static let shared = BKCentral()
     
     private let centralProxy: BKCentralProxy
-
-    public static let centralCBPeripheralDisconnected = Notification.Name("BKCentralCBPeripheralDisconnected")
-    public static let centralStateChange = Notification.Name("BKCentralStateChange")
-    public static let centralManagerWillRestoreState = Notification.Name("BKCentralManagerWillRestoreStateNotification")
 
     private init(centralProxy: BKCentralProxy = BKCentralProxy()) {
         self.centralProxy = centralProxy

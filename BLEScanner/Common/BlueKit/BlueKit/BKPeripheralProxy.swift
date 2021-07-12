@@ -39,7 +39,7 @@ final class BKPeripheralProxy: NSObject  {
         
         cbPeripheral.delegate = self
         
-        NotificationCenter.default.addObserver(forName: BKCentral.centralCBPeripheralDisconnected,
+        NotificationCenter.default.addObserver(forName: Notification.Name(BKCentral.Notifications.centralCBPeripheralDisconnected.rawValue),
                                                object: BKCentral.shared,
                                                queue: nil)
         { [weak self] (notification) in
@@ -48,7 +48,7 @@ final class BKPeripheralProxy: NSObject  {
             }
         }
         
-        NotificationCenter.default.addObserver(forName: BKCentral.centralStateChange,
+        NotificationCenter.default.addObserver(forName: Notification.Name(BKCentral.Notifications.centralStateChange.rawValue),
                                                object: BKCentral.shared,
                                                queue: nil)
         { [weak self] (notification) in
@@ -128,12 +128,12 @@ extension BKPeripheralProxy {
         Timer.scheduledTimer(
             timeInterval: BKPeripheralProxy.defaultTimeout,
             target: self,
-            selector: #selector(self.onReadRSSIOperationTick),
+            selector: #selector(self.readRSSIOperation),
             userInfo: request,
             repeats: false)
     }
     
-    @objc private func onReadRSSIOperationTick(_ timer: Timer) {
+    @objc private func readRSSIOperation(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
                 
         guard let request = timer.userInfo as? ReadRSSIRequest else { return }
