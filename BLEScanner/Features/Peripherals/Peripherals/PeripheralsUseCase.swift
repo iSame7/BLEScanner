@@ -12,6 +12,7 @@ import Core
 
 public protocol PeripheralsInteractable {
     func getPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)>
+    func getPeripheralsSorted() -> Observable<[Peripheral]>
 }
 
 class PeripheralsUseCase: PeripheralsInteractable {
@@ -24,5 +25,9 @@ class PeripheralsUseCase: PeripheralsInteractable {
     
     func getPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)> {
         service.fetchPeripherals()
+    }
+    
+    func getPeripheralsSorted() -> Observable<[Peripheral]> {
+        service.sortPeripherals()
     }
 }

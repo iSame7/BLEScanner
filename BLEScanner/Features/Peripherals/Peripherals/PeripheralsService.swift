@@ -12,6 +12,7 @@ import Core
 
 protocol PeripheralsFetching {
     func fetchPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)>
+    func sortPeripherals() -> Observable<[Peripheral]>
 }
 
 class PeripheralsService: PeripheralsFetching {
@@ -58,6 +59,20 @@ class PeripheralsService: PeripheralsFetching {
                     observer.onNext((self.peripherals, error))
                 }
             }
+            return Disposables.create()
+        }
+    }
+    
+    func sortPeripherals() -> Observable<[Peripheral]> {
+        return Observable.create { [unowned self] observer in
+            self.peripherals = self.peripherals.filter({ pripheral in
+                guard pripheral.rssi != 127 else {
+                    return false
+                }
+                
+                return true
+            }).sorted(by: {$0.rssi > $1.rssi})
+            observer.onNext((self.peripherals))
             return Disposables.create()
         }
     }

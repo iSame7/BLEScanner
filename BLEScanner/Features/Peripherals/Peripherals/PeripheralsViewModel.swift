@@ -71,14 +71,12 @@ private extension PeripheralsViewModel {
         inputs.sortPeripherals.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
             
-            self.peripherals = self.peripherals.filter({ pripheral in
-                guard pripheral.rssi != 127 else {
-                    return false
-                }
+            self.useCase.getPeripheralsSorted().subscribe { event in
+                guard let peripherals = event.element else { return }
                 
-                return true
-            }).sorted(by: {$0.rssi > $1.rssi})
-            self.outputs.updatePeripherals.onNext(())
+                self.peripherals = peripherals
+                self.outputs.updatePeripherals.onNext(())
+            }.disposed(by: self.disposeBag)
         }).disposed(by: disposeBag)
         
         inputs.itemTapped.subscribe(onNext: { [weak self] peripheral in
