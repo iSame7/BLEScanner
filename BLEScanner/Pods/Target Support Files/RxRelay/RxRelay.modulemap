@@ -1,5 +1,5 @@
 framework module RxRelay {
-  umbrella header "RxRelay-iOS14.5-umbrella.h"
+  umbrella header "RxRelay-umbrella.h"
 
   export *
   module * { export * }

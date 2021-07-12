@@ -41,7 +41,7 @@ private extension PeripheralDetailsModuleBuilder {
         }
     }
     
-    func registerService(peripheral: BKPeripheral) {
+    func registerService(peripheral: BKPeripheralBLECabable) {
         container.register(PeripheralDetailsServiceFetching.self) {
             return PeripheralDetailsService(peripheral: peripheral)
         }

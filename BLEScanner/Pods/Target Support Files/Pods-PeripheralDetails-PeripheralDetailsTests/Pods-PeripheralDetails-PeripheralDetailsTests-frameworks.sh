@@ -161,16 +161,16 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-iOS14.5/RxCocoa.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxRelay-iOS14.5/RxRelay.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-iOS14.5/RxSwift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxTest-iOS14.5/RxTest.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-iOS14.5/RxCocoa.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxRelay-iOS14.5/RxRelay.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-iOS14.5/RxSwift.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxTest-iOS14.5/RxTest.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

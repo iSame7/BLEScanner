@@ -17,12 +17,12 @@ protocol PeripheralDetailsServiceFetching {
 
 class PeripheralDetailsService: PeripheralDetailsServiceFetching {
     
-    private let peripheral: BKPeripheral
+    private let peripheral: BKPeripheralBLECabable
     private var services = [Service]()
     private var discoverredServices = [CBService]()
     private var discoverredServicesIndex = 0
     
-    init(peripheral: BKPeripheral) {
+    init(peripheral: BKPeripheralBLECabable) {
         self.peripheral = peripheral
     }
     

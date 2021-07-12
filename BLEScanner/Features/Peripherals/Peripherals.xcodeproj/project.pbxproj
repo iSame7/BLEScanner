@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		01A9DA787EBF4AD63D154E55 /* Pods_Peripherals_PeripheralsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A496DFB5907632F117D1977 /* Pods_Peripherals_PeripheralsTests.framework */; };
+		5016B1B0269CCF7500A1774D /* PeripheralsUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5016B1AF269CCF7500A1774D /* PeripheralsUseCaseMock.swift */; };
+		5016B1B3269CD5E300A1774D /* BKPeripheralMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5016B1B2269CD5E300A1774D /* BKPeripheralMock.swift */; };
 		5060D30E269398C800BF39CE /* Peripherals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5060D304269398C800BF39CE /* Peripherals.framework */; };
-		5060D313269398C800BF39CE /* PeripheralsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D312269398C800BF39CE /* PeripheralsTests.swift */; };
 		5060D315269398C800BF39CE /* Peripherals.h in Headers */ = {isa = PBXBuildFile; fileRef = 5060D307269398C800BF39CE /* Peripherals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5060D32426939A6C00BF39CE /* PeripheralsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D31E26939A6C00BF39CE /* PeripheralsCoordinator.swift */; };
 		5060D32526939A6C00BF39CE /* PeripheralsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D31F26939A6C00BF39CE /* PeripheralsModuleBuilder.swift */; };
@@ -20,6 +21,7 @@
 		5060D37C2695B89500BF39CE /* PeripheralsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060D37B2695B89500BF39CE /* PeripheralsService.swift */; };
 		50758AAD2695EAD000390126 /* BlueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50758AAC2695EAD000390126 /* BlueKit.framework */; platformFilter = ios; };
 		508F3593269CB53B0010E6B8 /* PeripheralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F3592269CB53B0010E6B8 /* PeripheralCell.swift */; };
+		508F3598269CCA570010E6B8 /* PeripheralsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F3597269CCA570010E6B8 /* PeripheralsViewModelTests.swift */; };
 		50BB4A062696EBA800EF8475 /* PeripheralDetails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BB4A052696EBA800EF8475 /* PeripheralDetails.framework */; platformFilter = ios; };
 		88E569F88FC4E98E76D22C7E /* Pods_Peripherals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA28BB0EF2D3AC8D87BEC243 /* Pods_Peripherals.framework */; };
 /* End PBXBuildFile section */
@@ -37,11 +39,12 @@
 /* Begin PBXFileReference section */
 		0A496DFB5907632F117D1977 /* Pods_Peripherals_PeripheralsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Peripherals_PeripheralsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1133938CA56388D9722E8AA7 /* Pods-Peripherals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peripherals.debug.xcconfig"; path = "Target Support Files/Pods-Peripherals/Pods-Peripherals.debug.xcconfig"; sourceTree = "<group>"; };
+		5016B1AF269CCF7500A1774D /* PeripheralsUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsUseCaseMock.swift; sourceTree = "<group>"; };
+		5016B1B2269CD5E300A1774D /* BKPeripheralMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKPeripheralMock.swift; sourceTree = "<group>"; };
 		5060D304269398C800BF39CE /* Peripherals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Peripherals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5060D307269398C800BF39CE /* Peripherals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Peripherals.h; sourceTree = "<group>"; };
 		5060D308269398C800BF39CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5060D30D269398C800BF39CE /* PeripheralsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeripheralsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5060D312269398C800BF39CE /* PeripheralsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsTests.swift; sourceTree = "<group>"; };
 		5060D314269398C800BF39CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5060D31E26939A6C00BF39CE /* PeripheralsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsCoordinator.swift; sourceTree = "<group>"; };
 		5060D31F26939A6C00BF39CE /* PeripheralsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsModuleBuilder.swift; sourceTree = "<group>"; };
@@ -52,6 +55,8 @@
 		5060D37B2695B89500BF39CE /* PeripheralsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsService.swift; sourceTree = "<group>"; };
 		50758AAC2695EAD000390126 /* BlueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BlueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		508F3592269CB53B0010E6B8 /* PeripheralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralCell.swift; sourceTree = "<group>"; };
+		508F3596269CCA570010E6B8 /* PeripheralsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PeripheralsTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		508F3597269CCA570010E6B8 /* PeripheralsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsViewModelTests.swift; sourceTree = "<group>"; };
 		50BB4A052696EBA800EF8475 /* PeripheralDetails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PeripheralDetails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ECE357BC888DEA9F58AB86D /* Pods-Peripherals-PeripheralsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peripherals-PeripheralsTests.release.xcconfig"; path = "Target Support Files/Pods-Peripherals-PeripheralsTests/Pods-Peripherals-PeripheralsTests.release.xcconfig"; sourceTree = "<group>"; };
 		97813F93EC36943ABB619D85 /* Pods-Peripherals-PeripheralsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peripherals-PeripheralsTests.debug.xcconfig"; path = "Target Support Files/Pods-Peripherals-PeripheralsTests/Pods-Peripherals-PeripheralsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5016B1AE269CCE1000A1774D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				5016B1AF269CCF7500A1774D /* PeripheralsUseCaseMock.swift */,
+				5016B1B2269CD5E300A1774D /* BKPeripheralMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		5060D2FA269398C800BF39CE = {
 			isa = PBXGroup;
 			children = (
@@ -122,8 +136,10 @@
 		5060D311269398C800BF39CE /* PeripheralsTests */ = {
 			isa = PBXGroup;
 			children = (
-				5060D312269398C800BF39CE /* PeripheralsTests.swift */,
+				5016B1AE269CCE1000A1774D /* Mocks */,
 				5060D314269398C800BF39CE /* Info.plist */,
+				508F3597269CCA570010E6B8 /* PeripheralsViewModelTests.swift */,
+				508F3596269CCA570010E6B8 /* PeripheralsTests-Bridging-Header.h */,
 			);
 			path = PeripheralsTests;
 			sourceTree = "<group>";
@@ -229,6 +245,7 @@
 					};
 					5060D30C269398C800BF39CE = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -351,7 +368,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5060D313269398C800BF39CE /* PeripheralsTests.swift in Sources */,
+				508F3598269CCA570010E6B8 /* PeripheralsViewModelTests.swift in Sources */,
+				5016B1B0269CCF7500A1774D /* PeripheralsUseCaseMock.swift in Sources */,
+				5016B1B3269CD5E300A1774D /* BKPeripheralMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +563,7 @@
 			baseConfigurationReference = 97813F93EC36943ABB619D85 /* Pods-Peripherals-PeripheralsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8U3N7M58T5;
 				INFOPLIST_FILE = PeripheralsTests/Info.plist;
@@ -554,6 +574,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.PeripheralsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PeripheralsTests/PeripheralsTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -564,6 +586,7 @@
 			baseConfigurationReference = 5ECE357BC888DEA9F58AB86D /* Pods-Peripherals-PeripheralsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8U3N7M58T5;
 				INFOPLIST_FILE = PeripheralsTests/Info.plist;
@@ -574,6 +597,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.PeripheralsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PeripheralsTests/PeripheralsTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
