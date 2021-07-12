@@ -8,14 +8,23 @@
 
 import BlueKit
 
-public struct Peripheral {
-    public let bkPeripheral: BKPeripheral
-    public let advertismentData: [String: Any]
-    public let rssi: Int?
+public class Peripheral: Equatable, Hashable {
     
-    public init(bkPeripheral: BKPeripheral, advertismentData: [String: Any], rssi: Int?) {
+    public let bkPeripheral: BKPeripheral
+    public var advertismentData: [String: Any] = [:]
+    public var rssi: Int?
+    public var lastUpdatedTimeInterval: TimeInterval
+
+    public init(bkPeripheral: BKPeripheral) {
         self.bkPeripheral = bkPeripheral
-        self.advertismentData = advertismentData
-        self.rssi = rssi
+        self.lastUpdatedTimeInterval = Date().timeIntervalSince1970
+    }
+    
+    public static func == (lhs: Peripheral, rhs: Peripheral) -> Bool {
+        return lhs.bkPeripheral.identifier.uuidString.isEqual(rhs.bkPeripheral.identifier.uuidString)
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(bkPeripheral.hash)
     }
 }

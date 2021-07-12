@@ -3,11 +3,12 @@
 //  PeripheralDetails
 //
 //  Created Sameh Mabrouk on 07/07/2021.
-//  Copyright © 2021 ___ORGANIZATIONNAME___. All rights reserved.
+//  Copyright © 2021 Sameh Mabrouk. All rights reserved.
 //
 
 import UIKit
 import Core
+import BlueKit
 
 public protocol PeripheralDetailsModuleBuildable: ModuleBuildable {
     func buildModule<T>(with rootViewController: NavigationControllable, peripheral: Peripheral) -> Module<T>?
@@ -16,9 +17,9 @@ public protocol PeripheralDetailsModuleBuildable: ModuleBuildable {
 public class PeripheralDetailsModuleBuilder: Builder<EmptyDependency>, PeripheralDetailsModuleBuildable {
     
     public func buildModule<T>(with rootViewController: NavigationControllable, peripheral: Peripheral) -> Module<T>? {
-        registerService()
+        registerService(peripheral: peripheral.bkPeripheral)
         registerUsecase()
-        registerViewModel()
+        registerViewModel(peripheral: peripheral)
         registerView()
         registerCoordinator(rootViewController: rootViewController)
         
@@ -35,22 +36,22 @@ private extension PeripheralDetailsModuleBuilder {
     func registerUsecase() {
         container.register(PeripheralDetailsInteractable.self) { [weak self] in
             guard let self = self,
-                let service = self.container.resolve(PeripheralDetailsServicePerforming.self) else { return nil }
+                let service = self.container.resolve(PeripheralDetailsServiceFetching.self) else { return nil }
             return PeripheralDetailsUseCase(service: service)
         }
     }
     
-    func registerService() {
-        container.register(PeripheralDetailsServicePerforming.self) {
-            return PeripheralDetailsService()
+    func registerService(peripheral: BKPeripheral) {
+        container.register(PeripheralDetailsServiceFetching.self) {
+            return PeripheralDetailsService(peripheral: peripheral)
         }
     }
     
-    func registerViewModel() {
+    func registerViewModel(peripheral: Peripheral) {
         container.register(PeripheralDetailsViewModel.self) { [weak self] in
             guard let useCase = self?.container.resolve(PeripheralDetailsInteractable.self) else { return nil }
             
-            return PeripheralDetailsViewModel(useCase: useCase)
+            return PeripheralDetailsViewModel(useCase: useCase, peripheral: peripheral)
         }
     }
     
@@ -71,6 +72,7 @@ private extension PeripheralDetailsModuleBuilder {
             }
             
             let coordinator = PeripheralDetailsCoordinator(rootViewController: rootViewController, viewController: viewController)
+            coordinator.viewControllerDismissed = viewController.viewModel.outputs.viewControllerDismissed
             return coordinator
         }
     }

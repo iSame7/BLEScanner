@@ -11,7 +11,7 @@ import BlueKit
 import Core
 
 public protocol PeripheralsInteractable {
-    func getPeripherals() -> Observable<(perhipherals: [Peripheral]?, error: BKError?)>
+    func getPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)>
 }
 
 class PeripheralsUseCase: PeripheralsInteractable {
@@ -22,7 +22,7 @@ class PeripheralsUseCase: PeripheralsInteractable {
         self.service = service
     }
     
-    func getPeripherals() -> Observable<(perhipherals: [Peripheral]?, error: BKError?)> {
+    func getPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)> {
         service.fetchPeripherals()
     }
 }

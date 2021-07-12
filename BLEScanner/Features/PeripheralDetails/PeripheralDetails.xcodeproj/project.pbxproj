@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4E89E3477203B0199D8CAC90 /* Pods_PeripheralDetails_PeripheralDetailsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D6076DC46DEDAB39286123 /* Pods_PeripheralDetails_PeripheralDetailsTests.framework */; };
+		508F358C269C3D880010E6B8 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F358B269C3D880010E6B8 /* TableHeaderView.swift */; };
 		50BB49E726961C7500EF8475 /* PeripheralDetails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BB49DD26961C7500EF8475 /* PeripheralDetails.framework */; };
 		50BB49EC26961C7500EF8475 /* PeripheralDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB49EB26961C7500EF8475 /* PeripheralDetailsTests.swift */; };
 		50BB49EE26961C7500EF8475 /* PeripheralDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 50BB49E026961C7500EF8475 /* PeripheralDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		32F97283BBF61E6C4B75B55A /* Pods-PeripheralDetails.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeripheralDetails.release.xcconfig"; path = "Target Support Files/Pods-PeripheralDetails/Pods-PeripheralDetails.release.xcconfig"; sourceTree = "<group>"; };
+		508F358B269C3D880010E6B8 /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
 		50BB49DD26961C7500EF8475 /* PeripheralDetails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PeripheralDetails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BB49E026961C7500EF8475 /* PeripheralDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeripheralDetails.h; sourceTree = "<group>"; };
 		50BB49E126961C7500EF8475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,9 +100,10 @@
 				50BB49F726961D7F00EF8475 /* PeripheralDetailsCoordinator.swift */,
 				50BB49F826961D7F00EF8475 /* PeripheralDetailsModuleBuilder.swift */,
 				50BB49F926961D7F00EF8475 /* PeripheralDetailsUseCase.swift */,
-				50BB49FA26961D7F00EF8475 /* PeripheralDetailsViewController.swift */,
-				50BB49FB26961D7F00EF8475 /* PeripheralDetailsViewModel.swift */,
 				50BB49FC26961D7F00EF8475 /* PeripheralDetailsService.swift */,
+				50BB49FA26961D7F00EF8475 /* PeripheralDetailsViewController.swift */,
+				508F358B269C3D880010E6B8 /* TableHeaderView.swift */,
+				50BB49FB26961D7F00EF8475 /* PeripheralDetailsViewModel.swift */,
 				50BB49E026961C7500EF8475 /* PeripheralDetails.h */,
 				50BB49E126961C7500EF8475 /* Info.plist */,
 			);
@@ -318,6 +321,7 @@
 				50BB49FF26961D7F00EF8475 /* PeripheralDetailsUseCase.swift in Sources */,
 				50BB4A0126961D7F00EF8475 /* PeripheralDetailsViewModel.swift in Sources */,
 				50BB4A0226961D7F00EF8475 /* PeripheralDetailsService.swift in Sources */,
+				508F358C269C3D880010E6B8 /* TableHeaderView.swift in Sources */,
 				50BB49FD26961D7F00EF8475 /* PeripheralDetailsCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

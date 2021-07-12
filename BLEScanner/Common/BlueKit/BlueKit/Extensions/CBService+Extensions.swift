@@ -33,4 +33,12 @@ public extension CBService {
         
         return (foundCharacteristics: foundCharacteristics, missingCharacteristicsUUIDs: Array(missingCharacteristicsUUIDSet))
     }
+    
+    var name : String {
+        guard let name = self.uuid.name else {
+            return "UUID: " + self.uuid.uuidString
+        }
+        
+        return name
+    }
 }

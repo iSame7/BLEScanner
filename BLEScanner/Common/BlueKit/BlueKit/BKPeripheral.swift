@@ -85,11 +85,12 @@ public protocol BKPeripheralBLECabable {
     
 }
 /// A wrapper on top of a CBPeripheral  used to run CBPeripheral related functions with closures instead of CBPeripheralDelegate.
-public final class BKPeripheral {
+public final class BKPeripheral: NSObject {
     
     private var peripheralProxy: BKPeripheralProxy!
 
     init(peripheral: CBPeripheral) {
+        super.init()
         self.peripheralProxy = BKPeripheralProxy(cbPeripheral: peripheral, peripheral: self)
     }
 }

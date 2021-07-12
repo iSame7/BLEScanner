@@ -11,7 +11,7 @@ import BlueKit
 import Core
 
 protocol PeripheralsFetching {
-    func fetchPeripherals() -> Observable<(perhipherals: [Peripheral]?, error: BKError?)>
+    func fetchPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)>
 }
 
 class PeripheralsService: PeripheralsFetching {
@@ -23,17 +23,36 @@ class PeripheralsService: PeripheralsFetching {
         self.centralManager = centralManager
     }
     
-    func fetchPeripherals() -> Observable<(perhipherals: [Peripheral]?, error: BKError?)> {
+    func fetchPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)> {
         return Observable.create { [unowned self] observer in
             self.centralManager.scanForPeripherals(withServiceUUIDs: nil, options: nil, timeoutAfter: 15) { scanResult in
                 switch scanResult {
                 case .scanStarted:
                     break
-                case let .scanResult(peripheral, advertisementData, rssi):
-                    if !self.peripherals.contains(where: {$0.bkPeripheral.identifier.uuidString == peripheral.identifier.uuidString}) {
-                        self.peripherals.append(Peripheral(bkPeripheral: peripheral, advertismentData: advertisementData, rssi: rssi))
-                        self.peripherals.sort(by: { $0.rssi ?? 127 > $1.rssi ?? 127 })
+                case let .scanResult(bkPeripheral, advertisementData, rssi):
+                    let peripheral = Peripheral(bkPeripheral: bkPeripheral)
+                    if !peripherals.contains(peripheral) {
+                        peripheral.rssi = rssi
+                        peripheral.advertismentData = advertisementData
+                        peripherals.append(peripheral)
+                    } else {
+                        guard let index = self.peripherals.firstIndex(of: peripheral) else {
+                            return
+                        }
+                        
+                        let originalPeripheral = peripherals[index]
+                        let now = Date().timeIntervalSince1970
+                        
+                        // If the last update within one second, then ignore it
+                        guard now - originalPeripheral.lastUpdatedTimeInterval >= 1.0 else {
+                            return
+                        }
+
+                        originalPeripheral.rssi = rssi
+                        originalPeripheral.advertismentData = advertisementData
+                        originalPeripheral.lastUpdatedTimeInterval = now
                     }
+                    
                     observer.onNext((self.peripherals, nil))
                 case let .scanStopped(_, error):
                     observer.onNext((self.peripherals, error))

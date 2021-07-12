@@ -81,14 +81,14 @@ extension BKPeripheralProxy {
     
     func connect(timeout: TimeInterval = 10, _ completion: @escaping ConnectPeripheralCompletion) {
         if self.valid {
-            BKCentral.shared.connect(peripheral: self.cbPeripheral, timeout: timeout, completion: completion)
+            BKCentral.shared.connect(peripheral: cbPeripheral, timeout: timeout, completion: completion)
         } else {
             completion(.failure(BKError.invalidPeripheral))
         }
     }
     
     func disconnect(_ completion: @escaping DisconnectPeripheralCompletion) {
-        BKCentral.shared.disconnect(peripheral: self.cbPeripheral, completion: completion)
+        BKCentral.shared.disconnect(peripheral: cbPeripheral, completion: completion)
     }
 }
 
@@ -138,7 +138,9 @@ extension BKPeripheralProxy {
                 
         guard let request = timer.userInfo as? ReadRSSIRequest else { return }
         
-        readRSSIRequests.removeFirst()
+        if !readRSSIRequests.isEmpty {
+            readRSSIRequests.removeFirst()
+        }
         
         request.Completion(.failure(BKError.operationTimedOut(operation: .readRSSI)))
         
@@ -203,21 +205,23 @@ extension BKPeripheralProxy {
         Timer.scheduledTimer(
             timeInterval: BKPeripheralProxy.defaultTimeout,
             target: self,
-            selector: #selector(self.onServiceRequestTimerTick),
+            selector: #selector(self.serviceRequestTimout),
             userInfo: request,
             repeats: false)
     }
     
-    @objc private func onServiceRequestTimerTick(_ timer: Timer) {
+    @objc private func serviceRequestTimout(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
 
         guard let request = timer.userInfo as? ServiceRequest else { return }
         
-        serviceRequests.removeFirst()
+        if !serviceRequests.isEmpty {
+            serviceRequests.removeFirst()
+        }
         
         request.Completion(.failure(BKError.operationTimedOut(operation: .discoverServices)))
         
-        self.runServiceRequest()
+        runServiceRequest()
     }
 }
 
@@ -273,17 +277,19 @@ extension BKPeripheralProxy {
         Timer.scheduledTimer(
             timeInterval: BKPeripheralProxy.defaultTimeout,
             target: self,
-            selector: #selector(self.onIncludedServicesRequestTimerTick),
+            selector: #selector(self.includedServicesRequestTimeout),
             userInfo: request,
             repeats: false)
     }
     
-    @objc private func onIncludedServicesRequestTimerTick(_ timer: Timer) {
+    @objc private func includedServicesRequestTimeout(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
         
         guard let request = timer.userInfo as? IncludedServicesRequest else { return }
         
-        includedServicesRequests.removeFirst()
+        if !includedServicesRequests.isEmpty {
+            includedServicesRequests.removeFirst()
+        }
         
         request.Completion(.failure(BKError.operationTimedOut(operation: .discoverIncludedServices)))
         
@@ -334,7 +340,7 @@ extension BKPeripheralProxy {
             if let characteristicUUIDs = characteristicUUIDs {
                 let characTuple = service.characteristicsWithUUIDs(characteristicUUIDs)
                 
-                if (characTuple.missingCharacteristicsUUIDs.count == 0) {
+                if (characTuple.missingCharacteristicsUUIDs.isEmpty) {
                     completion(.success(characTuple.foundCharacteristics))
                     return
                 }
@@ -361,17 +367,19 @@ extension BKPeripheralProxy {
         Timer.scheduledTimer(
             timeInterval: BKPeripheralProxy.defaultTimeout,
             target: self,
-            selector: #selector(onCharacteristicRequestTimerTick),
+            selector: #selector(characteristicRequestTimeout),
             userInfo: request,
             repeats: false)
     }
     
-    @objc private func onCharacteristicRequestTimerTick(_ timer: Timer) {
+    @objc private func characteristicRequestTimeout(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
 
         guard let request = timer.userInfo as? CharacteristicRequest else { return }
         
-        characteristicRequests.removeFirst()
+        if !characteristicRequests.isEmpty {
+            characteristicRequests.removeFirst()
+        }
         
         request.Completion(.failure(BKError.operationTimedOut(operation: .discoverCharacteristics)))
         
@@ -430,17 +438,19 @@ extension BKPeripheralProxy {
         Timer.scheduledTimer(
             timeInterval: BKPeripheralProxy.defaultTimeout,
             target: self,
-            selector: #selector(self.onDescriptorRequestTimerTick),
+            selector: #selector(self.descriptorRequestTimeout),
             userInfo: request,
             repeats: false)
     }
     
-    @objc private func onDescriptorRequestTimerTick(_ timer: Timer) {
+    @objc private func descriptorRequestTimeout(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
         
         guard let request = timer.userInfo as? DescriptorRequest else { return }
         
-        descriptorRequests.removeFirst()
+        if !descriptorRequests.isEmpty {
+            descriptorRequests.removeFirst()
+        }
         
         request.Completion(.failure(BKError.operationTimedOut(operation: .discoverDescriptors)))
         
@@ -504,12 +514,12 @@ extension BKPeripheralProxy {
         Timer.scheduledTimer(
             timeInterval: BKPeripheralProxy.defaultTimeout,
             target: self,
-            selector: #selector(self.onReadCharacteristicTimerTick),
+            selector: #selector(self.readCharacteristicTimeout),
             userInfo: request,
             repeats: false)
     }
     
-    @objc private func onReadCharacteristicTimerTick(_ timer: Timer) {
+    @objc private func readCharacteristicTimeout(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
         
         guard let request = timer.userInfo as? ReadCharacteristicRequest else { return }
@@ -588,12 +598,12 @@ extension BKPeripheralProxy {
         Timer.scheduledTimer(
             timeInterval: BKPeripheralProxy.defaultTimeout,
             target: self,
-            selector: #selector(self.onReadDescriptorTimerTick),
+            selector: #selector(self.readDescriptorTimeout),
             userInfo: request,
             repeats: false)
     }
     
-    @objc private func onReadDescriptorTimerTick(_ timer: Timer) {
+    @objc private func readDescriptorTimeout(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
         
         guard let request = timer.userInfo as? ReadDescriptorRequest else { return }
@@ -676,7 +686,7 @@ extension BKPeripheralProxy {
             Timer.scheduledTimer(
                 timeInterval: BKPeripheralProxy.defaultTimeout,
                 target: self,
-                selector: #selector(onWriteCharacteristicValueRequestTimerTick),
+                selector: #selector(writeCharacteristicValueRequestTimeout),
                 userInfo: request,
                 repeats: false)
         } else {
@@ -693,7 +703,7 @@ extension BKPeripheralProxy {
         
     }
     
-    @objc private func onWriteCharacteristicValueRequestTimerTick(_ timer: Timer) {
+    @objc private func writeCharacteristicValueRequestTimeout(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
         
         guard let request = timer.userInfo as? WriteCharacteristicValueRequest else { return }
@@ -778,12 +788,12 @@ extension BKPeripheralProxy {
         Timer.scheduledTimer(
             timeInterval: BKPeripheralProxy.defaultTimeout,
             target: self,
-            selector: #selector(self.onWriteDescriptorValueRequestTimerTick),
+            selector: #selector(self.writeDescriptorValueRequestTimeout),
             userInfo: request,
             repeats: false)
     }
     
-    @objc fileprivate func onWriteDescriptorValueRequestTimerTick(_ timer: Timer) {
+    @objc fileprivate func writeDescriptorValueRequestTimeout(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
         
         guard let request = timer.userInfo as? WriteDescriptorValueRequest else { return }
@@ -858,12 +868,12 @@ extension BKPeripheralProxy {
         Timer.scheduledTimer(
             timeInterval: BKPeripheralProxy.defaultTimeout,
             target: self,
-            selector: #selector(onUpdateNotificationStateRequestTick),
+            selector: #selector(updateNotificationStateRequestTimeout),
             userInfo: request,
             repeats: false)
     }
     
-    @objc private func onUpdateNotificationStateRequestTick(_ timer: Timer) {
+    @objc private func updateNotificationStateRequestTimeout(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
         
         guard let request = timer.userInfo as? UpdateNotificationStateRequest else { return }
@@ -888,7 +898,9 @@ extension BKPeripheralProxy: CBPeripheralDelegate {
     @objc func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
         guard let readRSSIRequest = self.readRSSIRequests.first else { return }
         
-        readRSSIRequests.removeFirst()
+        if !readRSSIRequests.isEmpty {
+            readRSSIRequests.removeFirst()
+        }
         
         let result: Result<Int, Error> = {
             if let error = error {
@@ -923,7 +935,9 @@ extension BKPeripheralProxy: CBPeripheralDelegate {
         
         defer { runIncludedServicesRequest() }
         
-        includedServicesRequests.removeFirst()
+        if !includedServicesRequests.isEmpty {
+            includedServicesRequests.removeFirst()
+        }
         
         if let error = error {
             includedServicesRequest.Completion(.failure(error))
@@ -943,11 +957,13 @@ extension BKPeripheralProxy: CBPeripheralDelegate {
     }
     
     @objc func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        guard let serviceRequest = self.serviceRequests.first else { return }
+        guard let serviceRequest = serviceRequests.first else { return }
         
         defer { runServiceRequest() }
         
-        serviceRequests.removeFirst()
+        if !serviceRequests.isEmpty {
+            serviceRequests.removeFirst()
+        }
         
         if let error = error {
             serviceRequest.Completion(.failure(error))
@@ -958,7 +974,7 @@ extension BKPeripheralProxy: CBPeripheralDelegate {
             let servicesTuple = peripheral.servicesWithUUIDs(serviceUUIDs)
             if !servicesTuple.missingServicesUUIDs.isEmpty {
                 serviceRequest.Completion(.failure(BKError.peripheralServiceNotFound(missingServicesUUIDs: servicesTuple.missingServicesUUIDs)))
-            } else { // This implies that all the services we're found through Set logic in the servicesWithUUIDs function
+            } else {
                 serviceRequest.Completion(.success(servicesTuple.foundServices))
             }
         } else {
@@ -971,7 +987,9 @@ extension BKPeripheralProxy: CBPeripheralDelegate {
         
         defer { runCharacteristicRequest() }
         
-        characteristicRequests.removeFirst()
+        if !characteristicRequests.isEmpty {
+            characteristicRequests.removeFirst()
+        }
         
         if let error = error {
             characteristicRequest.Completion(.failure(error))
@@ -981,7 +999,7 @@ extension BKPeripheralProxy: CBPeripheralDelegate {
         if let characteristicUUIDs = characteristicRequest.characteristicUUIDs {
             let characteristicsTuple = service.characteristicsWithUUIDs(characteristicUUIDs)
             
-            if characteristicsTuple.missingCharacteristicsUUIDs.count > 0 {
+            if !characteristicsTuple.missingCharacteristicsUUIDs.isEmpty {
                 characteristicRequest.Completion(.failure(BKError.peripheralCharacteristicNotFound(missingCharacteristicsUUIDs: characteristicsTuple.missingCharacteristicsUUIDs)))
             } else {
                 characteristicRequest.Completion(.success(characteristicsTuple.foundCharacteristics))
@@ -996,7 +1014,9 @@ extension BKPeripheralProxy: CBPeripheralDelegate {
         
         defer { runDescriptorRequest() }
         
-        descriptorRequests.removeFirst()
+        if !descriptorRequests.isEmpty {
+            descriptorRequests.removeFirst()
+        }
         
         if let error = error {
             descriptorRequest.Completion(.failure(error))

@@ -55,7 +55,7 @@ private extension PeripheralsViewModel {
                 self.useCase.getPeripherals().subscribe { event in
                     guard let result = event.element else { return }
                     
-                    if let perhipherals = result.perhipherals {
+                    if let perhipherals = result.peripherals {
                         self.peripherals = perhipherals
                     } else if let error = result.error {
                         print("Error while scanning for perhipherals: \(error)")

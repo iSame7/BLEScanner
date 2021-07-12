@@ -134,6 +134,7 @@ extension BKCentralProxy {
 // MARK: - Connect Peripheral requests
 
 extension BKCentralProxy {
+    
     func connect(peripheral: CBPeripheral, timeout: TimeInterval, _ Completion: @escaping ConnectPeripheralCompletion) {
         initializeBluetooth { [unowned self] (error) in
             if let error = error {
@@ -158,14 +159,14 @@ extension BKCentralProxy {
                 Timer.scheduledTimer(
                     timeInterval: timeout,
                     target: self,
-                    selector: #selector(self.onConnectTimerTick),
+                    selector: #selector(self.connectTimeout),
                     userInfo: request,
                     repeats: false)
             }
         }
     }
     
-    @objc fileprivate func onConnectTimerTick(_ timer: Timer) {
+    @objc fileprivate func connectTimeout(_ timer: Timer) {
         defer { if timer.isValid { timer.invalidate() } }
         
         guard let request = timer.userInfo as? PeripheralRequest else { return }
@@ -316,7 +317,7 @@ extension BKCentralProxy: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, willRestoreState dict: [String: Any]) {
-//        let peripherals = ((dict[CBCentralManagerRestoredStatePeripheralsKey] as? [CBPeripheral]) ?? []).map { Peripheral(peripheral: $0) }
-//        postCentralEvent(Central.CentralManagerWillRestoreState, userInfo: ["peripherals": peripherals])
+        let peripherals = ((dict[CBCentralManagerRestoredStatePeripheralsKey] as? [CBPeripheral]) ?? []).map { BKPeripheral(peripheral: $0) }
+        postCentralEvent(BKCentral.centralManagerWillRestoreState, userInfo: ["peripherals": peripherals])
     }
 }

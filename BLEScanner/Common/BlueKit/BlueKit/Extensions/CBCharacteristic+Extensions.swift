@@ -33,4 +33,17 @@ public extension CBCharacteristic {
         
         return (foundDescriptors: foundDescriptors, missingDescriptorsUUIDs: Array(missingDescriptorsUUIDsSet))
     }
+    
+    func valueToString() -> String? {
+        guard let value = self.value, let valueAsString = String(bytes: value, encoding: String.Encoding.utf8) else { return nil }
+        
+        return valueAsString
+    }
+    
+    var name : String {
+        guard let name = self.uuid.name else {
+            return "0x" + self.uuid.uuidString
+        }
+        return name
+    }
 }
