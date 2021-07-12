@@ -17,7 +17,7 @@
 
 ## App Description
 
-Using this application, a user should be able to see the restaurant around his/her current location. The data is available by connecting to the Foursquare API https://developer.foursquare.com/.
+Using this application, a user should be able to see a list of nearby Bluetooth devices.
 
 **Improvements**
 * Increase unit test code coverage
