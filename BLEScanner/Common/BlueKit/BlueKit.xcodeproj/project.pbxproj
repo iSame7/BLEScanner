@@ -29,6 +29,8 @@
 		508F3590269C6B360010E6B8 /* CBAdvertisementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F358F269C6B360010E6B8 /* CBAdvertisementData.swift */; };
 		509ABB3626A0B75400E655AA /* BKBluetoothDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509ABB3526A0B75400E655AA /* BKBluetoothDelegate.swift */; };
 		509ABB3826A0BDF300E655AA /* BKBluetoothManager+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509ABB3726A0BDF300E655AA /* BKBluetoothManager+Notifications.swift */; };
+		509ABB3A26A0D2B000E655AA /* RxBKBluetoothManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509ABB3926A0D2B000E655AA /* RxBKBluetoothManagerDelegate.swift */; };
+		C4D921534F6A9363AA46E1D3 /* Pods_BlueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAB8334C7490E3E64B3F24F /* Pods_BlueKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D5FA18F249ED1F18DD952AE /* Pods-BlueKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueKit.debug.xcconfig"; path = "Target Support Files/Pods-BlueKit/Pods-BlueKit.debug.xcconfig"; sourceTree = "<group>"; };
 		5016B1B8269DDA5B00A1774D /* BKBluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKBluetoothManager.swift; sourceTree = "<group>"; };
 		5060D3442694728800BF39CE /* BlueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BlueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5060D3472694728800BF39CE /* BlueKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlueKit.h; sourceTree = "<group>"; };
@@ -67,6 +70,9 @@
 		508F358F269C6B360010E6B8 /* CBAdvertisementData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBAdvertisementData.swift; sourceTree = "<group>"; };
 		509ABB3526A0B75400E655AA /* BKBluetoothDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKBluetoothDelegate.swift; sourceTree = "<group>"; };
 		509ABB3726A0BDF300E655AA /* BKBluetoothManager+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BKBluetoothManager+Notifications.swift"; sourceTree = "<group>"; };
+		509ABB3926A0D2B000E655AA /* RxBKBluetoothManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxBKBluetoothManagerDelegate.swift; sourceTree = "<group>"; };
+		E08E0C845EBE25AA8982FBF6 /* Pods-BlueKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueKit.release.xcconfig"; path = "Target Support Files/Pods-BlueKit/Pods-BlueKit.release.xcconfig"; sourceTree = "<group>"; };
+		EFAB8334C7490E3E64B3F24F /* Pods_BlueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4D921534F6A9363AA46E1D3 /* Pods_BlueKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +101,8 @@
 				5060D3462694728800BF39CE /* BlueKit */,
 				5060D3512694728900BF39CE /* BlueKitTests */,
 				5060D3452694728800BF39CE /* Products */,
+				FE14BEC5C23B0A864C75DB6B /* Pods */,
+				D873D81BDCBDE9849EC3A6AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +135,7 @@
 				5016B1B8269DDA5B00A1774D /* BKBluetoothManager.swift */,
 				509ABB3526A0B75400E655AA /* BKBluetoothDelegate.swift */,
 				509ABB3726A0BDF300E655AA /* BKBluetoothManager+Notifications.swift */,
+				509ABB3926A0D2B000E655AA /* RxBKBluetoothManagerDelegate.swift */,
 			);
 			path = BlueKit;
 			sourceTree = "<group>";
@@ -151,6 +161,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D873D81BDCBDE9849EC3A6AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFAB8334C7490E3E64B3F24F /* Pods_BlueKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE14BEC5C23B0A864C75DB6B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0D5FA18F249ED1F18DD952AE /* Pods-BlueKit.debug.xcconfig */,
+				E08E0C845EBE25AA8982FBF6 /* Pods-BlueKit.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../../Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -169,6 +197,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5060D3582694728900BF39CE /* Build configuration list for PBXNativeTarget "BlueKit" */;
 			buildPhases = (
+				64C550DACE19B6DA5CE80B52 /* [CP] Check Pods Manifest.lock */,
 				5060D33F2694728800BF39CE /* Headers */,
 				5060D3402694728800BF39CE /* Sources */,
 				5060D3412694728800BF39CE /* Frameworks */,
@@ -256,6 +285,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		64C550DACE19B6DA5CE80B52 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlueKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5060D3402694728800BF39CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -273,6 +327,7 @@
 				5060D376269599E500BF39CE /* CBService+Extensions.swift in Sources */,
 				508F3589269C37580010E6B8 /* CBCharacteristicProperties+Extensions.swift in Sources */,
 				5060D36F26958D6100BF39CE /* CBUUIDConvertible.swift in Sources */,
+				509ABB3A26A0D2B000E655AA /* RxBKBluetoothManagerDelegate.swift in Sources */,
 				508F3587269B2C2D0010E6B8 /* CBUUID+Extensions.swift in Sources */,
 				5060D3692694D18800BF39CE /* PeripheralRequest.swift in Sources */,
 				5060D3632694CD3100BF39CE /* BKCentralProxy.swift in Sources */,
@@ -424,6 +479,7 @@
 		};
 		5060D3592694728900BF39CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D5FA18F249ED1F18DD952AE /* Pods-BlueKit.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,6 +506,7 @@
 		};
 		5060D35A2694728900BF39CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E08E0C845EBE25AA8982FBF6 /* Pods-BlueKit.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;

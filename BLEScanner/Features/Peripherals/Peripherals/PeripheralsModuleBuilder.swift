@@ -46,10 +46,15 @@ private extension PeripheralsModuleBuilder {
             BKCentral.shared
         }
         
+        container.register(BKBluetoothControling.self) {
+            BKBluetoothManager.shared
+        }
+        
         container.register(PeripheralsFetching.self) { [weak self] in
-            guard let bkCentral = self?.container.resolve(BKCentralManaging.self) else { return nil }
+            guard let bkCentral = self?.container.resolve(BKCentralManaging.self),
+                  let bluetoothManager = self?.container.resolve(BKBluetoothControling.self) else { return nil }
             
-            return PeripheralsService(centralManager: bkCentral)
+            return PeripheralsService(centralManager: bkCentral, bluetoothManager: bluetoothManager)
         }
     }
     

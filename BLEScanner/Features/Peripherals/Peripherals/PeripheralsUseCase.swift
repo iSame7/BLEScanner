@@ -8,9 +8,12 @@
 
 import RxSwift
 import BlueKit
+import CoreBluetooth
 import Core
 
 public protocol PeripheralsInteractable {
+    func checkBluetoothState() ->  Observable<CBManagerState?>
+    func disconnectPeripheral()
     func getPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)>
     func getPeripheralsSorted() -> Observable<[Peripheral]>
     func stopGettingPeripherals()
@@ -24,8 +27,16 @@ class PeripheralsUseCase: PeripheralsInteractable {
         self.service = service
     }
     
+    func checkBluetoothState() -> Observable<CBManagerState?> {
+        service.fetchBluetoothState()
+    }
+    
     func getPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)> {
         service.fetchPeripherals()
+    }
+    
+    func disconnectPeripheral() {
+        
     }
     
     func getPeripheralsSorted() -> Observable<[Peripheral]> {

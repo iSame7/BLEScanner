@@ -8,47 +8,18 @@
 
 import CoreBluetooth
 
-public protocol BKBluetoothManagerDelegate: AnyObject {
-    func didUpdateState(_ state: CBManagerState)
-    func didDiscoverPeripheral(_ peripheral: CBPeripheral, advertisementData: [String : Any], RSSI: NSNumber)
-    func didConnectedPeripheral(_ connectedPeripheral: CBPeripheral)
-    func didFailToConnectPeripheral(_ peripheral: CBPeripheral, error: Error)
-    func didDiscoverServices(_ peripheral: CBPeripheral)
-    func didDisconnectPeripheral(_ peripheral: CBPeripheral)
-    func didFailedToInterrogate(_ peripheral: CBPeripheral)
-    func didDiscoverCharacteritics(_ service: CBService)
-    func didFailToDiscoverCharacteritics(_ error: Error)
-    func didDiscoverDescriptors(_ characteristic: CBCharacteristic)
-    func didFailToDiscoverDescriptors(_ error: Error)
-    func didReadValueForCharacteristic(_ characteristic: CBCharacteristic)
-    func didFailToReadValueForCharacteristic(_ error: Error)
-}
-
-public extension BKBluetoothManagerDelegate {
-    
-    func didUpdateState(_ state: CBManagerState) {}
-    
-    func didDiscoverPeripheral(_ peripheral: CBPeripheral, advertisementData: [String : Any], RSSI: NSNumber) {}
-    
-    func didConnectedPeripheral(_ connectedPeripheral: CBPeripheral) {}
-     
-    func didFailToConnectPeripheral(_ peripheral: CBPeripheral, error: Error) {}
-    
-    func didDiscoverServices(_ peripheral: CBPeripheral) {}
-    
-    func didDisconnectPeripheral(_ peripheral: CBPeripheral) {}
-    
-    func didFailedToInterrogate(_ peripheral: CBPeripheral) {}
-    
-    func didDiscoverCharacteritics(_ service: CBService) {}
-    
-    func didFailToDiscoverCharacteritics(_ error: Error) {}
-    
-    func didDiscoverDescriptors(_ characteristic: CBCharacteristic) {}
-    
-    func didFailToDiscoverDescriptors(_ error: Error) {}
-    
-    func didReadValueForCharacteristic(_ characteristic: CBCharacteristic) {}
-    
-    func didFailToReadValueForCharacteristic(_ error: Error) {}
+@objc public protocol BKBluetoothManagerDelegate: AnyObject {
+    @objc optional func didUpdateState(_ state: CBManagerState)
+    @objc optional func didDiscoverPeripheral(_ peripheral: CBPeripheral, advertisementData: [String : Any], RSSI: NSNumber)
+    @objc optional func didConnectedPeripheral(_ connectedPeripheral: CBPeripheral)
+    @objc optional func didFailToConnectPeripheral(_ peripheral: CBPeripheral, error: Error)
+    @objc optional func didDiscoverServices(_ peripheral: CBPeripheral)
+    @objc optional func didDisconnectPeripheral(_ peripheral: CBPeripheral)
+    @objc optional func didFailedToInterrogate(_ peripheral: CBPeripheral)
+    @objc optional func didDiscoverCharacteritics(_ service: CBService)
+    @objc optional func didFailToDiscoverCharacteritics(_ error: Error)
+    @objc optional func didDiscoverDescriptors(_ characteristic: CBCharacteristic)
+    @objc optional func didFailToDiscoverDescriptors(_ error: Error)
+    @objc optional func didReadValueForCharacteristic(_ characteristic: CBCharacteristic)
+    @objc optional func didFailToReadValueForCharacteristic(_ error: Error)
 }

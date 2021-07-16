@@ -7,6 +7,7 @@
 //
 
 import CoreBluetooth
+import RxSwift
 
 public protocol BKBluetoothControling {
     func scanForPeripherals()
@@ -26,7 +27,7 @@ public protocol BKBluetoothControling {
 
 public class BKBluetoothManager: NSObject {
     
-    public let shared = BKBluetoothManager()
+    public static let shared = BKBluetoothManager()
     
     private(set) var centralManager: CBCentralManager!
     private(set) var notificationCenter: NotificationCenter!
@@ -148,7 +149,7 @@ extension BKBluetoothManager: BKBluetoothControling {
     @objc func integrrogatePeripheralTimeout(_ timer: Timer) {
         disconnectPeripheral()
         if let peripheral = timer.userInfo as? CBPeripheral {
-            delegate?.didFailedToInterrogate(peripheral)
+            delegate?.didFailedToInterrogate?(peripheral)
         }
     }
 }
@@ -175,7 +176,7 @@ extension BKBluetoothManager: CBCentralManagerDelegate {
             print("[BKBluetoothManager] State: Unknown")
         }
         if let state = self.state {
-            delegate?.didUpdateState(state)
+            delegate?.didUpdateState?(state)
         }
     }
     
@@ -189,8 +190,8 @@ extension BKBluetoothManager: CBCentralManagerDelegate {
      *                                was not available.
      */
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        print("Bluetooth Manager --> didDiscoverPeripheral, RSSI:\(RSSI)")
-        delegate?.didDiscoverPeripheral(peripheral, advertisementData: advertisementData, RSSI: RSSI)
+        print("[BKBluetoothManager] --> didDiscoverPeripheral, RSSI:\(RSSI)")
+        delegate?.didDiscoverPeripheral?(peripheral, advertisementData: advertisementData, RSSI: RSSI)
     }
     
     /**
@@ -208,7 +209,7 @@ extension BKBluetoothManager: CBCentralManagerDelegate {
         }
         isConnected = true
         connectedPeripheral = peripheral
-        delegate?.didConnectedPeripheral(peripheral)
+        delegate?.didConnectedPeripheral?(peripheral)
         stopScanForPeripherals()
         peripheral.delegate = self
         peripheral.discoverServices(nil)
@@ -230,7 +231,7 @@ extension BKBluetoothManager: CBCentralManagerDelegate {
             connectionTimer = nil
         }
         isConnected = false
-        delegate?.didFailToConnectPeripheral(peripheral, error: error!)
+        delegate?.didFailToConnectPeripheral?(peripheral, error: error!)
     }
 }
 
@@ -258,7 +259,7 @@ extension BKBluetoothManager: CBPeripheralDelegate {
             interrogatePeripheralTimer = nil
         }
         
-        self.delegate?.didDiscoverServices(peripheral)
+        self.delegate?.didDiscoverServices?(peripheral)
     }
     
     /**
@@ -272,10 +273,10 @@ extension BKBluetoothManager: CBPeripheralDelegate {
         print("Bluetooth Manager --> didDiscoverCharacteristicsForService")
         if error != nil {
             print("Bluetooth Manager --> Fail to discover characteristics! Error: \(error?.localizedDescription ?? "")")
-            delegate?.didFailToDiscoverCharacteritics(error!)
+            delegate?.didFailToDiscoverCharacteritics?(error!)
             return
         }
-        delegate?.didDiscoverCharacteritics(service)
+        delegate?.didDiscoverCharacteritics?(service)
     }
     
     /**
@@ -289,10 +290,10 @@ extension BKBluetoothManager: CBPeripheralDelegate {
         print("Bluetooth Manager --> didDiscoverDescriptorsForCharacteristic")
         if error != nil {
             print("Bluetooth Manager --> Fail to discover descriptor for characteristic Error:\(error?.localizedDescription ?? "")")
-            delegate?.didFailToDiscoverDescriptors(error!)
+            delegate?.didFailToDiscoverDescriptors?(error!)
             return
         }
-        delegate?.didDiscoverDescriptors(characteristic)
+        delegate?.didDiscoverDescriptors?(characteristic)
     }
     
     /**
@@ -305,7 +306,7 @@ extension BKBluetoothManager: CBPeripheralDelegate {
     public func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("Bluetooth Manager --> didDisconnectPeripheral")
         isConnected = false
-        self.delegate?.didDisconnectPeripheral(peripheral)
+        self.delegate?.didDisconnectPeripheral?(peripheral)
         notificationCenter.post(name: .disconnect, object: self)
     }
     
@@ -320,10 +321,28 @@ extension BKBluetoothManager: CBPeripheralDelegate {
         print("Bluetooth Manager --> didUpdateValueForCharacteristic")
         if error != nil {
             print("Bluetooth Manager --> Failed to read value for the characteristic. Error:\(error!.localizedDescription)")
-            delegate?.didFailToReadValueForCharacteristic(error!)
+            delegate?.didFailToReadValueForCharacteristic?(error!)
             return
         }
-        delegate?.didReadValueForCharacteristic(characteristic)
+        delegate?.didReadValueForCharacteristic?(characteristic)
         
+    }
+}
+
+
+// MARK: - Reactive
+
+extension Reactive where Base: BKBluetoothManager {
+    
+    public var peripheralDiscovered: Observable<(CBPeripheral, [String : Any], NSNumber)> {
+        return RxBKBluetoothManagerDelegateProxy.proxy(for: base)
+            .methodInvoked(#selector(BKBluetoothManagerDelegate.didDiscoverPeripheral(_:advertisementData:RSSI:)))
+            .map { ($0.first, $0[1], $0[2]) as! (CBPeripheral, [String : Any], NSNumber) }
+    }
+    
+    public var stateUpdated: Observable<CBManagerState?> {
+        return RxBKBluetoothManagerDelegateProxy.proxy(for: base)
+            .methodInvoked(#selector(BKBluetoothManagerDelegate.didUpdateState(_:)))
+            .map { CBManagerState(rawValue: $0.first as? Int ?? 0) }
     }
 }
