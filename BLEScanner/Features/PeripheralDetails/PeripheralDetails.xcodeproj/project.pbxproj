@@ -10,7 +10,6 @@
 		4E89E3477203B0199D8CAC90 /* Pods_PeripheralDetails_PeripheralDetailsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D6076DC46DEDAB39286123 /* Pods_PeripheralDetails_PeripheralDetailsTests.framework */; };
 		508F358C269C3D880010E6B8 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F358B269C3D880010E6B8 /* TableHeaderView.swift */; };
 		50BB49E726961C7500EF8475 /* PeripheralDetails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BB49DD26961C7500EF8475 /* PeripheralDetails.framework */; };
-		50BB49EC26961C7500EF8475 /* PeripheralDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB49EB26961C7500EF8475 /* PeripheralDetailsTests.swift */; };
 		50BB49EE26961C7500EF8475 /* PeripheralDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 50BB49E026961C7500EF8475 /* PeripheralDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50BB49FD26961D7F00EF8475 /* PeripheralDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB49F726961D7F00EF8475 /* PeripheralDetailsCoordinator.swift */; };
 		50BB49FE26961D7F00EF8475 /* PeripheralDetailsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB49F826961D7F00EF8475 /* PeripheralDetailsModuleBuilder.swift */; };
@@ -38,7 +37,6 @@
 		50BB49E026961C7500EF8475 /* PeripheralDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeripheralDetails.h; sourceTree = "<group>"; };
 		50BB49E126961C7500EF8475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50BB49E626961C7500EF8475 /* PeripheralDetailsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeripheralDetailsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		50BB49EB26961C7500EF8475 /* PeripheralDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralDetailsTests.swift; sourceTree = "<group>"; };
 		50BB49ED26961C7500EF8475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50BB49F726961D7F00EF8475 /* PeripheralDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralDetailsCoordinator.swift; sourceTree = "<group>"; };
 		50BB49F826961D7F00EF8475 /* PeripheralDetailsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralDetailsModuleBuilder.swift; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 		50BB49EA26961C7500EF8475 /* PeripheralDetailsTests */ = {
 			isa = PBXGroup;
 			children = (
-				50BB49EB26961C7500EF8475 /* PeripheralDetailsTests.swift */,
 				50BB49ED26961C7500EF8475 /* Info.plist */,
 			);
 			path = PeripheralDetailsTests;
@@ -330,7 +327,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50BB49EC26961C7500EF8475 /* PeripheralDetailsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
