@@ -24,6 +24,7 @@
 		50758AAD2695EAD000390126 /* BlueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50758AAC2695EAD000390126 /* BlueKit.framework */; platformFilter = ios; };
 		508F3593269CB53B0010E6B8 /* PeripheralCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F3592269CB53B0010E6B8 /* PeripheralCell.swift */; };
 		508F3598269CCA570010E6B8 /* PeripheralsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F3597269CCA570010E6B8 /* PeripheralsViewModelTests.swift */; };
+		509ABB3E26A0EE8400E655AA /* BluetoothDisabledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509ABB3D26A0EE8400E655AA /* BluetoothDisabledView.swift */; };
 		50BB4A062696EBA800EF8475 /* PeripheralDetails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BB4A052696EBA800EF8475 /* PeripheralDetails.framework */; platformFilter = ios; };
 		88E569F88FC4E98E76D22C7E /* Pods_Peripherals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA28BB0EF2D3AC8D87BEC243 /* Pods_Peripherals.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		508F3592269CB53B0010E6B8 /* PeripheralCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralCell.swift; sourceTree = "<group>"; };
 		508F3596269CCA570010E6B8 /* PeripheralsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PeripheralsTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		508F3597269CCA570010E6B8 /* PeripheralsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralsViewModelTests.swift; sourceTree = "<group>"; };
+		509ABB3D26A0EE8400E655AA /* BluetoothDisabledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDisabledView.swift; sourceTree = "<group>"; };
 		50BB4A052696EBA800EF8475 /* PeripheralDetails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PeripheralDetails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ECE357BC888DEA9F58AB86D /* Pods-Peripherals-PeripheralsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peripherals-PeripheralsTests.release.xcconfig"; path = "Target Support Files/Pods-Peripherals-PeripheralsTests/Pods-Peripherals-PeripheralsTests.release.xcconfig"; sourceTree = "<group>"; };
 		97813F93EC36943ABB619D85 /* Pods-Peripherals-PeripheralsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peripherals-PeripheralsTests.debug.xcconfig"; path = "Target Support Files/Pods-Peripherals-PeripheralsTests/Pods-Peripherals-PeripheralsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,7 +126,7 @@
 		5060D306269398C800BF39CE /* Peripherals */ = {
 			isa = PBXGroup;
 			children = (
-				508F3591269CB52C0010E6B8 /* Cells */,
+				509ABB3C26A0EE7500E655AA /* Views */,
 				5060D31E26939A6C00BF39CE /* PeripheralsCoordinator.swift */,
 				5060D31F26939A6C00BF39CE /* PeripheralsModuleBuilder.swift */,
 				5060D32026939A6C00BF39CE /* PeripheralsUseCase.swift */,
@@ -156,6 +158,15 @@
 				508F3592269CB53B0010E6B8 /* PeripheralCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		509ABB3C26A0EE7500E655AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				508F3591269CB52C0010E6B8 /* Cells */,
+				509ABB3D26A0EE8400E655AA /* BluetoothDisabledView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		5C9DBED9D35BA15D9ADC8F0E /* Pods */ = {
@@ -367,6 +378,7 @@
 				5060D32426939A6C00BF39CE /* PeripheralsCoordinator.swift in Sources */,
 				5060D32526939A6C00BF39CE /* PeripheralsModuleBuilder.swift in Sources */,
 				5060D32626939A6C00BF39CE /* PeripheralsUseCase.swift in Sources */,
+				509ABB3E26A0EE8400E655AA /* BluetoothDisabledView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

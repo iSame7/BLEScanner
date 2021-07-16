@@ -13,7 +13,10 @@
 - The architecture that underpins the development of this app can be found [here](https://github.com/iSame7/BLEScanner/blob/master/Technical-Documents/Architecture.md)
 
 <img src="/Assets/peripherals.png" alt="Screenshot" width="320px"/>
+
 <img src="/Assets/peripheralDetails.png" alt="Screenshot" width="320px"/>
+
+<img src="/Assets/BLEDisabled.png" alt="Screenshot" width="320px"/>
 
 ## App Description
 
@@ -23,7 +26,7 @@ Using this application, a user should be able to see a list of nearby Bluetooth 
 * Increase unit test code coverage
 * Add filter functionality to filter out peripherals based on RSSI
 * Add loading state for details screen by using shimmer effect
-* Ability to edit characteristic of a pripheral
+* Ability to edit characteristic of a peripheral
 
 ## Installation
 

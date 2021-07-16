@@ -15,117 +15,151 @@ import CoreBluetooth
 
 class BKPeripheralMock: BKPeripheralBLECabable {
 
+    var invokedIdentifierGetter = false
+    var invokedIdentifierGetterCount = 0
     var stubbedIdentifier: UUID!
 
     var identifier: UUID {
+        invokedIdentifierGetter = true
+        invokedIdentifierGetterCount += 1
         return stubbedIdentifier
     }
 
+    var invokedNameGetter = false
+    var invokedNameGetterCount = 0
     var stubbedName: String!
 
     var name: String? {
+        invokedNameGetter = true
+        invokedNameGetterCount += 1
         return stubbedName
     }
 
+    var invokedStateGetter = false
+    var invokedStateGetterCount = 0
     var stubbedState: CBPeripheralState!
 
     var state: CBPeripheralState {
+        invokedStateGetter = true
+        invokedStateGetterCount += 1
         return stubbedState
     }
 
+    var invokedServicesGetter = false
+    var invokedServicesGetterCount = 0
     var stubbedServices: [CBService]!
 
     var services: [CBService]? {
+        invokedServicesGetter = true
+        invokedServicesGetterCount += 1
         return stubbedServices
     }
 
-    var stubbedServiceResult: CBService!
+    var invokedDiscoverServices = false
+    var invokedDiscoverServicesCount = 0
+    var invokedDiscoverServicesParameters: (serviceUUIDs: [CBUUID]?, Void)?
+    var invokedDiscoverServicesParametersList = [(serviceUUIDs: [CBUUID]?, Void)]()
 
-    func service(withUUID serviceUUID: CBUUIDConvertible) -> CBService? {
-        return stubbedServiceResult
+    func discoverServices(_ serviceUUIDs: [CBUUID]?) {
+        invokedDiscoverServices = true
+        invokedDiscoverServicesCount += 1
+        invokedDiscoverServicesParameters = (serviceUUIDs, ())
+        invokedDiscoverServicesParametersList.append((serviceUUIDs, ()))
     }
 
-    var stubbedCharacteristicResult: CBCharacteristic!
+    var invokedDiscoverIncludedServices = false
+    var invokedDiscoverIncludedServicesCount = 0
+    var invokedDiscoverIncludedServicesParameters: (includedServiceUUIDs: [CBUUID]?, service: CBService)?
+    var invokedDiscoverIncludedServicesParametersList = [(includedServiceUUIDs: [CBUUID]?, service: CBService)]()
 
-    func characteristic(withUUID characteristicUUID: CBUUIDConvertible,
-        ofServiceWithUUID serviceUUID: CBUUIDConvertible) -> CBCharacteristic? {
-        return stubbedCharacteristicResult
+    func discoverIncludedServices(_ includedServiceUUIDs: [CBUUID]?, for service: CBService) {
+        invokedDiscoverIncludedServices = true
+        invokedDiscoverIncludedServicesCount += 1
+        invokedDiscoverIncludedServicesParameters = (includedServiceUUIDs, service)
+        invokedDiscoverIncludedServicesParametersList.append((includedServiceUUIDs, service))
     }
 
-    var stubbedDescriptorResult: CBDescriptor!
+    var invokedDiscoverCharacteristics = false
+    var invokedDiscoverCharacteristicsCount = 0
+    var invokedDiscoverCharacteristicsParameters: (characteristicUUIDs: [CBUUID]?, service: CBService)?
+    var invokedDiscoverCharacteristicsParametersList = [(characteristicUUIDs: [CBUUID]?, service: CBService)]()
 
-    func descriptor(withUUID descriptorUUID: CBUUIDConvertible,
-        ofCharacWithUUID characUUID: CBUUIDConvertible,
-        fromServiceWithUUID serviceUUID: CBUUIDConvertible) -> CBDescriptor? {
-        return stubbedDescriptorResult
+    func discoverCharacteristics(_ characteristicUUIDs: [CBUUID]?, for service: CBService) {
+        invokedDiscoverCharacteristics = true
+        invokedDiscoverCharacteristicsCount += 1
+        invokedDiscoverCharacteristicsParameters = (characteristicUUIDs, service)
+        invokedDiscoverCharacteristicsParametersList.append((characteristicUUIDs, service))
     }
 
-    func connect(withTimeout timeout: TimeInterval?, completion: @escaping ConnectPeripheralCompletion) {}
+    var invokedReadValueForCBCharacteristic = false
+    var invokedReadValueForCBCharacteristicCount = 0
+    var invokedReadValueForCBCharacteristicParameters: (characteristic: CBCharacteristic, Void)?
+    var invokedReadValueForCBCharacteristicParametersList = [(characteristic: CBCharacteristic, Void)]()
 
-    func disconnect(completion: @escaping DisconnectPeripheralCompletion) {}
+    func readValue(for characteristic: CBCharacteristic) {
+        invokedReadValueForCBCharacteristic = true
+        invokedReadValueForCBCharacteristicCount += 1
+        invokedReadValueForCBCharacteristicParameters = (characteristic, ())
+        invokedReadValueForCBCharacteristicParametersList.append((characteristic, ()))
+    }
 
-    func readRSSI(completion: @escaping ReadRSSIRequestCompletion) {}
+    var invokedWriteValueFor = false
+    var invokedWriteValueForCount = 0
+    var invokedWriteValueForParameters: (data: Data, characteristic: CBCharacteristic, type: CBCharacteristicWriteType)?
+    var invokedWriteValueForParametersList = [(data: Data, characteristic: CBCharacteristic, type: CBCharacteristicWriteType)]()
 
-    func discoverServices(withUUIDs serviceUUIDs: [CBUUIDConvertible]?,
-        completion: @escaping ServiceRequestCompletion) {}
+    func writeValue(_ data: Data, for characteristic: CBCharacteristic, type: CBCharacteristicWriteType) {
+        invokedWriteValueFor = true
+        invokedWriteValueForCount += 1
+        invokedWriteValueForParameters = (data, characteristic, type)
+        invokedWriteValueForParametersList.append((data, characteristic, type))
+    }
 
-    func discoverIncludedServices(withUUIDs includedServiceUUIDs: [CBUUIDConvertible]?,
-        ofServiceWithUUID serviceUUID: CBUUIDConvertible,
-        completion: @escaping ServiceRequestCompletion) {}
+    var invokedSetNotifyValue = false
+    var invokedSetNotifyValueCount = 0
+    var invokedSetNotifyValueParameters: (enabled: Bool, characteristic: CBCharacteristic)?
+    var invokedSetNotifyValueParametersList = [(enabled: Bool, characteristic: CBCharacteristic)]()
 
-    func discoverCharacteristics(withUUIDs characteristicUUIDs: [CBUUIDConvertible]?,
-        ofServiceWithUUID serviceUUID: CBUUIDConvertible,
-        completion: @escaping CharacteristicRequestCompletion) {}
+    func setNotifyValue(_ enabled: Bool, for characteristic: CBCharacteristic) {
+        invokedSetNotifyValue = true
+        invokedSetNotifyValueCount += 1
+        invokedSetNotifyValueParameters = (enabled, characteristic)
+        invokedSetNotifyValueParametersList.append((enabled, characteristic))
+    }
 
-    func discoverDescriptors(ofCharacWithUUID characUUID: CBUUIDConvertible,
-        fromServiceWithUUID serviceUUID: CBUUIDConvertible,
-        completion: @escaping DescriptorRequestCompletion) {}
+    var invokedDiscoverDescriptors = false
+    var invokedDiscoverDescriptorsCount = 0
+    var invokedDiscoverDescriptorsParameters: (characteristic: CBCharacteristic, Void)?
+    var invokedDiscoverDescriptorsParametersList = [(characteristic: CBCharacteristic, Void)]()
 
-    func discoverDescriptors(ofCharac charac: CBCharacteristic,
-        completion: @escaping DescriptorRequestCompletion) {}
+    func discoverDescriptors(for characteristic: CBCharacteristic) {
+        invokedDiscoverDescriptors = true
+        invokedDiscoverDescriptorsCount += 1
+        invokedDiscoverDescriptorsParameters = (characteristic, ())
+        invokedDiscoverDescriptorsParametersList.append((characteristic, ()))
+    }
 
-    func readValue(ofCharacWithUUID characUUID: CBUUIDConvertible,
-        fromServiceWithUUID serviceUUID: CBUUIDConvertible,
-        completion: @escaping ReadCharacRequestCompletion) {}
+    var invokedReadValueForCBDescriptor = false
+    var invokedReadValueForCBDescriptorCount = 0
+    var invokedReadValueForCBDescriptorParameters: (descriptor: CBDescriptor, Void)?
+    var invokedReadValueForCBDescriptorParametersList = [(descriptor: CBDescriptor, Void)]()
 
-    func readValue(ofCharac charac: CBCharacteristic,
-        completion: @escaping ReadCharacRequestCompletion) {}
+    func readValue(for descriptor: CBDescriptor) {
+        invokedReadValueForCBDescriptor = true
+        invokedReadValueForCBDescriptorCount += 1
+        invokedReadValueForCBDescriptorParameters = (descriptor, ())
+        invokedReadValueForCBDescriptorParametersList.append((descriptor, ()))
+    }
 
-    func readValue(ofDescriptorWithUUID descriptorUUID: CBUUIDConvertible,
-        fromCharacUUID characUUID: CBUUIDConvertible,
-        ofServiceUUID serviceUUID: CBUUIDConvertible,
-        completion: @escaping ReadDescriptorRequestCompletion) {}
+    var invokedWriteValue = false
+    var invokedWriteValueCount = 0
+    var invokedWriteValueParameters: (data: Data, descriptor: CBDescriptor)?
+    var invokedWriteValueParametersList = [(data: Data, descriptor: CBDescriptor)]()
 
-    func readValue(ofDescriptor descriptor: CBDescriptor,
-        completion: @escaping ReadDescriptorRequestCompletion) {}
-
-    func writeValue(ofCharacWithUUID characUUID: CBUUIDConvertible,
-        fromServiceWithUUID serviceUUID: CBUUIDConvertible,
-        value: Data,
-        type: CBCharacteristicWriteType,
-        completion: @escaping WriteRequestCompletion) {}
-
-    func writeValue(ofCharac charac: CBCharacteristic,
-        value: Data,
-        type: CBCharacteristicWriteType,
-        completion: @escaping WriteRequestCompletion) {}
-
-    func writeValue(ofDescriptorWithUUID descriptorUUID: CBUUIDConvertible,
-        fromCharacWithUUID characUUID: CBUUIDConvertible,
-        ofServiceWithUUID serviceUUID: CBUUIDConvertible,
-        value: Data,
-        completion: @escaping WriteRequestCompletion) {}
-
-    func writeValue(ofDescriptor descriptor: CBDescriptor,
-        value: Data,
-        completion: @escaping WriteRequestCompletion) {}
-
-    func setNotifyValue(toEnabled enabled: Bool,
-        forCharacWithUUID characUUID: CBUUIDConvertible,
-        ofServiceWithUUID serviceUUID: CBUUIDConvertible,
-        completion: @escaping UpdateNotificationStateCompletion) {}
-
-    func setNotifyValue(toEnabled enabled: Bool,
-        ofCharac charac: CBCharacteristic,
-        completion: @escaping UpdateNotificationStateCompletion) {}
+    func writeValue(_ data: Data, for descriptor: CBDescriptor) {
+        invokedWriteValue = true
+        invokedWriteValueCount += 1
+        invokedWriteValueParameters = (data, descriptor)
+        invokedWriteValueParametersList.append((data, descriptor))
+    }
 }

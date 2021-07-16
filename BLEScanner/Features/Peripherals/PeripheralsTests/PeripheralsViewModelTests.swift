@@ -12,6 +12,7 @@ import RxTest
 import Core
 import CoreLocation
 import RxCocoa
+import CoreBluetooth
 
 @testable import Peripherals
 
@@ -52,9 +53,10 @@ class PeripheralsViewModelTests: XCTestCase {
         // given
         let void: Void = ()
 
+        peripheralsUseCaseMock.stubbedCheckBluetoothStateResult =  Observable.just(CBManagerState.poweredOn)
         let updatePeripherals = scheduler.createObserver(Void.self)
         sut.outputs.updatePeripherals.bind(to: updatePeripherals).disposed(by: disposeBag)
-        peripheralsUseCaseMock.stubbedGetPeripheralsResult =  Observable.just(([peripheralsMock], nil))
+        peripheralsUseCaseMock.stubbedGetPeripheralsResult =  Observable.just(([peripheralsMock]))
         
         // when
         scheduler.createColdObservable([.next(10, ViewState.loaded)])

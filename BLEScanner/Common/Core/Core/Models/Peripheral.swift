@@ -7,6 +7,7 @@
 //
 
 import BlueKit
+import CoreBluetooth
 
 public class Peripheral: Equatable, Hashable {
     
@@ -25,6 +26,6 @@ public class Peripheral: Equatable, Hashable {
     }
     
     public func hash(into hasher: inout Hasher) {
-        hasher.combine((bkPeripheral as? BKPeripheral)?.hash)
+        hasher.combine((bkPeripheral as? CBPeripheral)?.hash)
     }
 }

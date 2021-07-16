@@ -25,6 +25,7 @@ struct PeripheralsViewModelInputs {
 struct PeripheralsViewModelOutputs {
     var updatePeripherals = PublishSubject<Void>()
     var showPeripheralDetails = PublishSubject<Peripheral>()
+    let hideErrorView = PublishSubject<Bool>()
 }
 
 class PeripheralsViewModel: PeripheralsViewModellable {
@@ -52,17 +53,46 @@ private extension PeripheralsViewModel {
             guard let self = self else { return }
             
             switch state {
-            case .loaded, .appeared:
-                self.useCase.getPeripherals().subscribe { event in
-                    guard let result = event.element else { return }
+            case .loaded:
+                self.useCase.checkBluetoothState().subscribe { event in
+                    guard let state = event.element else { return }
                     
-                    if let perhipherals = result.peripherals {
-                        self.peripherals = perhipherals
-                    } else if let error = result.error {
-                        print("Error while scanning for perhipherals: \(error)")
+                    switch state {
+                    case .resetting:
+                        print("[PeripheralsViewModel] State : Resetting")
+                    case .poweredOn:
+                        print(" [PeripheralsViewModel] State : Powered On")
+                        self.useCase.getPeripherals().subscribe { event in
+                            guard let result = event.element else { return }
+                            
+                            if let perhipherals = result {
+                                self.peripherals = perhipherals
+                            }
+                            self.outputs.updatePeripherals.onNext(())
+                        }.disposed(by: self.disposeBag)
+                        self.outputs.hideErrorView.onNext(true)
+                    case .poweredOff:
+                        print(" [PeripheralsViewModel] State : Powered Off")
+                        fallthrough
+                    case .unauthorized:
+                        print("[PeripheralsViewModel] State : Unauthorized")
+                        fallthrough
+                    case .unknown:
+                        print("[PeripheralsViewModel] State : Unknown")
+                        fallthrough
+                    case .unsupported:
+                        print("[PeripheralsViewModel] State : Unsupported")
+                        self.useCase.stopGettingPeripherals()
+                        self.useCase.disconnectPeripheral()
+                        self.outputs.hideErrorView.onNext(false)
+                    case .none:
+                        print("[PeripheralsViewModel] State : Unknown")
+                    @unknown default:
+                        print("[PeripheralsViewModel] State : Unknown")
                     }
-                    self.outputs.updatePeripherals.onNext(())
                 }.disposed(by: self.disposeBag)
+            case .appeared:
+                self.useCase.disconnectPeripheral()
             default:
                 break
             }

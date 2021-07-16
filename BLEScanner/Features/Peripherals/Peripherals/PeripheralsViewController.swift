@@ -10,7 +10,7 @@ import UIKit
 import Core
 
 class PeripheralsViewController: ViewController<PeripheralsViewModel> {
-
+    
     // MARK: - Properties
     
     private lazy var tableView: UITableView = {
@@ -24,11 +24,19 @@ class PeripheralsViewController: ViewController<PeripheralsViewModel> {
         return tableView
     }()
     
+    
+    private lazy var bluetoothDisabledView: BluetoothDisabledView = {
+        let view = BluetoothDisabledView(frame: UIScreen.main.bounds)
+//        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         viewModel.inputs.viewState.onNext(.appeared)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,25 +60,35 @@ class PeripheralsViewController: ViewController<PeripheralsViewModel> {
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
     func setupSubviews() {
         view.addSubview(tableView)
+        if let window = UIApplication.window {
+            window.addSubview(bluetoothDisabledView)
+        }
+        bluetoothDisabledView.isHidden = true
     }
     
     private func setupNavogationBar() {
         title = "Peripherals"
         
-        let sort = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(sortTapped))
-        navigationItem.rightBarButtonItem = sort
+        let sortButton = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(sortTapped))
+        navigationItem.rightBarButtonItem = sortButton
     }
-
+    
     override func setupObservers() {
         viewModel.outputs.updatePeripherals.subscribe { [weak self] _ in
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }.disposed(by: viewModel.disposeBag)
+        
+        viewModel.outputs.hideErrorView
+            .bind(to: bluetoothDisabledView.rx.isHidden)
+            .disposed(by: viewModel.disposeBag)
     }
     
     @IBAction func sortTapped(_ sender: AnyObject) {
@@ -88,8 +106,6 @@ extension PeripheralsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.getCell(forType: PeripheralCell.self)
-//        cell.textLabel?.text = viewModel.peripherals[indexPath.row].bkPeripheral.name ?? "Unnamed"
-//        let rssi = viewModel.peripherals[indexPath.row].rssi
         
         cell.configure(withPeripheralName: viewModel.peripherals[indexPath.row].bkPeripheral.name ?? "Unnamed", signalStrength: "\(viewModel.peripherals[indexPath.row].rssi)", signalStengthImage: UIImage())
         return cell

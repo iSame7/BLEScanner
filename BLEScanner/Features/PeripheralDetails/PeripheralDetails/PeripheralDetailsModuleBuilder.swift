@@ -9,6 +9,7 @@
 import UIKit
 import Core
 import BlueKit
+import CoreBluetooth
 
 public protocol PeripheralDetailsModuleBuildable: ModuleBuildable {
     func buildModule<T>(with rootViewController: NavigationControllable, peripheral: Peripheral) -> Module<T>?
@@ -42,8 +43,14 @@ private extension PeripheralDetailsModuleBuilder {
     }
     
     func registerService(peripheral: BKPeripheralBLECabable) {
-        container.register(PeripheralDetailsServiceFetching.self) {
-            return PeripheralDetailsService(peripheral: peripheral)
+        container.register(BKBluetoothControlling.self) {
+            BKBluetoothManager.shared
+        }
+        
+        container.register(PeripheralDetailsServiceFetching.self) { [weak self] in
+            guard let bluetoothManager = self?.container.resolve(BKBluetoothControlling.self) else { return nil }
+
+            return PeripheralDetailsService(bluetoothManager: bluetoothManager, peripheral: peripheral)
         }
     }
     

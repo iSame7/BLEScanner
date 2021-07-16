@@ -9,16 +9,35 @@
 import BlueKit
 import RxSwift
 import Core
+import CoreBluetooth
 
 @testable import Peripherals
 
 class PeripheralsUseCaseMock: PeripheralsInteractable {
 
+    var invokedCheckBluetoothState = false
+    var invokedCheckBluetoothStateCount = 0
+    var stubbedCheckBluetoothStateResult: Observable<CBManagerState?>!
+
+    func checkBluetoothState() ->  Observable<CBManagerState?> {
+        invokedCheckBluetoothState = true
+        invokedCheckBluetoothStateCount += 1
+        return stubbedCheckBluetoothStateResult
+    }
+
+    var invokedDisconnectPeripheral = false
+    var invokedDisconnectPeripheralCount = 0
+
+    func disconnectPeripheral() {
+        invokedDisconnectPeripheral = true
+        invokedDisconnectPeripheralCount += 1
+    }
+
     var invokedGetPeripherals = false
     var invokedGetPeripheralsCount = 0
-    var stubbedGetPeripheralsResult: Observable<(peripherals: [Peripheral]?, error: BKError?)>!
+    var stubbedGetPeripheralsResult: Observable<[Peripheral]?>!
 
-    func getPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)> {
+    func getPeripherals() -> Observable<[Peripheral]?> {
         invokedGetPeripherals = true
         invokedGetPeripheralsCount += 1
         return stubbedGetPeripheralsResult

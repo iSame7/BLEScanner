@@ -16,6 +16,11 @@ target 'Core' do
   shared_pods
 end
 
+target 'BlueKit' do
+  project 'Common/BlueKit/BlueKit'
+  shared_pods
+end
+
 # Feature modules
 
 target 'Peripherals' do

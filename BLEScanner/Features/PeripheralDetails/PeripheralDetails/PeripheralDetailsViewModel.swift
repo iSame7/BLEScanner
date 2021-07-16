@@ -70,17 +70,7 @@ private extension PeripheralDetailsViewModel {
         inputs.viewControllerDismissed.subscribe(onNext: { [weak self] _ in
             guard let self = self else { return }
             
-            self.peripheral.bkPeripheral.disconnect { result in
-                switch result {
-                case .success:
-                    print("Successfully disconnected peripheral")
-                case .failure(let error):
-                    print("Couldn't disconnect peripheral because of: \(error)")
-                }
-            }
-            
-            self.outputs.viewControllerDismissed.onNext(())
-            
+            self.outputs.viewControllerDismissed.onNext(())            
         }).disposed(by: disposeBag)
     }
 }
