@@ -9,7 +9,9 @@
 import CoreBluetooth
 import RxSwift
 
-public protocol BKBluetoothControling {
+public protocol BKBluetoothControlling {
+    var connectedPeripheral : CBPeripheral? { get }
+
     func scanForPeripherals()
     func stopScanForPeripherals()
     
@@ -36,10 +38,10 @@ public class BKBluetoothManager: NSObject {
         return CBManagerState(rawValue: centralManager.state.rawValue)
     }
     
+    private var shouldStopConnectingToPerpiperal = false
     private var isConnecting = false
     private(set) var isConnected = false
-    private(set) var connectedPeripheral : CBPeripheral?
-    private(set) var connectedServices : [CBService]?
+    private(set) public var connectedPeripheral : CBPeripheral?
     
     private var connectionTimer : Timer?
     private let connectionTimeout = TimeInterval(2.0)
@@ -58,7 +60,7 @@ public class BKBluetoothManager: NSObject {
 
 // MARK: - BKPeripheralBLECabable
 
-extension BKBluetoothManager: BKBluetoothControling {
+extension BKBluetoothManager: BKBluetoothControlling {
     
     public func scanForPeripherals() {
         centralManager.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: true])
@@ -78,12 +80,14 @@ extension BKBluetoothManager: BKBluetoothControling {
     
     public func disconnectPeripheral() {
         guard let connectedPeripheral = connectedPeripheral else {
+            shouldStopConnectingToPerpiperal = true
             return
         }
         
         centralManager.cancelPeripheralConnection(connectedPeripheral)
         scanForPeripherals()
         self.connectedPeripheral = nil
+        shouldStopConnectingToPerpiperal = false
     }
     
     public func discoverDescriptor(_ characteristic: CBCharacteristic) {
@@ -140,7 +144,9 @@ extension BKBluetoothManager: BKBluetoothControling {
         if isConnecting {
             isConnecting = false
             if let peripheral = timer.userInfo as? CBPeripheral {
-                connectPeripheral(peripheral)
+                if !shouldStopConnectingToPerpiperal {
+                    connectPeripheral(peripheral)
+                }
             }
             connectionTimer = nil
         }
@@ -344,5 +350,23 @@ extension Reactive where Base: BKBluetoothManager {
         return RxBKBluetoothManagerDelegateProxy.proxy(for: base)
             .methodInvoked(#selector(BKBluetoothManagerDelegate.didUpdateState(_:)))
             .map { CBManagerState(rawValue: $0.first as? Int ?? 0) }
+    }
+    
+    public var peripheralConnected: Observable<CBPeripheral?> {
+        return RxBKBluetoothManagerDelegateProxy.proxy(for: base)
+            .methodInvoked(#selector(BKBluetoothManagerDelegate.didConnectedPeripheral(_:)))
+            .map { $0.first as? CBPeripheral }
+    }
+    
+    public var servicesDiscovered: Observable<CBPeripheral?> {
+        return RxBKBluetoothManagerDelegateProxy.proxy(for: base)
+            .methodInvoked(#selector(BKBluetoothManagerDelegate.didDiscoverServices(_:)))
+            .map { $0.first as? CBPeripheral }
+    }
+    
+    public var characteriticsDiscovered: Observable<CBService?> {
+        return RxBKBluetoothManagerDelegateProxy.proxy(for: base)
+            .methodInvoked(#selector(BKBluetoothManagerDelegate.didDiscoverCharacteritics(_:)))
+            .map { $0.first as? CBService }
     }
 }

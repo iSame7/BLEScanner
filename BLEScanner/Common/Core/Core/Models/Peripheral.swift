@@ -7,15 +7,16 @@
 //
 
 import BlueKit
+import CoreBluetooth
 
 public class Peripheral: Equatable, Hashable {
     
-    public let bkPeripheral: BKPeripheralBLECabable
+    public let bkPeripheral: CBPeripheral
     public var advertismentData: [String: Any] = [:]
     public var rssi: Int = 0
     public var lastUpdatedTimeInterval: TimeInterval
 
-    public init(bkPeripheral: BKPeripheralBLECabable) {
+    public init(bkPeripheral: CBPeripheral) {
         self.bkPeripheral = bkPeripheral
         self.lastUpdatedTimeInterval = Date().timeIntervalSince1970
     }
@@ -25,6 +26,6 @@ public class Peripheral: Equatable, Hashable {
     }
     
     public func hash(into hasher: inout Hasher) {
-        hasher.combine((bkPeripheral as? BKPeripheral)?.hash)
+        hasher.combine(bkPeripheral.hash)
     }
 }

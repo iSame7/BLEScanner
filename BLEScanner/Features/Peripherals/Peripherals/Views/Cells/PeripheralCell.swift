@@ -47,8 +47,10 @@ class PeripheralCell : UITableViewCell, Dequeueable {
         
         if Int(signalStrength) == 127 {
             signalStrengthLabel.text = "---"
+            signalStrengthLabel.alpha = 0.4
         } else {
             signalStrengthLabel.text = signalStrength
+            peripheralNameLabel.alpha = 1.0
         }
         
         switch labs(rssi) {

@@ -53,7 +53,7 @@ private extension PeripheralsViewModel {
             guard let self = self else { return }
             
             switch state {
-            case .loaded, .appeared:
+            case .loaded:
                 self.useCase.checkBluetoothState().subscribe { event in
                     guard let state = event.element! else { return }
                     
@@ -92,6 +92,8 @@ private extension PeripheralsViewModel {
                         print("[PeripheralsViewModel] State : Unknown")
                     }
                 }.disposed(by: self.disposeBag)
+            case .appeared:
+                self.useCase.disconnectPeripheral()
             default:
                 break
             }

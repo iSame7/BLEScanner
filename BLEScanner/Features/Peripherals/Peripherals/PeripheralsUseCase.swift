@@ -36,7 +36,7 @@ class PeripheralsUseCase: PeripheralsInteractable {
     }
     
     func disconnectPeripheral() {
-        
+        service.disconnectPeripheral()
     }
     
     func getPeripheralsSorted() -> Observable<[Peripheral]> {
