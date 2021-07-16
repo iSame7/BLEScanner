@@ -10,12 +10,12 @@ import CoreBluetooth
 import RxSwift
 
 public protocol BKBluetoothControlling {
-    var connectedPeripheral : CBPeripheral? { get }
+    var connectedPeripheral : BKPeripheralBLECabable? { get }
 
     func scanForPeripherals()
     func stopScanForPeripherals()
     
-    func connectPeripheral(_ peripheral: CBPeripheral)
+    func connectPeripheral(_ peripheral: BKPeripheralBLECabable)
     func disconnectPeripheral()
     
     func discoverDescriptor(_ characteristic: CBCharacteristic)
@@ -41,7 +41,7 @@ public class BKBluetoothManager: NSObject {
     private var shouldStopConnectingToPerpiperal = false
     private var isConnecting = false
     private(set) var isConnected = false
-    private(set) public var connectedPeripheral : CBPeripheral?
+    private(set) public var connectedPeripheral : BKPeripheralBLECabable?
     
     private var connectionTimer : Timer?
     private let connectionTimeout = TimeInterval(2.0)
@@ -70,16 +70,21 @@ extension BKBluetoothManager: BKBluetoothControlling {
         centralManager.stopScan()
     }
     
-    public func connectPeripheral(_ peripheral: CBPeripheral) {
+    public func connectPeripheral(_ peripheral: BKPeripheralBLECabable) {
         if !isConnecting {
             isConnecting = true
+            
+            guard let peripheral = peripheral as? CBPeripheral else {
+                return
+            }
+            
             centralManager.connect(peripheral, options: [CBConnectPeripheralOptionNotifyOnDisconnectionKey: true])
             connectionTimer = Timer.scheduledTimer(timeInterval: connectionTimeout, target: self, selector: #selector(connectTimeout(_:)), userInfo: peripheral, repeats: false)
         }
     }
     
     public func disconnectPeripheral() {
-        guard let connectedPeripheral = connectedPeripheral else {
+        guard let connectedPeripheral = connectedPeripheral as? CBPeripheral else {
             shouldStopConnectingToPerpiperal = true
             return
         }

@@ -55,9 +55,8 @@ private extension PeripheralsViewModel {
             switch state {
             case .loaded:
                 self.useCase.checkBluetoothState().subscribe { event in
-                    guard let state = event.element! else { return }
+                    guard let state = event.element else { return }
                     
-                    print("[PeripheralsViewModel] state: \(state)")
                     switch state {
                     case .resetting:
                         print("[PeripheralsViewModel] State : Resetting")
@@ -86,6 +85,8 @@ private extension PeripheralsViewModel {
                         self.useCase.stopGettingPeripherals()
                         self.useCase.disconnectPeripheral()
                         self.outputs.hideErrorView.onNext(false)
+                    case .none:
+                        print("[PeripheralsViewModel] State : Unknown")
                     @unknown default:
                         print("[PeripheralsViewModel] State : Unknown")
                     }

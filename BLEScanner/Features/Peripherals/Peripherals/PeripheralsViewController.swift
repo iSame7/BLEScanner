@@ -61,18 +61,12 @@ class PeripheralsViewController: ViewController<PeripheralsViewModel> {
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-//            bluetoothDisabledView.topAnchor.constraint(equalTo: view.topAnchor),
-//            bluetoothDisabledView.leftAnchor.constraint(equalTo: view.leftAnchor),
-//            bluetoothDisabledView.rightAnchor.constraint(equalTo: view.rightAnchor),
-//            bluetoothDisabledView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
     func setupSubviews() {
         view.addSubview(tableView)
-//        view.addSubview(bluetoothDisabledView)
-        if let window = UIApplication.shared.keyWindow {
+        if let window = UIApplication.window {
             window.addSubview(bluetoothDisabledView)
         }
         bluetoothDisabledView.isHidden = true
@@ -81,13 +75,15 @@ class PeripheralsViewController: ViewController<PeripheralsViewModel> {
     private func setupNavogationBar() {
         title = "Peripherals"
         
-        let sort = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(sortTapped))
-        navigationItem.rightBarButtonItem = sort
+        let sortButton = UIBarButtonItem(title: "Sort", style: .plain, target: self, action: #selector(sortTapped))
+        navigationItem.rightBarButtonItem = sortButton
     }
     
     override func setupObservers() {
         viewModel.outputs.updatePeripherals.subscribe { [weak self] _ in
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }.disposed(by: viewModel.disposeBag)
         
         viewModel.outputs.hideErrorView
@@ -110,8 +106,6 @@ extension PeripheralsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.getCell(forType: PeripheralCell.self)
-        //        cell.textLabel?.text = viewModel.peripherals[indexPath.row].bkPeripheral.name ?? "Unnamed"
-        //        let rssi = viewModel.peripherals[indexPath.row].rssi
         
         cell.configure(withPeripheralName: viewModel.peripherals[indexPath.row].bkPeripheral.name ?? "Unnamed", signalStrength: "\(viewModel.peripherals[indexPath.row].rssi)", signalStengthImage: UIImage())
         return cell

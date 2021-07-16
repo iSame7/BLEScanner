@@ -18,13 +18,13 @@ protocol PeripheralDetailsServiceFetching {
 class PeripheralDetailsService: PeripheralDetailsServiceFetching {
     
     private let bluetoothManager: BKBluetoothControlling
-    private let peripheral: CBPeripheral
+    private let peripheral: BKPeripheralBLECabable
     private var services = [Service]()
     private var discoverredServices = [CBService]()
     private var discoverredServicesIndex = 0
     private let disposeBag: DisposeBag = DisposeBag()
 
-    init(bluetoothManager: BKBluetoothControlling, peripheral: CBPeripheral) {
+    init(bluetoothManager: BKBluetoothControlling, peripheral: BKPeripheralBLECabable) {
         self.bluetoothManager = bluetoothManager
         self.peripheral = peripheral
     }

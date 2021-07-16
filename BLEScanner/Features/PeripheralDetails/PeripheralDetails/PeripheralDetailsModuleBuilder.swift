@@ -42,7 +42,7 @@ private extension PeripheralDetailsModuleBuilder {
         }
     }
     
-    func registerService(peripheral: CBPeripheral) {
+    func registerService(peripheral: BKPeripheralBLECabable) {
         container.register(BKBluetoothControlling.self) {
             BKBluetoothManager.shared
         }

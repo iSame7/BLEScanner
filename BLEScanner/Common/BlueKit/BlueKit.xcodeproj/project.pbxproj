@@ -17,6 +17,9 @@
 		509ABB3626A0B75400E655AA /* BKBluetoothDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509ABB3526A0B75400E655AA /* BKBluetoothDelegate.swift */; };
 		509ABB3826A0BDF300E655AA /* BKBluetoothManager+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509ABB3726A0BDF300E655AA /* BKBluetoothManager+Notifications.swift */; };
 		509ABB3A26A0D2B000E655AA /* RxBKBluetoothManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509ABB3926A0D2B000E655AA /* RxBKBluetoothManagerDelegate.swift */; };
+		509ABB4026A18BD900E655AA /* CBCharacteristic+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509ABB3F26A18BD900E655AA /* CBCharacteristic+Extensions.swift */; };
+		509ABB4226A18C0100E655AA /* CBService+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509ABB4126A18C0100E655AA /* CBService+Extensions.swift */; };
+		509ABB4426A18C8500E655AA /* BKPeripheralBLECabable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509ABB4326A18C8500E655AA /* BKPeripheralBLECabable.swift */; };
 		C4D921534F6A9363AA46E1D3 /* Pods_BlueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAB8334C7490E3E64B3F24F /* Pods_BlueKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +48,9 @@
 		509ABB3526A0B75400E655AA /* BKBluetoothDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKBluetoothDelegate.swift; sourceTree = "<group>"; };
 		509ABB3726A0BDF300E655AA /* BKBluetoothManager+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BKBluetoothManager+Notifications.swift"; sourceTree = "<group>"; };
 		509ABB3926A0D2B000E655AA /* RxBKBluetoothManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxBKBluetoothManagerDelegate.swift; sourceTree = "<group>"; };
+		509ABB3F26A18BD900E655AA /* CBCharacteristic+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBCharacteristic+Extensions.swift"; sourceTree = "<group>"; };
+		509ABB4126A18C0100E655AA /* CBService+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBService+Extensions.swift"; sourceTree = "<group>"; };
+		509ABB4326A18C8500E655AA /* BKPeripheralBLECabable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKPeripheralBLECabable.swift; sourceTree = "<group>"; };
 		E08E0C845EBE25AA8982FBF6 /* Pods-BlueKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueKit.release.xcconfig"; path = "Target Support Files/Pods-BlueKit/Pods-BlueKit.release.xcconfig"; sourceTree = "<group>"; };
 		EFAB8334C7490E3E64B3F24F /* Pods_BlueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -93,13 +99,14 @@
 			isa = PBXGroup;
 			children = (
 				5060D3722695989400BF39CE /* Extensions */,
-				5060D3472694728800BF39CE /* BlueKit.h */,
-				5060D3482694728800BF39CE /* Info.plist */,
 				508F358F269C6B360010E6B8 /* CBAdvertisementData.swift */,
 				5016B1B8269DDA5B00A1774D /* BKBluetoothManager.swift */,
 				509ABB3526A0B75400E655AA /* BKBluetoothDelegate.swift */,
 				509ABB3726A0BDF300E655AA /* BKBluetoothManager+Notifications.swift */,
 				509ABB3926A0D2B000E655AA /* RxBKBluetoothManagerDelegate.swift */,
+				509ABB4326A18C8500E655AA /* BKPeripheralBLECabable.swift */,
+				5060D3472694728800BF39CE /* BlueKit.h */,
+				5060D3482694728800BF39CE /* Info.plist */,
 			);
 			path = BlueKit;
 			sourceTree = "<group>";
@@ -118,6 +125,8 @@
 			children = (
 				508F3586269B2C2D0010E6B8 /* CBUUID+Extensions.swift */,
 				508F3588269C37580010E6B8 /* CBCharacteristicProperties+Extensions.swift */,
+				509ABB3F26A18BD900E655AA /* CBCharacteristic+Extensions.swift */,
+				509ABB4126A18C0100E655AA /* CBService+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -282,7 +291,10 @@
 				509ABB3A26A0D2B000E655AA /* RxBKBluetoothManagerDelegate.swift in Sources */,
 				508F3587269B2C2D0010E6B8 /* CBUUID+Extensions.swift in Sources */,
 				508F3590269C6B360010E6B8 /* CBAdvertisementData.swift in Sources */,
+				509ABB4226A18C0100E655AA /* CBService+Extensions.swift in Sources */,
 				509ABB3826A0BDF300E655AA /* BKBluetoothManager+Notifications.swift in Sources */,
+				509ABB4026A18BD900E655AA /* CBCharacteristic+Extensions.swift in Sources */,
+				509ABB4426A18C8500E655AA /* BKPeripheralBLECabable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
