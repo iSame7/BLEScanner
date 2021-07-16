@@ -13,7 +13,10 @@
 - The architecture that underpins the development of this app can be found [here](https://github.com/iSame7/BLEScanner/blob/master/Technical-Documents/Architecture.md)
 
 <img src="/Assets/peripherals.png" alt="Screenshot" width="320px"/>
+
 <img src="/Assets/peripheralDetails.png" alt="Screenshot" width="320px"/>
+
+<img src="/Assets/BLEDisabled.png" alt="Screenshot" width="320px"/>
 
 ## App Description
 
