@@ -13,7 +13,7 @@ import CoreBluetooth
 
 protocol PeripheralsFetching {
     func fetchBluetoothState() ->  Observable<CBManagerState?>
-    func fetchPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)>
+    func fetchPeripherals() -> Observable<[Peripheral]?>
     func sortPeripherals() -> Observable<[Peripheral]>
     func stopFetchingPeripherals()
     func disconnectPeripheral()
@@ -21,13 +21,11 @@ protocol PeripheralsFetching {
 
 class PeripheralsService: PeripheralsFetching {
     
-    private let centralManager: BKCentralManaging
     private let bluetoothManager: BKBluetoothControlling
     private var peripherals = [Peripheral]()
     private let disposeBag: DisposeBag = DisposeBag()
     
-    init(centralManager: BKCentralManaging, bluetoothManager: BKBluetoothControlling) {
-        self.centralManager = centralManager
+    init(bluetoothManager: BKBluetoothControlling) {
         self.bluetoothManager = bluetoothManager
     }
     
@@ -42,7 +40,7 @@ class PeripheralsService: PeripheralsFetching {
         }
     }
     
-    func fetchPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)> {
+    func fetchPeripherals() -> Observable<[Peripheral]?> {
         peripherals = [Peripheral]()
         self.bluetoothManager.scanForPeripherals()
         return Observable.create { [unowned self] observer in
@@ -71,7 +69,7 @@ class PeripheralsService: PeripheralsFetching {
                     originalPeripheral.lastUpdatedTimeInterval = now
                 }
                 
-                observer.onNext((self.peripherals, nil))
+                observer.onNext((self.peripherals))
             }).disposed(by: self.disposeBag)
             return Disposables.create()
         }

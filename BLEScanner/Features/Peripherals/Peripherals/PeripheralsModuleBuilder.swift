@@ -42,19 +42,14 @@ public class PeripheralsModuleBuilder:  Builder<EmptyDependency>, PeripheralsMod
 private extension PeripheralsModuleBuilder {
     
     func registerService() {
-        container.register(BKCentralManaging.self) {
-            BKCentral.shared
-        }
-        
         container.register(BKBluetoothControlling.self) {
             BKBluetoothManager.shared
         }
         
         container.register(PeripheralsFetching.self) { [weak self] in
-            guard let bkCentral = self?.container.resolve(BKCentralManaging.self),
-                  let bluetoothManager = self?.container.resolve(BKBluetoothControlling.self) else { return nil }
+            guard let bluetoothManager = self?.container.resolve(BKBluetoothControlling.self) else { return nil }
             
-            return PeripheralsService(centralManager: bkCentral, bluetoothManager: bluetoothManager)
+            return PeripheralsService(bluetoothManager: bluetoothManager)
         }
     }
     

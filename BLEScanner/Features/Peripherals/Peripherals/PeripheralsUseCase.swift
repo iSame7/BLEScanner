@@ -14,7 +14,7 @@ import Core
 public protocol PeripheralsInteractable {
     func checkBluetoothState() ->  Observable<CBManagerState?>
     func disconnectPeripheral()
-    func getPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)>
+    func getPeripherals() -> Observable<[Peripheral]?>
     func getPeripheralsSorted() -> Observable<[Peripheral]>
     func stopGettingPeripherals()
 }
@@ -31,7 +31,7 @@ class PeripheralsUseCase: PeripheralsInteractable {
         service.fetchBluetoothState()
     }
     
-    func getPeripherals() -> Observable<(peripherals: [Peripheral]?, error: BKError?)> {
+    func getPeripherals() -> Observable<[Peripheral]?> {
         service.fetchPeripherals()
     }
     
