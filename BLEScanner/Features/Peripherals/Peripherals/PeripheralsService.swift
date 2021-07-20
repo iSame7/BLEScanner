@@ -43,35 +43,32 @@ class PeripheralsService: PeripheralsFetching {
     func fetchPeripherals() -> Observable<[Peripheral]?> {
         peripherals = [Peripheral]()
         self.bluetoothManager.scanForPeripherals()
-        return Observable.create { [unowned self] observer in
-            (self.bluetoothManager as! BKBluetoothManager).rx.peripheralDiscovered.subscribe(onNext: { (peripheral, advertisementData, rssi)in
-   
-                let peripheral = Peripheral(bkPeripheral: peripheral)
-                if !peripherals.contains(peripheral) {
-                    peripheral.rssi = Int(truncating: rssi)
-                    peripheral.advertismentData = advertisementData
-                    peripherals.append(peripheral)
-                } else {
-                    guard let index = self.peripherals.firstIndex(of: peripheral) else {
-                        return
-                    }
-                    
-                    let originalPeripheral = peripherals[index]
-                    let now = Date().timeIntervalSince1970
-                    
-                    // If the last update within one second, then ignore it
-                    guard now - originalPeripheral.lastUpdatedTimeInterval >= 1.0 else {
-                        return
-                    }
-                    
-                    originalPeripheral.rssi = Int(truncating: rssi)
-                    originalPeripheral.advertismentData = advertisementData
-                    originalPeripheral.lastUpdatedTimeInterval = now
+        
+        return (self.bluetoothManager as! BKBluetoothManager).rx.peripheralDiscovered.map { (peripheral, advertisementData, rssi) in
+            let peripheral = Peripheral(bkPeripheral: peripheral)
+            if !self.peripherals.contains(peripheral) {
+                peripheral.rssi = Int(truncating: rssi)
+                peripheral.advertismentData = advertisementData
+                self.peripherals.append(peripheral)
+            } else {
+                guard let index = self.peripherals.firstIndex(of: peripheral) else {
+                    return []
                 }
                 
-                observer.onNext((self.peripherals))
-            }).disposed(by: self.disposeBag)
-            return Disposables.create()
+                let originalPeripheral = self.peripherals[index]
+                let now = Date().timeIntervalSince1970
+                
+                // If the last update within one second, then ignore it
+                guard now - originalPeripheral.lastUpdatedTimeInterval >= 1.0 else {
+                    return []
+                }
+                
+                originalPeripheral.rssi = Int(truncating: rssi)
+                originalPeripheral.advertismentData = advertisementData
+                originalPeripheral.lastUpdatedTimeInterval = now
+            }
+            
+            return self.peripherals
         }
     }
     
